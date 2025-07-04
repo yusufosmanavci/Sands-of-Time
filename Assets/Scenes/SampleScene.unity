@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1069673094}
   - component: {fileID: 1069673093}
   - component: {fileID: 1069673092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,14 +490,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
-  dashSpeed: 15
+  dashSpeed: 20
   InputX: 0
-  dashCooldown: 10
+  dashCooldown: 2
   currentDashCooldown: 0
+  groundCheckRadius: 0.2
+  dashDuration: 0.2
+  dashTime: 0
   rb: {fileID: 1278527518}
   animator: {fileID: 1137343263}
   spriteRenderer: {fileID: 1137343262}
+  groundCheck: {fileID: 1908940339}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  IsGrounded: 0
   IsfacingRight: 1
+  IsDashing: 0
+  IsRunning: 0
+  IsJumped: 0
 --- !u!114 &1278527516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +559,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1278527519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -583,7 +594,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.005514145, y: -0.027570501}
+  m_Offset: {x: 0.005514145, y: -0.02551119}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -593,7 +604,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3493355, y: 0.6323931}
+  m_Size: {x: 0.3493355, y: 0.62827456}
   m_EdgeRadius: 0
 --- !u!4 &1278527520
 Transform:
@@ -609,7 +620,39 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1137343261}
+  - {fileID: 1908940339}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1908940338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1908940339}
+  m_Layer: 0
+  m_Name: groundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1908940339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908940338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.341, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1278527520}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
