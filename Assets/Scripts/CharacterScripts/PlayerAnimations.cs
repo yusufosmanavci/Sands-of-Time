@@ -19,11 +19,16 @@ public class PlayerAnimations : MonoBehaviour
             playerValues.animator.Play("Dash Animation");
             return;
         }
-        if(!playerValues.IsGrounded)
+        if(playerValues.rb.linearVelocity.y > 0)
         {
             playerValues.animator.Play("Jump Animation");
             return;
 
+        }
+        if(playerValues.rb.linearVelocity.y < 0)
+        {
+            playerValues.animator.Play("Fall Animation");
+            return;
         }
         if (playerValues.InputX != 0)
         {
