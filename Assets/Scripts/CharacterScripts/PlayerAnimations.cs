@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private PlayerValues playerValues;
+    private void Awake()
     {
-        
+        playerValues = GetComponent<PlayerValues>();
+    }
+    private void Update()
+    {
+        SetAnimation();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetAnimation()
     {
-        
+        if (playerValues.InputX != 0)
+        {
+            playerValues.animator.Play("Run Animation");
+        }
+        else
+        {
+            playerValues.animator.Play("Idle Animation");
+        }
     }
 }
