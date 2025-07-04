@@ -4,22 +4,25 @@ public class PlayerController : MonoBehaviour
 {
     PlayerValues playerValues;
     PlayerAnimations playerAnimations;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
         playerValues = GetComponent<PlayerValues>();
         playerAnimations = GetComponent<PlayerAnimations>();
+        playerInput = new PlayerInput();
+        playerInput.PlayerInputs.Enable();
     }
 
     void Update()
     {
         HorizontalMove();
-        Dash();
+        //Dash();
     }
 
     private void HorizontalMove()
     {
-        playerValues.InputX = Input.GetAxisRaw("Horizontal");
+        playerValues.InputX = playerInput.PlayerInputs.MoveInputs.ReadValue<Vector2>().x;
         playerValues.rb.linearVelocity = new Vector2(playerValues.InputX * playerValues.moveSpeed, playerValues.rb.linearVelocity.y);
         if (playerValues.IsfacingRight && playerValues.InputX < 0)
         {
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Dash()
+    /*private void Dash()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && playerValues.currentDashCooldown == 0)
         {
@@ -47,5 +50,5 @@ public class PlayerController : MonoBehaviour
         {
             playerValues.currentDashCooldown = 0;
         }
-    }
+    }*/
 }
