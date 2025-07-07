@@ -11,6 +11,10 @@ public class PlayerValues : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public float dashDuration = 0.2f;
     public float dashTime = 0f;
+    public int attackCount = 0;
+    public float attackDelay = 0; // Adjust the delay as needed
+    public float attackCooldown = 0; // Cooldown time for attacks
+    public float health = 100f; // Player's health, can be adjusted as needed
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -23,8 +27,8 @@ public class PlayerValues : MonoBehaviour
     public bool IsDashing = false;
     public bool IsRunning = false;
     public bool IsJumped = false;
-    /*public bool IsAttacking = false;
-    public bool IsUsingSkill = false;
+    public bool IsAttacking = false;
+    /*public bool IsUsingSkill = false;
     public bool IsUsingSkill2 = false;
     public bool IsUsingSkill3 = false;
     public bool IsUsingSkill4 = false;*/

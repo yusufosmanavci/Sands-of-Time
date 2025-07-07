@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && playerValues.currentDashCooldown == 0)
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && playerValues.currentDashCooldown == 0 && !playerValues.IsAttacking)
         {
             playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
             Vector2 dashDirection = playerValues.IsfacingRight ? Vector2.right : Vector2.left;
@@ -106,6 +107,14 @@ public class PlayerController : MonoBehaviour
         else if (playerValues.dashTime <= 0)
         {
             playerValues.IsDashing = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Enemy") && playerValues.IsAttacking)
+        {
+            Debug.Log("Enemy Hit");
         }
     }
 }
