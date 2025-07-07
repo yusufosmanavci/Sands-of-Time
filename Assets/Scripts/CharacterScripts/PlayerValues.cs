@@ -21,6 +21,7 @@ public class PlayerValues : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public Collider2D attackCollider;
 
     public bool IsGrounded;
     public bool IsfacingRight = true;
