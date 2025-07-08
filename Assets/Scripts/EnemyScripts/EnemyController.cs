@@ -115,16 +115,18 @@ public class EnemyController : MonoBehaviour
         {
             enemyValues.IsPlayerInRange = false;
             enemyValues.playerNotFound = true; // Oyuncu bulunamadý
+            enemyValues.IsAttacking = false; // Oyuncu uzaksa saldýrý durumu sýfýrla
         }
         else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false; // Oyuncu bulundu
+            enemyValues.IsAttacking = false; // Oyuncu yakýnsa saldýrý durumu sýfýrla
             return true;
         }
         else if (xDistanceToPlayer <= 2f && yOffset <= 3f)
         {
-            Debug.Log("Player is too close!");
+            enemyValues.IsAttacking = true; // Oyuncu çok yakýnsa saldýrý durumu
         }
         return false;
     }
@@ -145,12 +147,18 @@ public class EnemyController : MonoBehaviour
             enemyValues.IsFacingRight = false;
             enemyValues.enemySpriteRenderer.flipX = true;
         }
-
-        // Yönü kullanarak hareket et
-        float direction = enemyValues.IsFacingRight ? 1f : -1f;
-        enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
-
-
+        if(enemyValues.IsAttacking)
+        {
+            enemyValues.enemyAnimator.SetBool("IsAttacking", true);
+            return; // Saldýrý animasyonu oynatýldý, hareket etmeye gerek yok
+        }
+        else if(!enemyValues.IsAttacking)
+        {
+            enemyValues.enemyAnimator.SetBool("IsAttacking", false);
+            // Yönü kullanarak hareket et
+            float direction = enemyValues.IsFacingRight ? 1f : -1f;
+            enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+        }
     }
 
     private void PlayerNotFound()

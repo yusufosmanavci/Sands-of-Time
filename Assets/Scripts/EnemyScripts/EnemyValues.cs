@@ -21,4 +21,5 @@ public class EnemyValues : MonoBehaviour
     public bool playerNotFound = true;
     public bool lastLocationOfThePlayer = false;
     public bool wasInRangeLastFrame = false;
+    public bool IsAttacking = false;
 }

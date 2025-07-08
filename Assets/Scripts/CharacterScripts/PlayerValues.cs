@@ -14,6 +14,7 @@ public class PlayerValues : MonoBehaviour
     public int attackCount = 0;
     public float attackDelay = 0; // Adjust the delay as needed
     public float attackCooldown = 0; // Cooldown time for attacks
+    public float attackResetTime = 0; // Time to reset attack count after the last attack
     public float health = 100f; // Player's health, can be adjusted as needed
 
     public Rigidbody2D rb;

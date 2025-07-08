@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -466,6 +466,7 @@ MonoBehaviour:
   playerNotFound: 1
   lastLocationOfThePlayer: 0
   wasInRangeLastFrame: 0
+  IsAttacking: 0
 --- !u!114 &690659340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +835,7 @@ GameObject:
   - component: {fileID: 1137343261}
   - component: {fileID: 1137343263}
   - component: {fileID: 1137343262}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1058,7 +1059,7 @@ GameObject:
   - component: {fileID: 1278527516}
   - component: {fileID: 1278527515}
   - component: {fileID: 1278527521}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1408,7 +1409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908940339}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

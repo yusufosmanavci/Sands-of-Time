@@ -70,6 +70,7 @@ public class PlayerAnimations : MonoBehaviour
             playerValues.attackCount++;
             playerValues.attackCooldown = 0.5f; // Reset the cooldown after an attack
             playerValues.attackDelay = 0.4f; // Delay before the next attack can be initiated
+            playerValues.attackResetTime = 1.5f; // Time to reset attack count after the last attack
             playerValues.IsAttacking = true;
         }
         if (playerValues.attackDelay > 0)
@@ -84,6 +85,15 @@ public class PlayerAnimations : MonoBehaviour
         if (playerValues.attackCooldown >= 0)
         {
             playerValues.attackCooldown -= Time.deltaTime;
+        }
+        if (playerValues.attackResetTime >= 0)
+        {
+            playerValues.attackResetTime -= Time.deltaTime;
+            if (playerValues.attackResetTime <= 0)
+            {
+                playerValues.attackCount = 0; // Reset attack count after reset time
+                playerValues.attackResetTime = 0; // Reset attack reset time
+            }
         }
         if (playerValues.attackCount > 3)
         {
