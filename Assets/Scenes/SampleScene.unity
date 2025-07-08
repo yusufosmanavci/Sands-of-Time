@@ -1090,6 +1090,7 @@ MonoBehaviour:
   attackCount: 0
   attackDelay: 0
   attackCooldown: 0
+  attackResetTime: 0
   health: 100
   rb: {fileID: 1278527518}
   animator: {fileID: 1137343263}
@@ -1145,7 +1146,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d307cce1d4e4bd24aaefb061a475c76b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
