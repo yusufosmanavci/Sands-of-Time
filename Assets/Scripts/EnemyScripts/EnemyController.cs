@@ -15,6 +15,15 @@ public class EnemyController : MonoBehaviour
     {
         PlayerDistanceControl();
 
+        if (!enemyValues.IsPlayerInRange && enemyValues.wasInRangeLastFrame)
+        {
+            enemyValues.lastLocationOfThePlayer = true;
+            enemyValues.lastLocationWaitTime = 2f; // sadece bir kere baþlat
+            Debug.Log("Player disappeared! Waiting at last seen location.");
+        }
+
+        enemyValues.wasInRangeLastFrame = enemyValues.IsPlayerInRange;
+
         if (enemyValues.IsPlayerInRange)
         {
             PlayerTrackker();
@@ -23,7 +32,8 @@ public class EnemyController : MonoBehaviour
         {
             if (enemyValues.playerNotFound)
             {
-                PlayerNotFound();
+                if (!LastLocationWait())
+                    PlayerNotFound();
             }
             else
             {
@@ -84,56 +94,49 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void PlayerDistanceControl()
+    private bool PlayerDistanceControl()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, enemyValues.player.transform.position);
-        Debug.Log($"Distance to player: {distanceToPlayer}");
-        if (distanceToPlayer > 10)
+        float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y); // Yükseklik farký için yOffset hesapla
+        float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
+        if (xDistanceToPlayer > 10 || yOffset > 3f)
         {
             enemyValues.IsPlayerInRange = false;
             enemyValues.playerNotFound = true; // Oyuncu bulunamadý
-            Debug.Log("Player is too far away!");
         }
-        else if (distanceToPlayer <= 10f && distanceToPlayer > 2)
+        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3f)
         {
             enemyValues.IsPlayerInRange = true;
+            enemyValues.playerNotFound = false; // Oyuncu bulundu
+            return true;
         }
-        else if (distanceToPlayer <= 2f)
+        else if (xDistanceToPlayer <= 2f && yOffset <= 3f)
         {
             Debug.Log("Player is too close!");
         }
+        return false;
     }
 
     private void PlayerTrackker()
     {
-        float direction = enemyValues.IsFacingRight ? 1f : -1f;
-        bool IsPLayerInTheLeft = (transform.position.x < enemyValues.player.transform.position.x);
-        enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+        Vector2 enemyPos = transform.position;
+        Vector2 playerPos = enemyValues.player.position;
 
-    }
-
-    /*private void PlayerDetector()
-    {
-        Vector2 direction = enemyValues.IsFacingRight ? Vector2.right : Vector2.left;
-        Vector2 origin = new(transform.position.x, transform.position.y + 0.5f);
-
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, 10f, enemyValues.playerLayer);
-        Debug.DrawRay(origin, direction * 10f, Color.red);
-
-        if (hit.collider != null)
+        // Yön güncelle
+        if (playerPos.x > enemyPos.x)
         {
-            if (hit.collider.CompareTag("Player"))
-            {
-                enemyValues.IsPlayerInRange = true;
-            }
-            else
-                enemyValues.IsPlayerInRange = false;
+            enemyValues.IsFacingRight = true;
+            enemyValues.enemySpriteRenderer.flipX = false;
         }
         else
         {
-            enemyValues.IsPlayerInRange = false;
+            enemyValues.IsFacingRight = false;
+            enemyValues.enemySpriteRenderer.flipX = true;
         }
-    }*/
+
+        // Yönü kullanarak hareket et
+        float direction = enemyValues.IsFacingRight ? 1f : -1f;
+        enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+    }
 
     private void PlayerNotFound()
     {
@@ -182,5 +185,39 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private bool LastLocationWait()
+    {
+        if (enemyValues.lastLocationOfThePlayer)
+        {
+            if (enemyValues.lastLocationWaitTime > 0f)
+            {
+                enemyValues.lastLocationWaitTime -= Time.deltaTime;
+                return true; // beklemeye devam et
+            }
+
+            // Bekleme süresi bitti, artýk player yok ve patrol’a geçilebilir
+            enemyValues.lastLocationOfThePlayer = false;
+            enemyValues.playerNotFound = false; // Artýk "player not found" deðil
+
+            // Yeni patrol hedefini ayarla
+            enemyValues.currentTarget = enemyValues.currentTarget == enemyValues.APoint ? enemyValues.BPoint : enemyValues.APoint;
+
+            // Yönü güncelle
+            if (transform.position.x < enemyValues.currentTarget.position.x)
+            {
+                enemyValues.IsFacingRight = true;
+                enemyValues.enemySpriteRenderer.flipX = false;
+            }
+            else
+            {
+                enemyValues.IsFacingRight = false;
+                enemyValues.enemySpriteRenderer.flipX = true;
+            }
+
+            return false; // bekleme bitti, devam et
+        }
+
+        return false; // Zaten last location yoktu
+    }
 
 }
