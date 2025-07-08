@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 690659340}
   - component: {fileID: 690659339}
   - component: {fileID: 690659341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -451,20 +451,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599be9d805d11e24cb60a4c387339530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 5
+  enemySpeed: 3
   waitPatrolTime: 2
+  lastLocationWaitTime: 0
   APoint: {fileID: 1046453104}
   BPoint: {fileID: 84102999}
   currentTarget: {fileID: 0}
   player: {fileID: 1278527520}
   enemyRb: {fileID: 690659338}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 16
   enemySpriteRenderer: {fileID: 1259237842}
+  enemyAnimator: {fileID: 0}
   IsFacingRight: 1
   IsPlayerInRange: 0
   playerNotFound: 1
+  lastLocationOfThePlayer: 0
+  wasInRangeLastFrame: 0
 --- !u!114 &690659340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +834,7 @@ GameObject:
   - component: {fileID: 1137343261}
   - component: {fileID: 1137343263}
   - component: {fileID: 1137343262}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +943,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1259237843}
   - component: {fileID: 1259237842}
-  m_Layer: 0
+  - component: {fileID: 1259237844}
+  m_Layer: 7
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,6 +1021,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 690659334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1259237844
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259237841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e545d6eafff016408926e02e92bba98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1278527514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1058,7 @@ GameObject:
   - component: {fileID: 1278527516}
   - component: {fileID: 1278527515}
   - component: {fileID: 1278527521}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1119,7 +1143,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1384,7 +1408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908940339}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,6 +14,7 @@ public class EnemyValues : MonoBehaviour
 
     public Rigidbody2D enemyRb;
     public SpriteRenderer enemySpriteRenderer;
+    public Animator enemyAnimator;
 
     public bool IsFacingRight = false;
     public bool IsPlayerInRange = false;

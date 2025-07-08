@@ -4,21 +4,31 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     EnemyValues enemyValues;
+    Vector2 lastPosition;
 
     private void Awake()
     {
         enemyValues = GetComponent<EnemyValues>();
         enemyValues.currentTarget = enemyValues.APoint; // Baþlangýç hedefi A noktasý olarak ayarla
+        enemyValues.enemyAnimator = GetComponentInChildren<Animator>();
+        lastPosition = transform.position;
     }
 
     private void Update()
     {
+        float rawSpeed = enemyValues.enemyRb.linearVelocity.magnitude;
+
+        // Çok küçük deðerleri sýfýr kabul et (gürültüyü engelle)
+        float speed = rawSpeed < 0.05f ? 0f : rawSpeed;
+
+        enemyValues.enemyAnimator.SetFloat("Speed", speed);
+
         PlayerDistanceControl();
 
         if (!enemyValues.IsPlayerInRange && enemyValues.wasInRangeLastFrame)
         {
             enemyValues.lastLocationOfThePlayer = true;
-            enemyValues.lastLocationWaitTime = 2f; // sadece bir kere baþlat
+            enemyValues.lastLocationWaitTime = 2f;
             Debug.Log("Player disappeared! Waiting at last seen location.");
         }
 
@@ -41,6 +51,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
 
     private void EnemyPatrol()
     {
@@ -79,6 +90,8 @@ public class EnemyController : MonoBehaviour
 
         // Hareket et
         transform.position = Vector2.MoveTowards(transform.position, enemyValues.currentTarget.position, enemyValues.enemySpeed * Time.deltaTime);
+
+
 
         // Yönü güncelle (hareket sýrasýnda)
         if (transform.position.x < enemyValues.currentTarget.position.x)
@@ -136,13 +149,15 @@ public class EnemyController : MonoBehaviour
         // Yönü kullanarak hareket et
         float direction = enemyValues.IsFacingRight ? 1f : -1f;
         enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+
+
     }
 
     private void PlayerNotFound()
     {
         if (enemyValues.playerNotFound)
         {
-            if (Vector2.Distance(transform.position, enemyValues.currentTarget.position) < 0.2f)
+            if (Vector2.Distance(transform.position, enemyValues.currentTarget.position) < 1f)
             {
                 if (enemyValues.waitPatrolTime <= 0f)
                     enemyValues.waitPatrolTime = 2f;
@@ -169,7 +184,10 @@ public class EnemyController : MonoBehaviour
             }
 
             // Hareket et
-            transform.position = Vector2.MoveTowards(transform.position, enemyValues.currentTarget.position, enemyValues.enemySpeed * Time.deltaTime);
+            Vector2 direction = (enemyValues.currentTarget.position - transform.position).normalized;
+            enemyValues.enemyRb.linearVelocity = new Vector2(direction.x * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+
+
 
             // Yönü güncelle
             if (transform.position.x < enemyValues.currentTarget.position.x)
@@ -219,5 +237,4 @@ public class EnemyController : MonoBehaviour
 
         return false; // Zaten last location yoktu
     }
-
 }
