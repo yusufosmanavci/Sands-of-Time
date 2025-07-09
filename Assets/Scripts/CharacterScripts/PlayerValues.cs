@@ -15,14 +15,15 @@ public class PlayerValues : MonoBehaviour
     public float attackDelay = 0; // Adjust the delay as needed
     public float attackCooldown = 0; // Cooldown time for attacks
     public float attackResetTime = 0; // Time to reset attack count after the last attack
-    public float health = 100f; // Player's health, can be adjusted as needed
+    public float playerDamage = 30f; // Damage dealt by the player
+
 
     public Rigidbody2D rb;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public Collider2D attackCollider;
+    public BoxCollider2D hitBox;
 
     public bool IsGrounded;
     public bool IsfacingRight = true;
@@ -30,6 +31,7 @@ public class PlayerValues : MonoBehaviour
     public bool IsRunning = false;
     public bool IsJumped = false;
     public bool IsAttacking = false;
+    public bool IsKnockbacked = false;
     /*public bool IsUsingSkill = false;
     public bool IsUsingSkill2 = false;
     public bool IsUsingSkill3 = false;

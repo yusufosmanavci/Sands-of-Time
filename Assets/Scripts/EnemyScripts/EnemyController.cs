@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     EnemyValues enemyValues;
     Vector2 lastPosition;
+    public PlayerHealth playerHealth; // Oyuncunun saðlýk bileþeni
 
     private void Awake()
     {
@@ -52,6 +54,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && enemyValues.IsAttacking)
+        {
+            playerHealth.TakePLayerDamage(enemyValues.damage, transform.position);
+            Debug.Log("Player took damage from enemy!");
+        }
+    }
 
     private void EnemyPatrol()
     {
@@ -109,34 +119,45 @@ public class EnemyController : MonoBehaviour
 
     private bool PlayerDistanceControl()
     {
-        float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y); // Yükseklik farký için yOffset hesapla
+        float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
+
         if (xDistanceToPlayer > 10 || yOffset > 3f)
         {
             enemyValues.IsPlayerInRange = false;
-            enemyValues.playerNotFound = true; // Oyuncu bulunamadý
-            enemyValues.IsAttacking = false; // Oyuncu uzaksa saldýrý durumu sýfýrla
+            enemyValues.playerNotFound = true;
+            enemyValues.IsAttacking = false;
         }
         else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3f)
         {
             enemyValues.IsPlayerInRange = true;
-            enemyValues.playerNotFound = false; // Oyuncu bulundu
-            enemyValues.IsAttacking = false; // Oyuncu yakýnsa saldýrý durumu sýfýrla
+            enemyValues.playerNotFound = false;
             return true;
         }
-        else if (xDistanceToPlayer <= 2f && yOffset <= 3f)
+        else if (xDistanceToPlayer <= 1.5f && yOffset <= 3f)
         {
-            enemyValues.IsAttacking = true; // Oyuncu çok yakýnsa saldýrý durumu
+            enemyValues.IsPlayerInRange = true;
+            enemyValues.playerNotFound = false;
+
+            if (!enemyValues.attackInitialized)
+            {
+                StartCoroutine(AttackRoutine());
+            }
         }
+
         return false;
     }
 
+
+
     private void PlayerTrackker()
     {
+        if (enemyValues.IsEnemyKnockbacked)
+            return;
+
         Vector2 enemyPos = transform.position;
         Vector2 playerPos = enemyValues.player.position;
 
-        // Yön güncelle
         if (playerPos.x > enemyPos.x)
         {
             enemyValues.IsFacingRight = true;
@@ -147,19 +168,16 @@ public class EnemyController : MonoBehaviour
             enemyValues.IsFacingRight = false;
             enemyValues.enemySpriteRenderer.flipX = true;
         }
-        if(enemyValues.IsAttacking)
+
+        // Saldýrý animasyonu ve bekleme AttackRoutine'de yönetiliyor
+        if (!enemyValues.IsAttacking)
         {
-            enemyValues.enemyAnimator.SetBool("IsAttacking", true);
-            return; // Saldýrý animasyonu oynatýldý, hareket etmeye gerek yok
-        }
-        else if(!enemyValues.IsAttacking)
-        {
-            enemyValues.enemyAnimator.SetBool("IsAttacking", false);
             // Yönü kullanarak hareket et
             float direction = enemyValues.IsFacingRight ? 1f : -1f;
             enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
         }
     }
+
 
     private void PlayerNotFound()
     {
@@ -245,4 +263,41 @@ public class EnemyController : MonoBehaviour
 
         return false; // Zaten last location yoktu
     }
+
+    public IEnumerator EnemyKnockbackRoutine(Vector2 force)
+    {
+        enemyValues.IsEnemyKnockbacked = true;
+        enemyValues.enemyRb.AddForce(force, ForceMode2D.Impulse);
+        enemyValues.enemyRb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding
+        yield return new WaitForSeconds(0.5f); // Adjust the duration of the knockback effect
+        enemyValues.IsEnemyKnockbacked = false; // Reset the knockback state after the effect
+    }
+
+    private IEnumerator AttackRoutine()
+    {
+        enemyValues.attackInitialized = true;
+        enemyValues.IsAttacking = true;
+
+        // Saldýrýdan önce bekleme süresi (hazýrlýk süresi)
+        enemyValues.enemyRb.linearVelocity = Vector2.zero; // Saldýrý sýrasýnda hareketi durdur
+        yield return new WaitForSeconds(enemyValues.attackWaitTime); // örn. 1 saniye hazýrlýk
+
+        // Animasyon baþlat
+        enemyValues.enemyAnimator.SetBool("IsAttacking", true);
+
+        // Saldýrý animasyon süresi boyunca bekle
+        yield return new WaitForSeconds(0.5f); // animasyon süresi kadar
+
+        // Animasyon bitir
+        enemyValues.enemyAnimator.SetBool("IsAttacking", false);
+
+        // Saldýrýdan sonra tekrar bekleme (cooldown)
+        yield return new WaitForSeconds(enemyValues.attackWaitTime);
+
+        // Saldýrý tamamlandý
+        enemyValues.IsAttacking = false;
+        enemyValues.attackInitialized = false;
+    }
+
+
 }

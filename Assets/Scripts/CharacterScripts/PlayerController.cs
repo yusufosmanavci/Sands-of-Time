@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     PlayerValues playerValues;
     PlayerAnimations playerAnimations;
     private PlayerInput playerInput;
+    public EnemyHealth enemyHealth;
 
     private void Awake()
     {
@@ -14,13 +16,24 @@ public class PlayerController : MonoBehaviour
         playerAnimations = GetComponent<PlayerAnimations>();
         playerInput = new PlayerInput();
         playerInput.PlayerInputs.Enable();
-
+        playerValues.hitBox = GetComponentInChildren<BoxCollider2D>();
         playerInput.PlayerInputs.JumpInput.performed += Jump;
     }
+
     private void OnDestroy()
     {
         playerInput.PlayerInputs.JumpInput.performed -= Jump;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") && playerValues.IsAttacking || playerValues.IsDashing)
+        {
+            enemyHealth.TakeEnemyDamage(playerValues.playerDamage, transform.position, playerValues.IsDashing);
+            Debug.Log("Enemy took damage from player!");
+        }
+    }
+
     void Update()
     {
         HorizontalMove();
@@ -31,6 +44,8 @@ public class PlayerController : MonoBehaviour
     //ana if bloðu ekleyip skillleri bool deðerleri ile kontrol edip animasyonlarý burada kontrol edebilirsin.
     private void HorizontalMove()
     {
+        if (playerValues.IsKnockbacked)
+            return;
         if(playerValues.dashDuration > 0)
         {
             playerValues.dashDuration -= Time.deltaTime;
@@ -110,11 +125,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public IEnumerator KnockbackRoutine (Vector2 force)
     {
-        if(other.gameObject.CompareTag("Enemy") && playerValues.IsAttacking)
-        {
-            Debug.Log("Enemy Hit");
-        }
+        playerValues.IsKnockbacked = true;
+        playerValues.rb.AddForce(force, ForceMode2D.Impulse);
+        playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding
+        yield return new WaitForSeconds(0.5f); // Adjust the duration of the knockback effect
+        playerValues.IsKnockbacked = false; // Reset the knockback state after the effect
     }
 }
