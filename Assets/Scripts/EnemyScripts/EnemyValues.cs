@@ -13,10 +13,12 @@ public class EnemyValues : MonoBehaviour
     public Transform BPoint;
     public Transform currentTarget;
     public Transform player;
+    public Transform enemyHitbox;
 
     public Rigidbody2D enemyRb;
     public SpriteRenderer enemySpriteRenderer;
     public Animator enemyAnimator;
+
 
     public bool IsFacingRight = false;
     public bool IsPlayerInRange = false;
@@ -27,4 +29,5 @@ public class EnemyValues : MonoBehaviour
     public bool attackWaiting = false;
     public bool IsEnemyKnockbacked = false;
     public bool attackInitialized = false;
+    public bool IsInAttackAnimation = false;
 }

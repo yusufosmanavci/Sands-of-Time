@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    EnemyValues enemyValues;
+    public EnemyValues enemyValues;
     Vector2 lastPosition;
     public PlayerHealth playerHealth; // Oyuncunun saðlýk bileþeni
 
@@ -54,14 +54,24 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && enemyValues.IsAttacking)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox"))
         {
-            playerHealth.TakePLayerDamage(enemyValues.damage, transform.position);
-            Debug.Log("Player took damage from enemy!");
+            // Sadece düþman saldýrýyorsa ve oyuncu saldýrmýyorsa
+            PlayerController playerController = collision.gameObject.GetComponentInParent<PlayerController>();
+            if (enemyValues.IsAttacking && playerController != null && !playerController.playerValues.IsAttacking)
+            {
+                PlayerHealth player = playerController.GetComponent<PlayerHealth>();
+                if (player != null)
+                {
+                    player.TakePLayerDamage(enemyValues.damage, transform.position);
+                    Debug.Log("Player took damage from enemy!");
+                }
+            }
         }
     }
+
 
     private void EnemyPatrol()
     {
@@ -119,6 +129,12 @@ public class EnemyController : MonoBehaviour
 
     private bool PlayerDistanceControl()
     {
+        if (enemyValues.player == null)
+        {
+            enemyValues.IsPlayerInRange = false;
+            enemyValues.playerNotFound = true;
+            return false; // Player bulunamadý
+        }
         float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
 
@@ -284,12 +300,25 @@ public class EnemyController : MonoBehaviour
 
         // Animasyon baþlat
         enemyValues.enemyAnimator.SetBool("IsAttacking", true);
+        enemyValues.enemyHitbox.gameObject.SetActive(true); // Saldýrý hitbox'ýný aktif et
+        enemyValues.IsInAttackAnimation = true;
+
+        if (enemyValues.IsFacingRight)
+        {
+            enemyValues.enemyHitbox.localScale = new Vector3(0.5f, 0.5f, 0.5f); // Sað tarafa saldýrýrken
+        }
+        else
+        {
+            enemyValues.enemyHitbox.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Sol tarafa saldýrýrken
+        }
 
         // Saldýrý animasyon süresi boyunca bekle
         yield return new WaitForSeconds(0.5f); // animasyon süresi kadar
 
         // Animasyon bitir
         enemyValues.enemyAnimator.SetBool("IsAttacking", false);
+        enemyValues.enemyHitbox.gameObject.SetActive(false); // Saldýrý hitbox'ýný pasif et
+        enemyValues.IsInAttackAnimation = false;
 
         // Saldýrýdan sonra tekrar bekleme (cooldown)
         yield return new WaitForSeconds(enemyValues.attackWaitTime);

@@ -1,14 +1,17 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    PlayerValues playerValues;
+    public PlayerValues playerValues;
     PlayerAnimations playerAnimations;
     private PlayerInput playerInput;
     public EnemyHealth enemyHealth;
+    private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
+
 
     private void Awake()
     {
@@ -16,7 +19,6 @@ public class PlayerController : MonoBehaviour
         playerAnimations = GetComponent<PlayerAnimations>();
         playerInput = new PlayerInput();
         playerInput.PlayerInputs.Enable();
-        playerValues.hitBox = GetComponentInChildren<BoxCollider2D>();
         playerInput.PlayerInputs.JumpInput.performed += Jump;
     }
 
@@ -25,14 +27,23 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerInputs.JumpInput.performed -= Jump;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && playerValues.IsAttacking || playerValues.IsDashing)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHurtbox"))
         {
-            enemyHealth.TakeEnemyDamage(playerValues.playerDamage, transform.position, playerValues.IsDashing);
-            Debug.Log("Enemy took damage from player!");
+            EnemyController enemyController = collision.gameObject.GetComponentInParent<EnemyController>();
+            if (playerValues.IsAttacking && enemyController != null && !enemyController.enemyValues.IsInAttackAnimation)
+            {
+                EnemyHealth enemy = enemyController.GetComponent<EnemyHealth>();
+                if (enemy != null)
+                {
+                    enemy.TakeEnemyDamage(playerValues.playerDamage, transform.position);
+                    Debug.Log("Enemy took damage from player!");
+                }
+            }
         }
     }
+
 
     void Update()
     {
@@ -56,11 +67,13 @@ public class PlayerController : MonoBehaviour
             playerValues.rb.linearVelocity = new Vector2(playerValues.InputX * playerValues.moveSpeed, playerValues.rb.linearVelocity.y);
             if (playerValues.IsfacingRight && playerValues.InputX < 0)
             {
+                playerValues.hitBox.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Flip hitbox scale for left-facing
                 playerValues.IsfacingRight = false;
                 playerValues.spriteRenderer.flipX = true;
             }
             else if (!playerValues.IsfacingRight && playerValues.InputX > 0)
             {
+                playerValues.hitBox.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); // Reset hitbox scale for right-facing
                 playerValues.IsfacingRight = true;
                 playerValues.spriteRenderer.flipX = false;
 
@@ -94,6 +107,15 @@ public class PlayerController : MonoBehaviour
             playerValues.dashTime = playerValues.dashDuration * 1.8f;
 
         }
+        if (playerValues.IsDashing)
+        {
+            DashAttack();
+            gameObject.layer = LayerMask.NameToLayer(playerValues.dashLayer); // Set layer to PlayerDashing during dash
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer(playerValues.defaultLayer); // Reset layer to default when not dashing
+        }
         if (playerValues.currentDashCooldown > 0)
         {
             playerValues.currentDashCooldown -= Time.deltaTime;
@@ -103,6 +125,27 @@ public class PlayerController : MonoBehaviour
         {
             playerValues.currentDashCooldown = 0;
             playerValues.dashTime = 0;
+        }
+    }
+
+    void DashAttack()
+    {
+        float direction = transform.localScale.x;
+        Vector2 center = (Vector2)transform.position + new Vector2(direction * 1f, 0);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, playerValues.dashAttackRadius, playerValues.enemyLayerMask);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            GameObject enemyGO = enemy.gameObject;
+            if (!damagedEnemies.Contains(enemyGO))
+            {
+                EnemyHealth enemyScript = enemy.GetComponent<EnemyHealth>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeEnemyDashDamage(playerValues.playerDamage, transform.position);
+                    damagedEnemies.Add(enemyGO); // tekrar vurulmasýný engelle
+                }
+            }
         }
     }
 
@@ -122,6 +165,7 @@ public class PlayerController : MonoBehaviour
         else if (playerValues.dashTime <= 0)
         {
             playerValues.IsDashing = false;
+            damagedEnemies.Clear(); // Dash bitti, sonraki dash için sýfýrla
         }
     }
 

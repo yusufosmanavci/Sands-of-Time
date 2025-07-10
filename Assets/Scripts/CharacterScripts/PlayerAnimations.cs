@@ -18,6 +18,7 @@ public class PlayerAnimations : MonoBehaviour
     {
         if (playerValues.IsAttacking)
         {
+            playerValues.hitBox.gameObject.SetActive(true); // Activate hitbox during attack
             playerValues.rb.linearVelocity = new Vector2(0f, playerValues.rb.linearVelocity.y); // Disable linear velocity during attack
             if (playerValues.attackCount == 1)
             {
@@ -38,27 +39,32 @@ public class PlayerAnimations : MonoBehaviour
         }
         if (playerValues.IsDashing && !playerValues.IsAttacking)
         {
+            playerValues.hitBox.gameObject.SetActive(false); 
             playerValues.animator.Play("Dash Animation");
             return;
         }
         if (playerValues.rb.linearVelocity.y > 0)
         {
+            playerValues.hitBox.gameObject.SetActive(false); 
             playerValues.animator.Play("Jump Animation");
             return;
 
         }
         if (playerValues.rb.linearVelocity.y < 0)
         {
+            playerValues.hitBox.gameObject.SetActive(false);
             playerValues.animator.Play("Fall Animation");
             return;
         }
         if (playerValues.InputX != 0)
         {
+            playerValues.hitBox.gameObject.SetActive(false); 
             playerValues.animator.Play("Run Animation");
             return;
         }
         else
         {
+            playerValues.hitBox.gameObject.SetActive(false); 
             playerValues.animator.Play("Idle Animation");
         }
     }

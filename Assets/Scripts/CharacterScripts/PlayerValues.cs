@@ -16,6 +16,7 @@ public class PlayerValues : MonoBehaviour
     public float attackCooldown = 0; // Cooldown time for attacks
     public float attackResetTime = 0; // Time to reset attack count after the last attack
     public float playerDamage = 30f; // Damage dealt by the player
+    public float dashAttackRadius = 1.5f;
 
 
     public Rigidbody2D rb;
@@ -23,7 +24,11 @@ public class PlayerValues : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public BoxCollider2D hitBox;
+    public Transform hitBox;
+    public LayerMask enemyLayerMask;
+
+    public string defaultLayer = "PlayerHurtbox";
+    public string dashLayer = "DashingPlayer";
 
     public bool IsGrounded;
     public bool IsfacingRight = true;
