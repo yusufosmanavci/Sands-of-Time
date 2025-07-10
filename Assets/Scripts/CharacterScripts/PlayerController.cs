@@ -100,7 +100,10 @@ public class PlayerController : MonoBehaviour
         {
             playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
             Vector2 dashDirection = playerValues.IsfacingRight ? Vector2.right : Vector2.left;
-            playerValues.rb.AddForce(dashDirection * playerValues.dashSpeed, ForceMode2D.Impulse);
+
+            float actualDashSpeed = playerValues.IsKnockbacked ? playerValues.dashSpeed * 0.5f : playerValues.dashSpeed;
+            playerValues.rb.AddForce(dashDirection * actualDashSpeed, ForceMode2D.Impulse);
+
             playerValues.currentDashCooldown = playerValues.dashCooldown;
             playerValues.dashDuration = 0.2f; // Dash duration can be set to a specific value
             //Spesifik deðer girdim o yüzden ilerideki durumlara göre bu deðeri deðiþtirebilirsin.
@@ -131,7 +134,7 @@ public class PlayerController : MonoBehaviour
     void DashAttack()
     {
         float direction = transform.localScale.x;
-        Vector2 center = (Vector2)transform.position + new Vector2(direction * 1f, 0);
+        Vector2 center = (Vector2)transform.position + new Vector2(direction * 0.5f, 0);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, playerValues.dashAttackRadius, playerValues.enemyLayerMask);
 
         foreach (Collider2D enemy in hitEnemies)
