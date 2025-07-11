@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     public float enemyCurrentHealth; // Current health of the player
     EnemyValues enemyValues;
     EnemyController enemyController;
+    public PlayerValues playerValues;
 
     private void Start()
     {
@@ -37,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         // Optionally, you can add logic to handle player death here
         if (enemyCurrentHealth == 0)
         {
-            gameObject.SetActive(false); // Destroy the player object when health reaches zero
+            Die(); // Call the Die method to handle enemy death
         }
     }
 
@@ -63,7 +64,18 @@ public class EnemyHealth : MonoBehaviour
         // Optionally, you can add logic to handle player death here
         if (enemyCurrentHealth == 0)
         {
-            gameObject.SetActive(false); // Destroy the player object when health reaches zero
+            Die(); // Call the Die method to handle enemy death
         }
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false); // Destroy the player object when health reaches zero
+        playerValues.sandsOfTime += RandomSandsOfTimeAmount(); // Increase the player's sand of time count
+    }
+
+    public int RandomSandsOfTimeAmount()
+    {
+       return Random.Range(enemyValues.minSandsOfTime, enemyValues.maxSandsOfTime + 1);
     }
 }

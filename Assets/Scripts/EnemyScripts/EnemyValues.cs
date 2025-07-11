@@ -10,6 +10,8 @@ public class EnemyValues : MonoBehaviour
     public float attackWaitTime = 1f;
     public float groundCheckRadius = 0.1f;
     public float platformTolerance = 0.5f; //Y farký toleransý
+    public int minSandsOfTime = 50; // Minimum number of "sand of time" items to drop
+    public int maxSandsOfTime = 300; // Maximum number of "sand of time" items to drop
 
     public Transform APoint;
     public Transform BPoint;

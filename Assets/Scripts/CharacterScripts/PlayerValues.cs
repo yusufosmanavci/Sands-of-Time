@@ -17,6 +17,7 @@ public class PlayerValues : MonoBehaviour
     public float attackResetTime = 0; // Time to reset attack count after the last attack
     public float playerDamage = 30f; // Damage dealt by the player
     public float dashAttackRadius = 1.5f;
+    public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
 
 
     public Rigidbody2D rb;
