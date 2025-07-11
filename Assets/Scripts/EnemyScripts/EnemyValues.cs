@@ -8,16 +8,20 @@ public class EnemyValues : MonoBehaviour
     public float damage = 20f;
     public float currentAttackWaitTime = 0f;
     public float attackWaitTime = 1f;
+    public float groundCheckRadius = 0.1f;
+    public float platformTolerance = 0.5f; //Y farký toleransý
 
     public Transform APoint;
     public Transform BPoint;
     public Transform currentTarget;
     public Transform player;
     public Transform enemyHitbox;
+    public Transform groundCheck;
 
     public Rigidbody2D enemyRb;
     public SpriteRenderer enemySpriteRenderer;
     public Animator enemyAnimator;
+    public LayerMask enemyLayer;
 
 
     public bool IsFacingRight = false;

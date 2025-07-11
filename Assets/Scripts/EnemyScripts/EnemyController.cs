@@ -138,19 +138,19 @@ public class EnemyController : MonoBehaviour
         float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
 
-        if (xDistanceToPlayer > 10 || yOffset > 3f)
+        if (xDistanceToPlayer > 10 || yOffset > 2f)
         {
             enemyValues.IsPlayerInRange = false;
             enemyValues.playerNotFound = true;
             enemyValues.IsAttacking = false;
         }
-        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3f)
+        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 2f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
             return true;
         }
-        else if (xDistanceToPlayer <= 1.5f && yOffset <= 3f)
+        else if (xDistanceToPlayer <= 1.5f && yOffset <= 2f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
@@ -188,9 +188,17 @@ public class EnemyController : MonoBehaviour
         // Saldýrý animasyonu ve bekleme AttackRoutine'de yönetiliyor
         if (!enemyValues.IsAttacking)
         {
-            // Yönü kullanarak hareket et
-            float direction = enemyValues.IsFacingRight ? 1f : -1f;
-            enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+            if (IsOnSamePlatformLevel() && IsGroundAhead())
+            {
+                // Yerdeyse ve platform seviyesindeyse, düþmaný hareket ettir
+                float direction = enemyValues.IsFacingRight ? 1f : -1f;
+                enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+            }
+            else
+            {
+                // Yerde deðilse veya platform seviyesinde deðilse, düþmaný durdur
+                enemyValues.enemyRb.linearVelocity = new Vector2(0f, enemyValues.enemyRb.linearVelocity.y);
+            }
         }
     }
 
@@ -328,5 +336,14 @@ public class EnemyController : MonoBehaviour
         enemyValues.attackInitialized = false;
     }
 
+    private bool IsGroundAhead()
+    {
+        return Physics2D.OverlapCircle(enemyValues.groundCheck.position, enemyValues.groundCheckRadius, enemyValues.enemyLayer);
+    }
+
+    private bool IsOnSamePlatformLevel()
+    {
+        return Mathf.Abs(transform.position.y - enemyValues.player.position.y) <= enemyValues.platformTolerance;
+    }
 
 }
