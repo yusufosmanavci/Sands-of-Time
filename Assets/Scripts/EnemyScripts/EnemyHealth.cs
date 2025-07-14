@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
         enemyCurrentHealth = enemyMaxHealth;
         enemyValues = GetComponent<EnemyValues>();
         enemyController = GetComponent<EnemyController>();
+        playerValues = FindFirstObjectByType<PlayerValues>();
     }
 
     public void TakeEnemyDamage(float damage, Vector2 attackerPosition)

@@ -7,13 +7,14 @@ public class EnemyController : MonoBehaviour
     public EnemyValues enemyValues;
     Vector2 lastPosition;
     public PlayerHealth playerHealth; // Oyuncunun saðlýk bileþeni
-
+    
     private void Awake()
     {
         enemyValues = GetComponent<EnemyValues>();
         enemyValues.currentTarget = enemyValues.APoint; // Baþlangýç hedefi A noktasý olarak ayarla
         enemyValues.enemyAnimator = GetComponentInChildren<Animator>();
         lastPosition = transform.position;
+        enemyValues.player = FindFirstObjectByType<PlayerController>().transform; // Oyuncu referansýný al
     }
 
     private void Update()
@@ -138,19 +139,19 @@ public class EnemyController : MonoBehaviour
         float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
 
-        if (xDistanceToPlayer > 10 || yOffset > 2f)
+        if (xDistanceToPlayer > 10 || yOffset > 2.5f)
         {
             enemyValues.IsPlayerInRange = false;
             enemyValues.playerNotFound = true;
             enemyValues.IsAttacking = false;
         }
-        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 2f)
+        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 2.5f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
             return true;
         }
-        else if (xDistanceToPlayer <= 1.5f && yOffset <= 2f)
+        else if (xDistanceToPlayer <= 1.5f && yOffset <= 2.5f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;

@@ -1,3 +1,4 @@
+using Assets.Scripts.BossScripts;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     PlayerAnimations playerAnimations;
     private PlayerInput playerInput;
     public EnemyHealth enemyHealth;
+    public BossHealth bossHealth;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
 
 
@@ -38,6 +40,20 @@ public class PlayerController : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.TakeEnemyDamage(playerValues.playerDamage, transform.position);
+                    Debug.Log("Enemy took damage from player!");
+                }
+            }
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHurtbox"))
+        {
+            BossController bossController = collision.gameObject.GetComponentInParent<BossController>();
+            if (playerValues.IsAttacking && bossController != null && !bossController.bossValues.IsInAttackAnimation)
+            {
+                BossHealth boss = bossController.GetComponent<BossHealth>();
+                if (boss != null)
+                {
+                    boss.TakeBossDamage(playerValues.playerDamage);
                     Debug.Log("Enemy took damage from player!");
                 }
             }
@@ -113,11 +129,13 @@ public class PlayerController : MonoBehaviour
         if (playerValues.IsDashing)
         {
             DashAttack();
+            DashBossAttack();
             gameObject.layer = LayerMask.NameToLayer(playerValues.dashLayer); // Set layer to PlayerDashing during dash
         }
         else
         {
             gameObject.layer = LayerMask.NameToLayer(playerValues.defaultLayer); // Reset layer to default when not dashing
+            playerValues.hasDealtDashDamage = false; // Reset the dash damage flag when not dashing
         }
         if (playerValues.currentDashCooldown > 0)
         {
@@ -151,6 +169,26 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    void DashBossAttack()
+    {
+        if (playerValues.hasDealtDashDamage) return; // Daha önce hasar verdiyse çýk
+
+        float direction = transform.localScale.x;
+        Vector2 center = (Vector2)transform.position + new Vector2(direction * 1f, 0);
+        Collider2D[] hitBosses = Physics2D.OverlapCircleAll(center, playerValues.dashAttackRadius, playerValues.enemyLayerMask);
+
+        foreach (Collider2D boss in hitBosses)
+        {
+            BossHealth bossScript = boss.GetComponent<BossHealth>();
+            if (bossScript != null)
+            {
+                bossScript.TakeBossDashDamage(playerValues.playerDamage);
+                playerValues.hasDealtDashDamage = true; // Hasar verildiði iþaretleniyor
+                break; // Ýlk düþmana vurunca çýk
+            }
+        }
+    }
+
 
     private void BooleanControl()
     {
