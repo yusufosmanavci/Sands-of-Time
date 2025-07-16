@@ -3,11 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    private PlayerValues playerValues;
-    private void Awake()
-    {
-        playerValues = GetComponent<PlayerValues>();
-    }
     private void Update()
     {
         SetAnimation();
@@ -16,94 +11,94 @@ public class PlayerAnimations : MonoBehaviour
     // rigidbody y deðerini kontrol edip duruma göre düþme ya da zýplama animasyonunu oynat.
     private void SetAnimation()
     {
-        if (playerValues.IsAttacking)
+        if (PlayerManager.Instance.playerValues.IsAttacking)
         {
-            playerValues.hitBox.gameObject.SetActive(true); // Activate hitbox during attack
-            playerValues.rb.linearVelocity = new Vector2(0f, playerValues.rb.linearVelocity.y); // Disable linear velocity during attack
-            if (playerValues.attackCount == 1)
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(true); // Activate hitbox during attack
+            PlayerManager.Instance.playerValues.rb.linearVelocity = new Vector2(0f, PlayerManager.Instance.playerValues.rb.linearVelocity.y); // Disable linear velocity during attack
+            if (PlayerManager.Instance.playerValues.attackCount == 1)
             {
-                playerValues.animator.Play("1st Attack Animation");
+                PlayerManager.Instance.playerValues.animator.Play("1st Attack Animation");
             }
-            else if (playerValues.attackCount == 2)
+            else if (PlayerManager.Instance.playerValues.attackCount == 2)
             {
-                playerValues.animator.Play("2nd Attack Animation");
+                PlayerManager.Instance.playerValues.animator.Play("2nd Attack Animation");
             }
-            else if (playerValues.attackCount == 3)
+            else if (PlayerManager.Instance.playerValues.attackCount == 3)
             {
-                Vector2 attack3Direction = playerValues.IsfacingRight ? Vector2.right : Vector2.left;
+                Vector2 attack3Direction = PlayerManager.Instance.playerValues.IsfacingRight ? Vector2.right : Vector2.left;
                 float attack3Force = 5f;
-                playerValues.rb.AddForce(attack3Direction * attack3Force, ForceMode2D.Impulse);
-                playerValues.animator.Play("3rd Attack Animation");
+                PlayerManager.Instance.playerValues.rb.AddForce(attack3Direction * attack3Force, ForceMode2D.Impulse);
+                PlayerManager.Instance.playerValues.animator.Play("3rd Attack Animation");
             }
             return;
         }
-        if (playerValues.IsDashing && !playerValues.IsAttacking)
+        if (PlayerManager.Instance.playerValues.IsDashing && !PlayerManager.Instance.playerValues.IsAttacking)
         {
-            playerValues.hitBox.gameObject.SetActive(false); 
-            playerValues.animator.Play("Dash Animation");
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
+            PlayerManager.Instance.playerValues.animator.Play("Dash Animation");
             return;
         }
-        if (playerValues.rb.linearVelocity.y > 0)
+        if (PlayerManager.Instance.playerValues.rb.linearVelocity.y > 0)
         {
-            playerValues.hitBox.gameObject.SetActive(false); 
-            playerValues.animator.Play("Jump Animation");
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
+            PlayerManager.Instance.playerValues.animator.Play("Jump Animation");
             return;
 
         }
-        if (playerValues.rb.linearVelocity.y < 0)
+        if (PlayerManager.Instance.playerValues.rb.linearVelocity.y < 0)
         {
-            playerValues.hitBox.gameObject.SetActive(false);
-            playerValues.animator.Play("Fall Animation");
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false);
+            PlayerManager.Instance.playerValues.animator.Play("Fall Animation");
             return;
         }
-        if (playerValues.InputX != 0)
+        if (PlayerManager.Instance.playerValues.InputX != 0)
         {
-            playerValues.hitBox.gameObject.SetActive(false); 
-            playerValues.animator.Play("Run Animation");
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
+            PlayerManager.Instance.playerValues.animator.Play("Run Animation");
             return;
         }
         else
         {
-            playerValues.hitBox.gameObject.SetActive(false); 
-            playerValues.animator.Play("Idle Animation");
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
+            PlayerManager.Instance.playerValues.animator.Play("Idle Animation");
         }
     }
 
     private void AttackAimationController()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && playerValues.attackCooldown <= 0)
+        if (Mouse.current.leftButton.wasPressedThisFrame && PlayerManager.Instance.playerValues.attackCooldown <= 0)
         {
-            playerValues.attackCount++;
-            playerValues.attackCooldown = 0.5f; // Reset the cooldown after an attack
-            playerValues.attackDelay = 0.4f; // Delay before the next attack can be initiated
-            playerValues.attackResetTime = 1.5f; // Time to reset attack count after the last attack
-            playerValues.IsAttacking = true;
+            PlayerManager.Instance.playerValues.attackCount++;
+            PlayerManager.Instance.playerValues.attackCooldown = 0.5f; // Reset the cooldown after an attack
+            PlayerManager.Instance.playerValues.attackDelay = 0.6f; // Delay before the next attack can be initiated
+            PlayerManager.Instance.playerValues.attackResetTime = 1.5f; // Time to reset attack count after the last attack
+            PlayerManager.Instance.playerValues.IsAttacking = true;
         }
-        if (playerValues.attackDelay > 0)
+        if (PlayerManager.Instance.playerValues.attackDelay > 0)
         {
-            playerValues.attackDelay -= Time.deltaTime;
-            if (playerValues.attackDelay <= 0)
+            PlayerManager.Instance.playerValues.attackDelay -= Time.deltaTime;
+            if (PlayerManager.Instance.playerValues.attackDelay <= 0)
             {
-                playerValues.IsAttacking = false; // Reset attacking state after delay
-                playerValues.attackDelay = 0; // Reset attack delay
+                PlayerManager.Instance.playerValues.IsAttacking = false; // Reset attacking state after delay
+                PlayerManager.Instance.playerValues.attackDelay = 0; // Reset attack delay
             }
         }
-        if (playerValues.attackCooldown >= 0)
+        if (PlayerManager.Instance.playerValues.attackCooldown >= 0)
         {
-            playerValues.attackCooldown -= Time.deltaTime;
+            PlayerManager.Instance.playerValues.attackCooldown -= Time.deltaTime;
         }
-        if (playerValues.attackResetTime >= 0)
+        if (PlayerManager.Instance.playerValues.attackResetTime >= 0)
         {
-            playerValues.attackResetTime -= Time.deltaTime;
-            if (playerValues.attackResetTime <= 0)
+            PlayerManager.Instance.playerValues.attackResetTime -= Time.deltaTime;
+            if (PlayerManager.Instance.playerValues.attackResetTime <= 0)
             {
-                playerValues.attackCount = 0; // Reset attack count after reset time
-                playerValues.attackResetTime = 0; // Reset attack reset time
+                PlayerManager.Instance.playerValues.attackCount = 0; // Reset attack count after reset time
+                PlayerManager.Instance.playerValues.attackResetTime = 0; // Reset attack reset time
             }
         }
-        if (playerValues.attackCount > 3)
+        if (PlayerManager.Instance.playerValues.attackCount > 3)
         {
-            playerValues.attackCount = 1; // Reset attack count after 3 attacks
+            PlayerManager.Instance.playerValues.attackCount = 1; // Reset attack count after 3 attacks
         }
     }
 }

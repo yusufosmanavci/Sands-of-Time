@@ -7,18 +7,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerValues playerValues;
-    PlayerAnimations playerAnimations;
     private PlayerInput playerInput;
-    public EnemyHealth enemyHealth;
     public BossHealth bossHealth;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
 
 
     private void Awake()
     {
-        playerValues = GetComponent<PlayerValues>();
-        playerAnimations = GetComponent<PlayerAnimations>();
         playerInput = new PlayerInput();
         playerInput.PlayerInputs.Enable();
         playerInput.PlayerInputs.JumpInput.performed += Jump;
@@ -33,13 +28,13 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHurtbox"))
         {
-            EnemyController enemyController = collision.gameObject.GetComponentInParent<EnemyController>();
-            if (playerValues.IsAttacking && enemyController != null && !enemyController.enemyValues.IsInAttackAnimation)
+            EnemyValues enemyValues = collision.gameObject.GetComponentInParent<EnemyValues>();
+            if (PlayerManager.Instance.playerValues.IsAttacking && enemyValues != null && !enemyValues.IsInAttackAnimation)
             {
-                EnemyHealth enemy = enemyController.GetComponent<EnemyHealth>();
+                EnemyHealth enemy = enemyValues.GetComponent<EnemyHealth>();
                 if (enemy != null)
                 {
-                    enemy.TakeEnemyDamage(playerValues.playerDamage, transform.position);
+                    StartCoroutine(enemy.TakeEnemyDamage(PlayerManager.Instance.playerValues.playerDamage));
                     Debug.Log("Enemy took damage from player!");
                 }
             }
@@ -48,12 +43,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHurtbox"))
         {
             BossController bossController = collision.gameObject.GetComponentInParent<BossController>();
-            if (playerValues.IsAttacking && bossController != null && !bossController.bossValues.IsInAttackAnimation)
+            if (PlayerManager.Instance.playerValues.IsAttacking && bossController != null && !bossController.bossValues.IsInAttackAnimation)
             {
                 BossHealth boss = bossController.GetComponent<BossHealth>();
                 if (boss != null)
                 {
-                    boss.TakeBossDamage(playerValues.playerDamage);
+                    boss.TakeBossDamage(PlayerManager.Instance.playerValues.playerDamage);
                     Debug.Log("Enemy took damage from player!");
                 }
             }
@@ -65,33 +60,33 @@ public class PlayerController : MonoBehaviour
     {
         HorizontalMove();
         Dash();
-        playerValues.IsGrounded = Physics2D.OverlapCircle(playerValues.groundCheck.position, playerValues.groundCheckRadius, playerValues.groundLayer);
+        PlayerManager.Instance.playerValues.IsGrounded = Physics2D.OverlapCircle(PlayerManager.Instance.playerValues.groundCheck.position, PlayerManager.Instance.playerValues.groundCheckRadius, PlayerManager.Instance.playerValues.groundLayer);
         BooleanControl();
     }
     //ana if bloðu ekleyip skillleri bool deðerleri ile kontrol edip animasyonlarý burada kontrol edebilirsin.
     private void HorizontalMove()
     {
-        if (playerValues.IsKnockbacked)
+        if (PlayerManager.Instance.playerValues.IsKnockbacked)
             return;
-        if(playerValues.dashDuration > 0)
+        if(PlayerManager.Instance.playerValues.dashDuration > 0)
         {
-            playerValues.dashDuration -= Time.deltaTime;
+            PlayerManager.Instance.playerValues.dashDuration -= Time.deltaTime;
         }
         else
         {
-            playerValues.InputX = playerInput.PlayerInputs.MoveInputs.ReadValue<Vector2>().x;
-            playerValues.rb.linearVelocity = new Vector2(playerValues.InputX * playerValues.moveSpeed, playerValues.rb.linearVelocity.y);
-            if (playerValues.IsfacingRight && playerValues.InputX < 0)
+            PlayerManager.Instance.playerValues.InputX = playerInput.PlayerInputs.MoveInputs.ReadValue<Vector2>().x;
+            PlayerManager.Instance.playerValues.rb.linearVelocity = new Vector2(PlayerManager.Instance.playerValues.InputX * PlayerManager.Instance.playerValues.moveSpeed, PlayerManager.Instance.playerValues.rb.linearVelocity.y);
+            if (PlayerManager.Instance.playerValues.IsfacingRight && PlayerManager.Instance.playerValues.InputX < 0)
             {
-                playerValues.hitBox.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Flip hitbox scale for left-facing
-                playerValues.IsfacingRight = false;
-                playerValues.spriteRenderer.flipX = true;
+                PlayerManager.Instance.playerValues.hitBox.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Flip hitbox scale for left-facing
+                PlayerManager.Instance.playerValues.IsfacingRight = false;
+                PlayerManager.Instance.playerValues.spriteRenderer.flipX = true;
             }
-            else if (!playerValues.IsfacingRight && playerValues.InputX > 0)
+            else if (!PlayerManager.Instance.playerValues.IsfacingRight && PlayerManager.Instance.playerValues.InputX > 0)
             {
-                playerValues.hitBox.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); // Reset hitbox scale for right-facing
-                playerValues.IsfacingRight = true;
-                playerValues.spriteRenderer.flipX = false;
+                PlayerManager.Instance.playerValues.hitBox.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); // Reset hitbox scale for right-facing
+                PlayerManager.Instance.playerValues.IsfacingRight = true;
+                PlayerManager.Instance.playerValues.spriteRenderer.flipX = false;
 
             }
         }
@@ -99,11 +94,11 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if (!playerValues.IsDashing)
+        if (!PlayerManager.Instance.playerValues.IsDashing)
         {
-            if (context.ReadValueAsButton() && playerValues.IsGrounded)
+            if (context.ReadValueAsButton() && PlayerManager.Instance.playerValues.IsGrounded)
             {
-                playerValues.rb.AddForce(Vector2.up * playerValues.jumpForce, ForceMode2D.Impulse);
+                PlayerManager.Instance.playerValues.rb.AddForce(Vector2.up * PlayerManager.Instance.playerValues.jumpForce, ForceMode2D.Impulse);
             }
         }
         else
@@ -112,40 +107,40 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && playerValues.currentDashCooldown == 0 && !playerValues.IsAttacking)
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && PlayerManager.Instance.playerValues.currentDashCooldown == 0 && !PlayerManager.Instance.playerValues.IsAttacking)
         {
-            playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
-            Vector2 dashDirection = playerValues.IsfacingRight ? Vector2.right : Vector2.left;
+            PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
+            Vector2 dashDirection = PlayerManager.Instance.playerValues.IsfacingRight ? Vector2.right : Vector2.left;
 
-            float actualDashSpeed = playerValues.IsKnockbacked ? playerValues.dashSpeed * 0.5f : playerValues.dashSpeed;
-            playerValues.rb.AddForce(dashDirection * actualDashSpeed, ForceMode2D.Impulse);
+            float actualDashSpeed = PlayerManager.Instance.playerValues.IsKnockbacked ? PlayerManager.Instance.playerValues.dashSpeed * 0.5f : PlayerManager.Instance.playerValues.dashSpeed;
+            PlayerManager.Instance.playerValues.rb.AddForce(dashDirection * actualDashSpeed, ForceMode2D.Impulse);
 
-            playerValues.currentDashCooldown = playerValues.dashCooldown;
-            playerValues.dashDuration = 0.2f; // Dash duration can be set to a specific value
+            PlayerManager.Instance.playerValues.currentDashCooldown = PlayerManager.Instance.playerValues.dashCooldown;
+            PlayerManager.Instance.playerValues.dashDuration = 0.2f; // Dash duration can be set to a specific value
             //Spesifik deðer girdim o yüzden ilerideki durumlara göre bu deðeri deðiþtirebilirsin.
-            playerValues.dashTime = playerValues.dashDuration * 1.8f;
+            PlayerManager.Instance.playerValues.dashTime = PlayerManager.Instance.playerValues.dashDuration * 1.8f;
 
         }
-        if (playerValues.IsDashing)
+        if (PlayerManager.Instance.playerValues.IsDashing)
         {
             DashAttack();
             DashBossAttack();
-            gameObject.layer = LayerMask.NameToLayer(playerValues.dashLayer); // Set layer to PlayerDashing during dash
+            gameObject.layer = LayerMask.NameToLayer(PlayerManager.Instance.playerValues.dashLayer); // Set layer to PlayerDashing during dash
         }
         else
         {
-            gameObject.layer = LayerMask.NameToLayer(playerValues.defaultLayer); // Reset layer to default when not dashing
-            playerValues.hasDealtDashDamage = false; // Reset the dash damage flag when not dashing
+            gameObject.layer = LayerMask.NameToLayer(PlayerManager.Instance.playerValues.defaultLayer); // Reset layer to default when not dashing
+            PlayerManager.Instance.playerValues.hasDealtDashDamage = false; // Reset the dash damage flag when not dashing
         }
-        if (playerValues.currentDashCooldown > 0)
+        if (PlayerManager.Instance.playerValues.currentDashCooldown > 0)
         {
-            playerValues.currentDashCooldown -= Time.deltaTime;
-            playerValues.dashTime -= Time.deltaTime;
+            PlayerManager.Instance.playerValues.currentDashCooldown -= Time.deltaTime;
+            PlayerManager.Instance.playerValues.dashTime -= Time.deltaTime;
         }
         else
         {
-            playerValues.currentDashCooldown = 0;
-            playerValues.dashTime = 0;
+            PlayerManager.Instance.playerValues.currentDashCooldown = 0;
+            PlayerManager.Instance.playerValues.dashTime = 0;
         }
     }
 
@@ -153,7 +148,7 @@ public class PlayerController : MonoBehaviour
     {
         float direction = transform.localScale.x;
         Vector2 center = (Vector2)transform.position + new Vector2(direction * 0.5f, 0);
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, playerValues.dashAttackRadius, playerValues.enemyLayerMask);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(center, PlayerManager.Instance.playerValues.dashAttackRadius, PlayerManager.Instance.playerValues.enemyLayerMask);
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -163,7 +158,7 @@ public class PlayerController : MonoBehaviour
                 EnemyHealth enemyScript = enemy.GetComponent<EnemyHealth>();
                 if (enemyScript != null)
                 {
-                    enemyScript.TakeEnemyDashDamage(playerValues.playerDamage, transform.position);
+                    enemyScript.TakeEnemyDashDamage(PlayerManager.Instance.playerValues.playerDamage);
                     damagedEnemies.Add(enemyGO); // tekrar vurulmasýný engelle
                 }
             }
@@ -171,19 +166,19 @@ public class PlayerController : MonoBehaviour
     }
     void DashBossAttack()
     {
-        if (playerValues.hasDealtDashDamage) return; // Daha önce hasar verdiyse çýk
+        if (PlayerManager.Instance.playerValues.hasDealtDashDamage) return; // Daha önce hasar verdiyse çýk
 
         float direction = transform.localScale.x;
         Vector2 center = (Vector2)transform.position + new Vector2(direction * 1f, 0);
-        Collider2D[] hitBosses = Physics2D.OverlapCircleAll(center, playerValues.dashAttackRadius, playerValues.enemyLayerMask);
+        Collider2D[] hitBosses = Physics2D.OverlapCircleAll(center, PlayerManager.Instance.playerValues.dashAttackRadius, PlayerManager.Instance.playerValues.enemyLayerMask);
 
         foreach (Collider2D boss in hitBosses)
         {
             BossHealth bossScript = boss.GetComponent<BossHealth>();
             if (bossScript != null)
             {
-                bossScript.TakeBossDashDamage(playerValues.playerDamage);
-                playerValues.hasDealtDashDamage = true; // Hasar verildiði iþaretleniyor
+                bossScript.TakeBossDashDamage(PlayerManager.Instance.playerValues.playerDamage);
+                PlayerManager.Instance.playerValues.hasDealtDashDamage = true; // Hasar verildiði iþaretleniyor
                 break; // Ýlk düþmana vurunca çýk
             }
         }
@@ -192,30 +187,30 @@ public class PlayerController : MonoBehaviour
 
     private void BooleanControl()
     {
-        if (!playerValues.IsGrounded)
+        if (!PlayerManager.Instance.playerValues.IsGrounded)
         {
-            playerValues.IsJumped = true;
+            PlayerManager.Instance.playerValues.IsJumped = true;
         }
         else
-            playerValues.IsJumped = false;
+            PlayerManager.Instance.playerValues.IsJumped = false;
 
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && playerValues.dashTime >= 0)
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && PlayerManager.Instance.playerValues.dashTime >= 0)
         {
-            playerValues.IsDashing = true;
+            PlayerManager.Instance.playerValues.IsDashing = true;
         }
-        else if (playerValues.dashTime <= 0)
+        else if (PlayerManager.Instance.playerValues.dashTime <= 0)
         {
-            playerValues.IsDashing = false;
+            PlayerManager.Instance.playerValues.IsDashing = false;
             damagedEnemies.Clear(); // Dash bitti, sonraki dash için sýfýrla
         }
     }
 
     public IEnumerator KnockbackRoutine (Vector2 force)
     {
-        playerValues.IsKnockbacked = true;
-        playerValues.rb.AddForce(force, ForceMode2D.Impulse);
-        playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding
+        PlayerManager.Instance.playerValues.IsKnockbacked = true;
+        PlayerManager.Instance.playerValues.rb.AddForce(force, ForceMode2D.Impulse);
+        PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding
         yield return new WaitForSeconds(0.5f); // Adjust the duration of the knockback effect
-        playerValues.IsKnockbacked = false; // Reset the knockback state after the effect
+        PlayerManager.Instance.playerValues.IsKnockbacked = false; // Reset the knockback state after the effect
     }
 }

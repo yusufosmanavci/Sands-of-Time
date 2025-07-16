@@ -11,6 +11,9 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Start()
     {
+        dashAbility = GameObject.Find("DashSkill Icon (Dark)").GetComponent<Image>();
+        dashCooldownText = GameObject.Find("DashSkill Cooldown Time").GetComponent<TextMeshProUGUI>();
+
         playerValues = GetComponent<PlayerValues>();
 
         dashAbility.fillAmount = 0;

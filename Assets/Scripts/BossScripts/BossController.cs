@@ -34,7 +34,7 @@ public class BossController : MonoBehaviour
         {
             // Sadece düþman saldýrýyorsa ve oyuncu saldýrmýyorsa
             PlayerController playerController = collision.gameObject.GetComponentInParent<PlayerController>();
-            if (bossValues.IsAttacking && playerController != null && !playerController.playerValues.IsAttacking)
+            if (bossValues.IsAttacking && playerController != null && !PlayerManager.Instance.playerValues.IsAttacking)
             {
                 PlayerHealth player = playerController.GetComponent<PlayerHealth>();
                 if (player != null)

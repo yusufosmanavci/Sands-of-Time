@@ -1,0 +1,1831 @@
+fileFormatVersion: 2
+guid: db638ee208d7f8949bfcfab18d0535a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6241391787935389742
+    second: Warrior Assets Re-designed_0
+  - first:
+      213: 1307757723841771040
+    second: Warrior Assets Re-designed_1
+  - first:
+      213: -7810541128257111051
+    second: Warrior Assets Re-designed_2
+  - first:
+      213: -4272476452149280904
+    second: Warrior Assets Re-designed_3
+  - first:
+      213: 1867885703674182411
+    second: Warrior Assets Re-designed_4
+  - first:
+      213: 7978379381557140345
+    second: Warrior Assets Re-designed_5
+  - first:
+      213: 9096802726744662130
+    second: Warrior Assets Re-designed_6
+  - first:
+      213: 3420900471825560112
+    second: Warrior Assets Re-designed_7
+  - first:
+      213: -6260252063322901353
+    second: Warrior Assets Re-designed_8
+  - first:
+      213: -2365729391467597513
+    second: Warrior Assets Re-designed_9
+  - first:
+      213: 8018811623246520435
+    second: Warrior Assets Re-designed_10
+  - first:
+      213: 4945903239403137318
+    second: Warrior Assets Re-designed_11
+  - first:
+      213: 7272220821114206296
+    second: Warrior Assets Re-designed_12
+  - first:
+      213: -6135070778015800118
+    second: Warrior Assets Re-designed_13
+  - first:
+      213: -5602652412060571690
+    second: Warrior Assets Re-designed_14
+  - first:
+      213: -8802920016634015158
+    second: Warrior Assets Re-designed_15
+  - first:
+      213: -426998226280701996
+    second: Warrior Assets Re-designed_16
+  - first:
+      213: 5825559852350084800
+    second: Warrior Assets Re-designed_17
+  - first:
+      213: 6117361576396551569
+    second: Warrior Assets Re-designed_18
+  - first:
+      213: 1505652340662916976
+    second: Warrior Assets Re-designed_19
+  - first:
+      213: -7517002578203633758
+    second: Warrior Assets Re-designed_20
+  - first:
+      213: -6878224916839598095
+    second: Warrior Assets Re-designed_21
+  - first:
+      213: 5904140189213238425
+    second: Warrior Assets Re-designed_22
+  - first:
+      213: 6584916076480494866
+    second: Warrior Assets Re-designed_23
+  - first:
+      213: 1162752961818195222
+    second: Warrior Assets Re-designed_24
+  - first:
+      213: 3663006841700828211
+    second: Warrior Assets Re-designed_25
+  - first:
+      213: -7603832379021936047
+    second: Warrior Assets Re-designed_26
+  - first:
+      213: 421831546933167176
+    second: Warrior Assets Re-designed_27
+  - first:
+      213: 694396981319564332
+    second: Warrior Assets Re-designed_28
+  - first:
+      213: -3261504095918742582
+    second: Warrior Assets Re-designed_29
+  - first:
+      213: 2393461946168691427
+    second: Warrior Assets Re-designed_30
+  - first:
+      213: -69400545220228223
+    second: Warrior Assets Re-designed_31
+  - first:
+      213: 4712611395888016825
+    second: Warrior Assets Re-designed_32
+  - first:
+      213: -7731297129389020067
+    second: Warrior Assets Re-designed_33
+  - first:
+      213: 8103532724820717523
+    second: Warrior Assets Re-designed_34
+  - first:
+      213: 6737091781479681634
+    second: Warrior Assets Re-designed_35
+  - first:
+      213: -1104575406968204319
+    second: Warrior Assets Re-designed_36
+  - first:
+      213: 3398692647154303194
+    second: Warrior Assets Re-designed_37
+  - first:
+      213: 1285495621700224075
+    second: Warrior Assets Re-designed_38
+  - first:
+      213: 6064221989572898812
+    second: Warrior Assets Re-designed_39
+  - first:
+      213: -3828018627396277794
+    second: Warrior Assets Re-designed_40
+  - first:
+      213: 3693205198171189180
+    second: Warrior Assets Re-designed_41
+  - first:
+      213: -8663386155709010533
+    second: Warrior Assets Re-designed_42
+  - first:
+      213: -4756619273940296848
+    second: Warrior Assets Re-designed_43
+  - first:
+      213: 203685930827905656
+    second: Warrior Assets Re-designed_44
+  - first:
+      213: 2317286082442694364
+    second: Warrior Assets Re-designed_45
+  - first:
+      213: 7020489708722830374
+    second: Warrior Assets Re-designed_46
+  - first:
+      213: -2495957607458798677
+    second: Warrior Assets Re-designed_47
+  - first:
+      213: 4198390024789199248
+    second: Warrior Assets Re-designed_48
+  - first:
+      213: 6111269377155352331
+    second: Warrior Assets Re-designed_49
+  - first:
+      213: -2450401487220157031
+    second: Warrior Assets Re-designed_50
+  - first:
+      213: 6517410145036681361
+    second: Warrior Assets Re-designed_51
+  - first:
+      213: -1605262647220814875
+    second: Warrior Assets Re-designed_52
+  - first:
+      213: 1100819228183585091
+    second: Warrior Assets Re-designed_53
+  - first:
+      213: -2928024944625645258
+    second: Warrior Assets Re-designed_54
+  - first:
+      213: -8428627016852064033
+    second: Warrior Assets Re-designed_55
+  - first:
+      213: 3451858806721827312
+    second: Warrior Assets Re-designed_56
+  - first:
+      213: -606454647346035667
+    second: Warrior Assets Re-designed_57
+  - first:
+      213: 264552112827106048
+    second: Warrior Assets Re-designed_58
+  - first:
+      213: 2093849957949957876
+    second: Warrior Assets Re-designed_59
+  - first:
+      213: 3082541495644954331
+    second: Warrior Assets Re-designed_60
+  - first:
+      213: -8456991946266273304
+    second: Warrior Assets Re-designed_61
+  - first:
+      213: 6578781123615255968
+    second: Warrior Assets Re-designed_62
+  - first:
+      213: -747976016645054690
+    second: Warrior Assets Re-designed_63
+  - first:
+      213: 4878124426108913776
+    second: Warrior Assets Re-designed_64
+  - first:
+      213: -5642644180088470104
+    second: Warrior Assets Re-designed_65
+  - first:
+      213: -8526887362460955004
+    second: Warrior Assets Re-designed_66
+  - first:
+      213: -8495379789508795005
+    second: Warrior Assets Re-designed_67
+  - first:
+      213: -4978678194971905223
+    second: Warrior Assets Re-designed_68
+  - first:
+      213: -3076730675039950810
+    second: Warrior Assets Re-designed_69
+  - first:
+      213: -8086842029122671936
+    second: Warrior Assets Re-designed_70
+  - first:
+      213: 5787841446695965260
+    second: Warrior Assets Re-designed_71
+  - first:
+      213: -7391503572027315169
+    second: Warrior Assets Re-designed_72
+  - first:
+      213: 7069988852439654030
+    second: Warrior Assets Re-designed_73
+  - first:
+      213: 7169405866420616373
+    second: Warrior Assets Re-designed_74
+  - first:
+      213: 7001656245572072607
+    second: Warrior Assets Re-designed_75
+  - first:
+      213: 6740266769261149983
+    second: Warrior Assets Re-designed_76
+  - first:
+      213: -7380549374072260426
+    second: Warrior Assets Re-designed_77
+  - first:
+      213: -4447998355219109372
+    second: Warrior Assets Re-designed_78
+  - first:
+      213: -5295698347613795777
+    second: Warrior Assets Re-designed_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 710
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d72218bc3f1269a0800000000000000
+      internalID: -6241391787935389742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 710
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026bcd598b6162210800000000000000
+      internalID: 1307757723841771040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 710
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fbf7a2d9326b9390800000000000000
+      internalID: -7810541128257111051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 710
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87fbb66ad4d15b4c0800000000000000
+      internalID: -4272476452149280904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 710
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bb788a6201ce910800000000000000
+      internalID: 1867885703674182411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 710
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b9309b6c5e8be60800000000000000
+      internalID: 7978379381557140345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270ab6f02e55e3e70800000000000000
+      internalID: 9096802726744662130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032f02bbada797f20800000000000000
+      internalID: 3420900471825560112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7947b39aaed1f19a0800000000000000
+      internalID: -6260252063322901353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7317fd217ad3b2fd0800000000000000
+      internalID: -2365729391467597513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_10
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370e1649faa884f60800000000000000
+      internalID: 8018811623246520435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629e31eaac063a440800000000000000
+      internalID: 4945903239403137318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85836b29e4e1ce460800000000000000
+      internalID: 7272220821114206296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_13
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 639
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac42d74e1a9dbdaa0800000000000000
+      internalID: -6135070778015800118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d7e42bb0516f32b0800000000000000
+      internalID: -5602652412060571690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_15
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a429a5e72eeb5d580800000000000000
+      internalID: -8802920016634015158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_16
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df11d2206ff21af0800000000000000
+      internalID: -426998226280701996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c69a1112db88d050800000000000000
+      internalID: 5825559852350084800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_18
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1957dbb41fb35e450800000000000000
+      internalID: 6117361576396551569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_19
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077d27893d625e410800000000000000
+      internalID: 1505652340662916976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_20
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a71a7e5bfd3ea790800000000000000
+      internalID: -7517002578203633758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_21
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7f88a61e2ab80a0800000000000000
+      internalID: -6878224916839598095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_22
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 568
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994a92a7838bfe150800000000000000
+      internalID: 5904140189213238425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 497
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21df06e7842526b50800000000000000
+      internalID: 6584916076480494866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_24
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 497
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615f4b288ade22010800000000000000
+      internalID: 1162752961818195222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_25
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 497
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3344769a05d95d230800000000000000
+      internalID: 3663006841700828211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_26
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 497
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ab8c4fcb2c97690800000000000000
+      internalID: -7603832379021936047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84441069e85aad500800000000000000
+      internalID: 421831546933167176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cf7ac106ef2a900800000000000000
+      internalID: 694396981319564332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_29
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac328411e4fccb2d0800000000000000
+      internalID: -3261504095918742582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_30
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eacccc75f8473120800000000000000
+      internalID: 2393461946168691427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_31
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b0ee26290790ff0800000000000000
+      internalID: -69400545220228223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_32
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdec58981f866140800000000000000
+      internalID: 4712611395888016825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_33
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c25c5193ae4b490800000000000000
+      internalID: -7731297129389020067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_34
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df21b03418857070800000000000000
+      internalID: 8103532724820717523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_35
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ecc46d745fe7d50800000000000000
+      internalID: 6737091781479681634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_36
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 426
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e317080582cba0f0800000000000000
+      internalID: -1104575406968204319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 355
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad04d5e94f49a2f20800000000000000
+      internalID: 3398692647154303194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_38
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 355
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4403c3057ff6d110800000000000000
+      internalID: 1285495621700224075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_39
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 355
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffea9715c1782450800000000000000
+      internalID: 6064221989572898812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_40
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 355
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed96770175520eac0800000000000000
+      internalID: -3828018627396277794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 284
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbfae9f6f86e04330800000000000000
+      internalID: 3693205198171189180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_42
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 284
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9d6de4213875c780800000000000000
+      internalID: -8663386155709010533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_43
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 284
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b1305d8f71dfdb0800000000000000
+      internalID: -4756619273940296848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87afdb06643a3d200800000000000000
+      internalID: 203685930827905656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_45
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 213
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde04fa1a67a82020800000000000000
+      internalID: 2317286082442694364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 142
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62cb5b5a13acd6160800000000000000
+      internalID: 7020489708722830374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_47
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 142
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba30cf8b7c39c5dd0800000000000000
+      internalID: -2495957607458798677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_48
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 142
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0998a18cb7da34a30800000000000000
+      internalID: 4198390024789199248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b074110ae179fc450800000000000000
+      internalID: 6111269377155352331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_50
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995572584dc6efdd0800000000000000
+      internalID: -2450401487220157031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_51
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19040760ffd727a50800000000000000
+      internalID: 6517410145036681361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_52
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb333d9026f8b9e0800000000000000
+      internalID: -1605262647220814875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_53
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3416dc17145e64f00800000000000000
+      internalID: 1100819228183585091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_54
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6390b1283d09d57d0800000000000000
+      internalID: -2928024944625645258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_55
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 71
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8b54c8260870b80800000000000000
+      internalID: -8428627016852064033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f15575cb4777ef20800000000000000
+      internalID: 3451858806721827312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_57
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d240e8c16b07597f0800000000000000
+      internalID: -606454647346035667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_58
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00383a5beb0eba300800000000000000
+      internalID: 264552112827106048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_59
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6e29c6179de0d10800000000000000
+      internalID: 2093849957949957876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_60
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde9155882367ca20800000000000000
+      internalID: 3082541495644954331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_61
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e99576c1aab2aa80800000000000000
+      internalID: -8456991946266273304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_62
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ade12873968c4b50800000000000000
+      internalID: 6578781123615255968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior Assets Re-designed_63
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 100
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f1c5b96c7ae95f0800000000000000
+      internalID: -747976016645054690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d37a97a591b93cd4e90a82164c11bd56
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":71.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Warrior Assets Re-designed_0: -6241391787935389742
+      Warrior Assets Re-designed_1: 1307757723841771040
+      Warrior Assets Re-designed_10: 8018811623246520435
+      Warrior Assets Re-designed_11: 4945903239403137318
+      Warrior Assets Re-designed_12: 7272220821114206296
+      Warrior Assets Re-designed_13: -6135070778015800118
+      Warrior Assets Re-designed_14: -5602652412060571690
+      Warrior Assets Re-designed_15: -8802920016634015158
+      Warrior Assets Re-designed_16: -426998226280701996
+      Warrior Assets Re-designed_17: 5825559852350084800
+      Warrior Assets Re-designed_18: 6117361576396551569
+      Warrior Assets Re-designed_19: 1505652340662916976
+      Warrior Assets Re-designed_2: -7810541128257111051
+      Warrior Assets Re-designed_20: -7517002578203633758
+      Warrior Assets Re-designed_21: -6878224916839598095
+      Warrior Assets Re-designed_22: 5904140189213238425
+      Warrior Assets Re-designed_23: 6584916076480494866
+      Warrior Assets Re-designed_24: 1162752961818195222
+      Warrior Assets Re-designed_25: 3663006841700828211
+      Warrior Assets Re-designed_26: -7603832379021936047
+      Warrior Assets Re-designed_27: 421831546933167176
+      Warrior Assets Re-designed_28: 694396981319564332
+      Warrior Assets Re-designed_29: -3261504095918742582
+      Warrior Assets Re-designed_3: -4272476452149280904
+      Warrior Assets Re-designed_30: 2393461946168691427
+      Warrior Assets Re-designed_31: -69400545220228223
+      Warrior Assets Re-designed_32: 4712611395888016825
+      Warrior Assets Re-designed_33: -7731297129389020067
+      Warrior Assets Re-designed_34: 8103532724820717523
+      Warrior Assets Re-designed_35: 6737091781479681634
+      Warrior Assets Re-designed_36: -1104575406968204319
+      Warrior Assets Re-designed_37: 3398692647154303194
+      Warrior Assets Re-designed_38: 1285495621700224075
+      Warrior Assets Re-designed_39: 6064221989572898812
+      Warrior Assets Re-designed_4: 1867885703674182411
+      Warrior Assets Re-designed_40: -3828018627396277794
+      Warrior Assets Re-designed_41: 3693205198171189180
+      Warrior Assets Re-designed_42: -8663386155709010533
+      Warrior Assets Re-designed_43: -4756619273940296848
+      Warrior Assets Re-designed_44: 203685930827905656
+      Warrior Assets Re-designed_45: 2317286082442694364
+      Warrior Assets Re-designed_46: 7020489708722830374
+      Warrior Assets Re-designed_47: -2495957607458798677
+      Warrior Assets Re-designed_48: 4198390024789199248
+      Warrior Assets Re-designed_49: 6111269377155352331
+      Warrior Assets Re-designed_5: 7978379381557140345
+      Warrior Assets Re-designed_50: -2450401487220157031
+      Warrior Assets Re-designed_51: 6517410145036681361
+      Warrior Assets Re-designed_52: -1605262647220814875
+      Warrior Assets Re-designed_53: 1100819228183585091
+      Warrior Assets Re-designed_54: -2928024944625645258
+      Warrior Assets Re-designed_55: -8428627016852064033
+      Warrior Assets Re-designed_56: 3451858806721827312
+      Warrior Assets Re-designed_57: -606454647346035667
+      Warrior Assets Re-designed_58: 264552112827106048
+      Warrior Assets Re-designed_59: 2093849957949957876
+      Warrior Assets Re-designed_6: 9096802726744662130
+      Warrior Assets Re-designed_60: 3082541495644954331
+      Warrior Assets Re-designed_61: -8456991946266273304
+      Warrior Assets Re-designed_62: 6578781123615255968
+      Warrior Assets Re-designed_63: -747976016645054690
+      Warrior Assets Re-designed_7: 3420900471825560112
+      Warrior Assets Re-designed_8: -6260252063322901353
+      Warrior Assets Re-designed_9: -2365729391467597513
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

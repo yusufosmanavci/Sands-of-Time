@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
         {
             // Sadece düþman saldýrýyorsa ve oyuncu saldýrmýyorsa
             PlayerController playerController = collision.gameObject.GetComponentInParent<PlayerController>();
-            if (enemyValues.IsAttacking && playerController != null && !playerController.playerValues.IsAttacking)
+            if (enemyValues.IsAttacking && playerController != null && !PlayerManager.Instance.playerValues.IsAttacking)
             {
                 PlayerHealth player = playerController.GetComponent<PlayerHealth>();
                 if (player != null)

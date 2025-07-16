@@ -9,6 +9,7 @@ public class Collectibles : MonoBehaviour
 
     private void Start()
     {
+        sandsOfTimeText = GameObject.Find("SandsOfTimeText").GetComponent<TextMeshProUGUI>();
         sandsOfTimeText.text = "Sands Of Time " + playerValues.sandsOfTime.ToString(); // Initialize the player's "sands of time" value with the text from the UI
     }
 
