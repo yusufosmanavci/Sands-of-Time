@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ public class EnemyController : MonoBehaviour
     public EnemyValues enemyValues;
     Vector2 lastPosition;
     public PlayerHealth playerHealth; // Oyuncunun saðlýk bileþeni
-    
+    private HashSet<GameObject> damagedPlayer = new HashSet<GameObject>(); // Hasar verilen oyuncu listesi
+
     private void Awake()
     {
         enemyValues = GetComponent<EnemyValues>();
@@ -51,24 +53,6 @@ public class EnemyController : MonoBehaviour
             else
             {
                 EnemyPatrol();
-            }
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox"))
-        {
-            // Sadece düþman saldýrýyorsa ve oyuncu saldýrmýyorsa
-            PlayerController playerController = collision.gameObject.GetComponentInParent<PlayerController>();
-            if (enemyValues.IsAttacking && playerController != null && !PlayerManager.Instance.playerValues.IsAttacking)
-            {
-                PlayerHealth player = playerController.GetComponent<PlayerHealth>();
-                if (player != null)
-                {
-                    player.TakePLayerDamage(enemyValues.damage, transform.position);
-                    Debug.Log("Player took damage from enemy!");
-                }
             }
         }
     }
@@ -289,14 +273,6 @@ public class EnemyController : MonoBehaviour
         return false; // Zaten last location yoktu
     }
 
-    public IEnumerator EnemyKnockbackRoutine(Vector2 force)
-    {
-        enemyValues.IsEnemyKnockbacked = true;
-        enemyValues.enemyRb.AddForce(force, ForceMode2D.Impulse);
-        enemyValues.enemyRb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding
-        yield return new WaitForSeconds(0.5f); // Adjust the duration of the knockback effect
-        enemyValues.IsEnemyKnockbacked = false; // Reset the knockback state after the effect
-    }
 
     private IEnumerator AttackRoutine()
     {
@@ -312,14 +288,7 @@ public class EnemyController : MonoBehaviour
         enemyValues.enemyHitbox.gameObject.SetActive(true); // Saldýrý hitbox'ýný aktif et
         enemyValues.IsInAttackAnimation = true;
 
-        if (enemyValues.IsFacingRight)
-        {
-            enemyValues.enemyHitbox.localScale = new Vector3(0.5f, 0.5f, 0.5f); // Sað tarafa saldýrýrken
-        }
-        else
-        {
-            enemyValues.enemyHitbox.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Sol tarafa saldýrýrken
-        }
+        StartCoroutine(SwordAttack()); // Saldýrý animasyonu sýrasýnda oyuncuya hasar verme
 
         // Saldýrý animasyon süresi boyunca bekle
         yield return new WaitForSeconds(0.5f); // animasyon süresi kadar
@@ -347,4 +316,26 @@ public class EnemyController : MonoBehaviour
         return Mathf.Abs(transform.position.y - enemyValues.player.position.y) <= enemyValues.platformTolerance;
     }
 
+    public IEnumerator SwordAttack()
+    {
+        Vector2 position = enemyValues.IsFacingRight ? new Vector2(enemyValues.enemyCollider.bounds.max.x + 1f, enemyValues.enemyCollider.bounds.center.y) : new Vector2(enemyValues.enemyCollider.bounds.min.x - 1f, enemyValues.enemyCollider.bounds.center.y);
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(position, PlayerManager.Instance.playerValues.hitboxRadius, enemyValues.playerLayerMask);
+        foreach (Collider2D player in hitPlayer)
+        {
+            GameObject playerGO = player.gameObject;
+            if (!damagedPlayer.Contains(playerGO))
+            {
+                PlayerHealth playerScript = player.GetComponent<PlayerHealth>();
+                if (playerScript != null)
+                {
+                    playerScript.TakePLayerDamage(enemyValues.damage, transform.position);
+                    Debug.Log("Enemy took damage from player!");
+                    damagedPlayer.Add(playerGO); // tekrar vurulmasýný engelle
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(PlayerManager.Instance.playerValues.attackDelay); // Bekleme süresi
+        damagedPlayer.Clear(); // Attack bittiðinde hasar verilen düþmanlarý temizle
+    }
 }

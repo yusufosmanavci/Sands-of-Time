@@ -11,7 +11,19 @@ public class PlayerAnimations : MonoBehaviour
     // rigidbody y deðerini kontrol edip duruma göre düþme ya da zýplama animasyonunu oynat.
     private void SetAnimation()
     {
-        if (PlayerManager.Instance.playerValues.IsAttacking)
+        if (PlayerManager.Instance.playerValues.IsKnockbacked)
+        {
+            if(PlayerManager.Instance.playerValues.rb.linearVelocity.y > 0)
+            {
+                PlayerManager.Instance.playerValues.animator.Play("Hit Animation");
+            }
+            if(PlayerManager.Instance.playerValues.rb.linearVelocity.y < 0)
+            {
+                PlayerManager.Instance.playerValues.animator.Play("Hit Animation Down");
+            }
+            return;
+        }
+        if (PlayerManager.Instance.playerValues.IsAttacking && PlayerManager.Instance.playerValues.IsGrounded)
         {
             if (PlayerManager.Instance.playerValues.attackCount == 1)
             {

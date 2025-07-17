@@ -23,13 +23,7 @@ public class EnemyHealth : MonoBehaviour
         // Reduce current health by the damage amount
 
         enemyValues.enemyRb.linearVelocity = Vector2.zero;
-        // Ensure current health does not drop below zero
-        if (enemyCurrentHealth < 0)
-        {
-            enemyCurrentHealth = 0;
-        }
-        // Optionally, you can add logic to handle player death here
-        if (enemyCurrentHealth == 0)
+        if (enemyCurrentHealth <= 0)
         {
             Die(); // Call the Die method to handle enemy death
         }
@@ -38,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false); // Destroy the player object when health reaches zero
+        Debug.LogWarning("Enemy has died!"); // Log a message for debugging purposes
         PlayerManager.Instance.playerValues.sandsOfTime += RandomSandsOfTimeAmount(); // Increase the player's sand of time count
     }
 
@@ -50,10 +45,19 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyCurrentHealth -= damage;
         enemyValues.enemyRb.linearVelocity = Vector2.zero; // Stop the enemy's movement when taking damage
-        yield return new WaitForSeconds(1f); // Optional delay for damage effect
+        StartCoroutine(HitFlash()); // Call the HitFlash method to show damage effect
         if (enemyCurrentHealth <= 0)
         {
             Die(); // Call the Die method to handle enemy death
         }
+        yield return new WaitForSeconds(1f); // Optional delay for damage effect
+
+    }
+
+    public IEnumerator HitFlash()
+    {
+        enemyValues.enemySpriteRenderer.color = new Color(1f, 0.2f, 0.2f, 1f); // Change color to red
+        yield return new WaitForSeconds(0.1f); // Wait for a short duration
+        enemyValues.enemySpriteRenderer.color = Color.white; // Reset color to white
     }
 }

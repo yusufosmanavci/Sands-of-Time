@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
     {
         HorizontalMove();
         Dash();
-        if (PlayerManager.Instance.playerValues.IsAttacking)
+        PlayerManager.Instance.playerValues.IsGrounded = Physics2D.OverlapCircle(PlayerManager.Instance.playerValues.groundCheck.position, PlayerManager.Instance.playerValues.groundCheckRadius, PlayerManager.Instance.playerValues.groundLayer);
+        if (PlayerManager.Instance.playerValues.IsAttacking && PlayerManager.Instance.playerValues.IsGrounded && !PlayerManager.Instance.playerValues.IsKnockbacked)
         {
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
             StartCoroutine(SwordAttack());
         }
-        PlayerManager.Instance.playerValues.IsGrounded = Physics2D.OverlapCircle(PlayerManager.Instance.playerValues.groundCheck.position, PlayerManager.Instance.playerValues.groundCheckRadius, PlayerManager.Instance.playerValues.groundLayer);
         BooleanControl();
 
     }
@@ -209,14 +209,6 @@ public class PlayerController : MonoBehaviour
             PlayerManager.Instance.playerValues.IsDashing = false;
             damagedEnemies.Clear(); // Dash bitti, sonraki dash için sýfýrla
         }
-
-        if (PlayerManager.Instance.playerValues.IsAttacking)
-        {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(true); // Activate hitbox during attack
-        }
-        else
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); // Deactivate hitbox when not attacking
-
     }
 
     public IEnumerator KnockbackRoutine(Vector2 force)

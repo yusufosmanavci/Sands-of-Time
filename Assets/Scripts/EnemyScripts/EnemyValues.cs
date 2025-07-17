@@ -12,6 +12,7 @@ public class EnemyValues : MonoBehaviour
     public float platformTolerance = 0.5f; //Y farký toleransý
     public int minSandsOfTime = 50; // Minimum number of "sand of time" items to drop
     public int maxSandsOfTime = 300; // Maximum number of "sand of time" items to drop
+    public float hitboxRadius = 0.5f; // Radius for the hitbox detection
 
     public Transform APoint;
     public Transform BPoint;
@@ -24,6 +25,8 @@ public class EnemyValues : MonoBehaviour
     public SpriteRenderer enemySpriteRenderer;
     public Animator enemyAnimator;
     public LayerMask enemyLayer;
+    public LayerMask playerLayerMask;
+    public Collider2D enemyCollider;
 
 
     public bool IsFacingRight = false;
