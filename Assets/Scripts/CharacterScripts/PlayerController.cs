@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     public BossHealth bossHealth;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
-
+    private HashSet<GameObject> damagedEnemies2 = new HashSet<GameObject>();
 
     private void Awake()
     {
@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerInputs.JumpInput.performed += Jump;
     }
 
+
     private void OnDestroy()
     {
         playerInput.PlayerInputs.JumpInput.performed -= Jump;
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -60,15 +62,21 @@ public class PlayerController : MonoBehaviour
     {
         HorizontalMove();
         Dash();
+        if (PlayerManager.Instance.playerValues.IsAttacking)
+        {
+            PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
+            StartCoroutine(SwordAttack());
+        }
         PlayerManager.Instance.playerValues.IsGrounded = Physics2D.OverlapCircle(PlayerManager.Instance.playerValues.groundCheck.position, PlayerManager.Instance.playerValues.groundCheckRadius, PlayerManager.Instance.playerValues.groundLayer);
         BooleanControl();
+
     }
     //ana if bloðu ekleyip skillleri bool deðerleri ile kontrol edip animasyonlarý burada kontrol edebilirsin.
     private void HorizontalMove()
     {
         if (PlayerManager.Instance.playerValues.IsKnockbacked)
             return;
-        if(PlayerManager.Instance.playerValues.dashDuration > 0)
+        if (PlayerManager.Instance.playerValues.dashDuration > 0)
         {
             PlayerManager.Instance.playerValues.dashDuration -= Time.deltaTime;
         }
@@ -78,13 +86,11 @@ public class PlayerController : MonoBehaviour
             PlayerManager.Instance.playerValues.rb.linearVelocity = new Vector2(PlayerManager.Instance.playerValues.InputX * PlayerManager.Instance.playerValues.moveSpeed, PlayerManager.Instance.playerValues.rb.linearVelocity.y);
             if (PlayerManager.Instance.playerValues.IsfacingRight && PlayerManager.Instance.playerValues.InputX < 0)
             {
-                PlayerManager.Instance.playerValues.hitBox.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Flip hitbox scale for left-facing
                 PlayerManager.Instance.playerValues.IsfacingRight = false;
                 PlayerManager.Instance.playerValues.spriteRenderer.flipX = true;
             }
             else if (!PlayerManager.Instance.playerValues.IsfacingRight && PlayerManager.Instance.playerValues.InputX > 0)
             {
-                PlayerManager.Instance.playerValues.hitBox.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f); // Reset hitbox scale for right-facing
                 PlayerManager.Instance.playerValues.IsfacingRight = true;
                 PlayerManager.Instance.playerValues.spriteRenderer.flipX = false;
 
@@ -203,9 +209,17 @@ public class PlayerController : MonoBehaviour
             PlayerManager.Instance.playerValues.IsDashing = false;
             damagedEnemies.Clear(); // Dash bitti, sonraki dash için sýfýrla
         }
+
+        if (PlayerManager.Instance.playerValues.IsAttacking)
+        {
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(true); // Activate hitbox during attack
+        }
+        else
+            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); // Deactivate hitbox when not attacking
+
     }
 
-    public IEnumerator KnockbackRoutine (Vector2 force)
+    public IEnumerator KnockbackRoutine(Vector2 force)
     {
         PlayerManager.Instance.playerValues.IsKnockbacked = true;
         PlayerManager.Instance.playerValues.rb.AddForce(force, ForceMode2D.Impulse);
@@ -213,4 +227,28 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // Adjust the duration of the knockback effect
         PlayerManager.Instance.playerValues.IsKnockbacked = false; // Reset the knockback state after the effect
     }
+
+    public IEnumerator SwordAttack()
+    {
+        Vector2 position = PlayerManager.Instance.playerValues.IsfacingRight ? new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.max.x + 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y) : new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.min.x - 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(position, PlayerManager.Instance.playerValues.hitboxRadius, PlayerManager.Instance.playerValues.enemyLayerMask);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            GameObject enemyGO = enemy.gameObject;
+            if (!damagedEnemies2.Contains(enemyGO))
+            {
+                EnemyHealth enemyScript = enemy.GetComponent<EnemyHealth>();
+                if (enemyScript != null)
+                {
+                    StartCoroutine(enemyScript.TakeEnemyDamage(PlayerManager.Instance.playerValues.playerDamage));
+                    Debug.Log("Enemy took damage from player!");
+                    damagedEnemies2.Add(enemyGO); // tekrar vurulmasýný engelle
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(PlayerManager.Instance.playerValues.attackDelay); // Bekleme süresi
+        damagedEnemies2.Clear(); // Attack bittiðinde hasar verilen düþmanlarý temizle
+    }
+
 }

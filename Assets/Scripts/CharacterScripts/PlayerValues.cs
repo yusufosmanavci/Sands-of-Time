@@ -18,6 +18,8 @@ public class PlayerValues : MonoBehaviour
     public float playerDamage = 30f; // Damage dealt by the player
     public float dashAttackRadius = 1.5f;
     public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
+    public float hitboxRadius = 0.5f; // Radius for the hitbox detection
+    public float attackOffsetX = 0.5f; // Offset for the attack hitbox in the X direction
 
 
     public Rigidbody2D rb;
@@ -27,6 +29,7 @@ public class PlayerValues : MonoBehaviour
     public LayerMask groundLayer;
     public Transform hitBox;
     public LayerMask enemyLayerMask;
+    public Collider2D playerCollider;
 
     public string defaultLayer = "PlayerHurtbox";
     public string dashLayer = "DashingPlayer";

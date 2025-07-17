@@ -13,8 +13,6 @@ public class PlayerAnimations : MonoBehaviour
     {
         if (PlayerManager.Instance.playerValues.IsAttacking)
         {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(true); // Activate hitbox during attack
-            PlayerManager.Instance.playerValues.rb.linearVelocity = new Vector2(0f, PlayerManager.Instance.playerValues.rb.linearVelocity.y); // Disable linear velocity during attack
             if (PlayerManager.Instance.playerValues.attackCount == 1)
             {
                 PlayerManager.Instance.playerValues.animator.Play("1st Attack Animation");
@@ -25,41 +23,33 @@ public class PlayerAnimations : MonoBehaviour
             }
             else if (PlayerManager.Instance.playerValues.attackCount == 3)
             {
-                Vector2 attack3Direction = PlayerManager.Instance.playerValues.IsfacingRight ? Vector2.right : Vector2.left;
-                float attack3Force = 5f;
-                PlayerManager.Instance.playerValues.rb.AddForce(attack3Direction * attack3Force, ForceMode2D.Impulse);
                 PlayerManager.Instance.playerValues.animator.Play("3rd Attack Animation");
             }
             return;
         }
         if (PlayerManager.Instance.playerValues.IsDashing && !PlayerManager.Instance.playerValues.IsAttacking)
         {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
             PlayerManager.Instance.playerValues.animator.Play("Dash Animation");
             return;
         }
         if (PlayerManager.Instance.playerValues.rb.linearVelocity.y > 0)
         {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
             PlayerManager.Instance.playerValues.animator.Play("Jump Animation");
             return;
 
         }
         if (PlayerManager.Instance.playerValues.rb.linearVelocity.y < 0)
         {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false);
             PlayerManager.Instance.playerValues.animator.Play("Fall Animation");
             return;
         }
         if (PlayerManager.Instance.playerValues.InputX != 0)
         {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
             PlayerManager.Instance.playerValues.animator.Play("Run Animation");
             return;
         }
         else
         {
-            PlayerManager.Instance.playerValues.hitBox.gameObject.SetActive(false); 
             PlayerManager.Instance.playerValues.animator.Play("Idle Animation");
         }
     }
