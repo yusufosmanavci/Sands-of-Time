@@ -41,6 +41,8 @@ public class PlayerValues : MonoBehaviour
     public bool IsAttacking = false;
     public bool IsKnockbacked = false;
     public bool hasDealtDashDamage = false;
+    public bool IsSwordAttacking = false;
+
     /*public bool IsUsingSkill = false;
     public bool IsUsingSkill2 = false;
     public bool IsUsingSkill3 = false;

@@ -28,7 +28,7 @@ public class RoomTrigger : MonoBehaviour
                 roomToDeactivate.SetActive(false); // Deactivate the old room if it exists
 
             // Kamera sýnýrýný güncelle
-            Collider2D newBounds = roomToActivate.GetComponentInChildren<PolygonCollider2D>();
+            Collider2D newBounds = roomToActivate.GetComponentInChildren<BoxCollider2D>();
             if (newBounds != null)
                 cameraConfiner.BoundingShape2D = newBounds;
 

@@ -114,6 +114,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void SetPatrolZone(Transform pointA, Transform pointB)
+    {
+        enemyValues.APoint = pointA;
+        enemyValues.BPoint = pointB;
+        enemyValues.currentTarget = enemyValues.APoint; // Baþlangýç hedefi A noktasý olarak ayarla
+    }
 
     private bool PlayerDistanceControl()
     {

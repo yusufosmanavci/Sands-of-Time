@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         HorizontalMove();
         Dash();
         PlayerManager.Instance.playerValues.IsGrounded = Physics2D.OverlapCircle(PlayerManager.Instance.playerValues.groundCheck.position, PlayerManager.Instance.playerValues.groundCheckRadius, PlayerManager.Instance.playerValues.groundLayer);
-        if (PlayerManager.Instance.playerValues.IsAttacking && PlayerManager.Instance.playerValues.IsGrounded && !PlayerManager.Instance.playerValues.IsKnockbacked)
+        if (PlayerManager.Instance.playerValues.IsAttacking && PlayerManager.Instance.playerValues.IsGrounded && !PlayerManager.Instance.playerValues.IsKnockbacked && !PlayerManager.Instance.playerValues.IsSwordAttacking)
         {
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
             StartCoroutine(SwordAttack());
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     //ana if bloðu ekleyip skillleri bool deðerleri ile kontrol edip animasyonlarý burada kontrol edebilirsin.
     private void HorizontalMove()
     {
-        if (PlayerManager.Instance.playerValues.IsKnockbacked)
+        if (PlayerManager.Instance.playerValues.IsKnockbacked || PlayerManager.Instance.playerValues.IsAttacking)
             return;
         if (PlayerManager.Instance.playerValues.dashDuration > 0)
         {
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
                 EnemyHealth enemyScript = enemy.GetComponent<EnemyHealth>();
                 if (enemyScript != null)
                 {
-                    enemyScript.TakeEnemyDashDamage(PlayerManager.Instance.playerValues.playerDamage);
+                    StartCoroutine(enemyScript.TakeEnemyDashDamage(PlayerManager.Instance.playerValues.playerDamage));
                     damagedEnemies.Add(enemyGO); // tekrar vurulmasýný engelle
                 }
             }
@@ -191,6 +191,8 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator SwordAttack()
     {
+        PlayerManager.Instance.playerValues.IsSwordAttacking = true;
+
         Vector2 position = PlayerManager.Instance.playerValues.IsfacingRight ? new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.max.x + 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y) : new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.min.x - 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(position, PlayerManager.Instance.playerValues.hitboxRadius, PlayerManager.Instance.playerValues.enemyLayerMask);
         foreach (Collider2D enemy in hitEnemies)
@@ -210,6 +212,8 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(PlayerManager.Instance.playerValues.attackDelay); // Bekleme süresi
         damagedEnemies2.Clear(); // Attack bittiðinde hasar verilen düþmanlarý temizle
+
+        PlayerManager.Instance.playerValues.IsSwordAttacking = false; // Saldýrý bittiðinde durumu sýfýrla
     }
 
 }
