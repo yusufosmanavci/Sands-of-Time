@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && PlayerManager.Instance.playerValues.currentDashCooldown == 0 && !PlayerManager.Instance.playerValues.IsAttacking)
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && PlayerManager.Instance.playerValues.currentDashCooldown == 0 && !PlayerManager.Instance.playerValues.IsAttacking && !PlayerManager.Instance.playerValues.IsKnockbacked)
         {
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
             Vector2 dashDirection = PlayerManager.Instance.playerValues.IsfacingRight ? Vector2.right : Vector2.left;

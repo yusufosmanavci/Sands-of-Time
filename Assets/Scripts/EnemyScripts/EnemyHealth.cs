@@ -8,13 +8,25 @@ public class EnemyHealth : MonoBehaviour
     public float enemyCurrentHealth; // Current health of the player
     EnemyValues enemyValues;
     EnemyController enemyController;
-
+    public EnemyHealthBar enemyHealthBar;
+    public CanvasGroup healthBar;
     private void Start()
     {
         // Initialize current health to maximum health at the start
         enemyCurrentHealth = enemyMaxHealth;
         enemyValues = GetComponent<EnemyValues>();
         enemyController = GetComponent<EnemyController>();
+        enemyHealthBar.SetMaxHealth(enemyMaxHealth); // Set the maximum health in the health bar UI
+    }
+
+    private void Update()
+    {
+        if (enemyCurrentHealth == 100)
+        {
+            healthBar.alpha = 0; // Hide the health bar if the enemy is at full health
+        }
+        else
+            healthBar.alpha = 1; // Show the health bar if the enemy has taken damage
     }
 
     public void Die()
@@ -32,6 +44,8 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator TakeEnemyDamage(float damage)
     {
         enemyCurrentHealth -= damage;
+        enemyHealthBar.SetHealth(enemyCurrentHealth); // Update the health bar UI
+
         enemyValues.enemyRb.linearVelocity = Vector2.zero; // Stop the enemy's movement when taking damage
         StartCoroutine(HitFlash()); // Call the HitFlash method to show damage effect
         if (enemyCurrentHealth <= 0)
@@ -44,6 +58,8 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator TakeEnemyDashDamage(float damage)
     {
         enemyCurrentHealth -= damage;
+        enemyHealthBar.SetHealth(enemyCurrentHealth); // Update the health bar UI
+
         enemyValues.enemyRb.linearVelocity = Vector2.zero; // Stop the enemy's movement when taking damage
         StartCoroutine(HitFlash()); // Call the HitFlash method to show damage effect
         if (enemyCurrentHealth <= 0)
