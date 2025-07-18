@@ -44,13 +44,13 @@ public class PlayerAnimations : MonoBehaviour
             PlayerManager.Instance.playerValues.animator.Play("Dash Animation");
             return;
         }
-        if (PlayerManager.Instance.playerValues.rb.linearVelocity.y > 0)
+        if (PlayerManager.Instance.playerValues.rb.linearVelocity.y > 0 && !PlayerManager.Instance.playerValues.IsGrounded)
         {
             PlayerManager.Instance.playerValues.animator.Play("Jump Animation");
             return;
 
         }
-        if (PlayerManager.Instance.playerValues.rb.linearVelocity.y < 0)
+        if (PlayerManager.Instance.playerValues.rb.linearVelocity.y < 0 && !PlayerManager.Instance.playerValues.IsGrounded)
         {
             PlayerManager.Instance.playerValues.animator.Play("Fall Animation");
             return;

@@ -28,6 +28,7 @@ public class PlayerValues : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask enemyLayerMask;
     public Collider2D playerCollider;
+    public Transform player;
 
     public string defaultLayer = "PlayerHurtbox";
     public string dashLayer = "DashingPlayer";

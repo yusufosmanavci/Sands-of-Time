@@ -18,7 +18,6 @@ public class EnemyValues : MonoBehaviour
     public Transform BPoint;
     public Transform currentTarget;
     public Transform player;
-    public Transform enemyHitbox;
     public Transform groundCheck;
 
     public Rigidbody2D enemyRb;

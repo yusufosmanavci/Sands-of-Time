@@ -16,7 +16,10 @@ public class EnemyController : MonoBehaviour
         enemyValues.currentTarget = enemyValues.APoint; // Baþlangýç hedefi A noktasý olarak ayarla
         enemyValues.enemyAnimator = GetComponentInChildren<Animator>();
         lastPosition = transform.position;
-        enemyValues.player = FindFirstObjectByType<PlayerController>().transform; // Oyuncu referansýný al
+    }
+    private void Start()
+    {
+        enemyValues.player = PlayerManager.Instance.playerValues.player.transform; // Oyuncu referansýný al
     }
 
     private void Update()
@@ -123,19 +126,19 @@ public class EnemyController : MonoBehaviour
         float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
 
-        if (xDistanceToPlayer > 10 || yOffset > 2.5f)
+        if (xDistanceToPlayer > 10 || yOffset > 3f)
         {
             enemyValues.IsPlayerInRange = false;
             enemyValues.playerNotFound = true;
             enemyValues.IsAttacking = false;
         }
-        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 2.5f)
+        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
             return true;
         }
-        else if (xDistanceToPlayer <= 1.5f && yOffset <= 2.5f)
+        else if (xDistanceToPlayer <= 1.5f && yOffset <= 3f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
@@ -285,7 +288,6 @@ public class EnemyController : MonoBehaviour
 
         // Animasyon baþlat
         enemyValues.enemyAnimator.SetBool("IsAttacking", true);
-        enemyValues.enemyHitbox.gameObject.SetActive(true); // Saldýrý hitbox'ýný aktif et
         enemyValues.IsInAttackAnimation = true;
 
         StartCoroutine(SwordAttack()); // Saldýrý animasyonu sýrasýnda oyuncuya hasar verme
@@ -295,7 +297,6 @@ public class EnemyController : MonoBehaviour
 
         // Animasyon bitir
         enemyValues.enemyAnimator.SetBool("IsAttacking", false);
-        enemyValues.enemyHitbox.gameObject.SetActive(false); // Saldýrý hitbox'ýný pasif et
         enemyValues.IsInAttackAnimation = false;
 
         // Saldýrýdan sonra tekrar bekleme (cooldown)

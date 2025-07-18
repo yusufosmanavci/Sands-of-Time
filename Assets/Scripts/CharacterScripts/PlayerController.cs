@@ -26,37 +26,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHurtbox"))
-        {
-            EnemyValues enemyValues = collision.gameObject.GetComponentInParent<EnemyValues>();
-            if (PlayerManager.Instance.playerValues.IsAttacking && enemyValues != null && !enemyValues.IsInAttackAnimation)
-            {
-                EnemyHealth enemy = enemyValues.GetComponent<EnemyHealth>();
-                if (enemy != null)
-                {
-                    StartCoroutine(enemy.TakeEnemyDamage(PlayerManager.Instance.playerValues.playerDamage));
-                    Debug.Log("Enemy took damage from player!");
-                }
-            }
-        }
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyHurtbox"))
-        {
-            BossController bossController = collision.gameObject.GetComponentInParent<BossController>();
-            if (PlayerManager.Instance.playerValues.IsAttacking && bossController != null && !bossController.bossValues.IsInAttackAnimation)
-            {
-                BossHealth boss = bossController.GetComponent<BossHealth>();
-                if (boss != null)
-                {
-                    boss.TakeBossDamage(PlayerManager.Instance.playerValues.playerDamage);
-                    Debug.Log("Enemy took damage from player!");
-                }
-            }
-        }
-    }
-
 
     void Update()
     {
