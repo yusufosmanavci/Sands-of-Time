@@ -11,6 +11,11 @@ public class PlayerAnimations : MonoBehaviour
     // rigidbody y deðerini kontrol edip duruma göre düþme ya da zýplama animasyonunu oynat.
     private void SetAnimation()
     {
+        if(PlayerManager.Instance.playerHealth.currentHealth <= 0)
+        {
+            PlayerManager.Instance.playerValues.animator.Play("Death Animation");
+            return;
+        }
         if (PlayerManager.Instance.playerValues.IsKnockbacked)
         {
             if(PlayerManager.Instance.playerValues.rb.linearVelocity.y > 0)

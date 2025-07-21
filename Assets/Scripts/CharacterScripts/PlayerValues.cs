@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class PlayerValues : MonoBehaviour
 {
@@ -20,7 +22,8 @@ public class PlayerValues : MonoBehaviour
     public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
     public float hitboxRadius = 1f; // Radius for the hitbox detection
     public int jumpCount = 0; // Number of jumps performed
-
+    public static Vector2 lastCheckpointPosition; // Last checkpoint position for respawning
+    public static CinemachineConfiner2D cameraConfiner; // Reference to the Cinemachine confiner for camera boundaries
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -43,6 +46,7 @@ public class PlayerValues : MonoBehaviour
     public bool IsKnockbacked = false;
     public bool hasDealtDashDamage = false;
     public bool IsSwordAttacking = false;
+    public bool IsDead = false;
 
     /*public bool IsUsingSkill = false;
     public bool IsUsingSkill2 = false;

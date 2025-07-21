@@ -278,6 +278,7 @@ MonoBehaviour:
   dashAttackRadius: 1.5
   sandsOfTime: 0
   hitboxRadius: 0.5
+  jumpCount: 0
   rb: {fileID: 6287482775401147582}
   animator: {fileID: 6776784990965775699}
   spriteRenderer: {fileID: 392071962595458747}
@@ -289,7 +290,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerCollider: {fileID: 6628027388912367083}
-  player: {fileID: 5566987990001340121}
+  player: {fileID: 2286337570279793584}
   defaultLayer: PlayerHurtbox
   dashLayer: DashingPlayer
   IsGrounded: 0
@@ -300,6 +301,7 @@ MonoBehaviour:
   IsAttacking: 0
   IsKnockbacked: 0
   hasDealtDashDamage: 0
+  IsSwordAttacking: 0
 --- !u!114 &538406504813595993
 MonoBehaviour:
   m_ObjectHideFlags: 0

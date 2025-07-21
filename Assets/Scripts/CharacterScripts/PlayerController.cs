@@ -1,4 +1,5 @@
 using Assets.Scripts.BossScripts;
+using Assets.Scripts.CharacterScripts;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,7 +27,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    private void Start()
+    {
+        PlayerManager.Instance.playerData.Load(); // Load player data at the start
+        transform.position = PlayerValues.lastCheckpointPosition; // Checkpoint'ten baþlatma
+    }
     void Update()
     {
         HorizontalMove();
@@ -69,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if (!PlayerManager.Instance.playerValues.IsDashing)
+        if (!PlayerManager.Instance.playerValues.IsDashing && !PlayerManager.Instance.playerValues.IsKnockbacked)
         {
             if (context.ReadValueAsButton() && PlayerManager.Instance.playerValues.jumpCount <= 1 && PlayerManager.Instance.playerValues.jumpCount > 0)
             {

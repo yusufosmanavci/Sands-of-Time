@@ -34,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
         gameObject.SetActive(false); // Destroy the player object when health reaches zero
         Debug.LogWarning("Enemy has died!"); // Log a message for debugging purposes
         PlayerManager.Instance.playerValues.sandsOfTime += RandomSandsOfTimeAmount(); // Increase the player's sand of time count
+        PlayerManager.Instance.playerData.SandsOfTimeSave(); // Save the player's data after defeating the enemy
     }
 
     public int RandomSandsOfTimeAmount()

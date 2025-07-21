@@ -35,7 +35,15 @@ public class PlayerHealth : MonoBehaviour
         // Optionally, you can add logic to handle player death here
         if (currentHealth == 0)
         {
-            Destroy(gameObject); // Destroy the player object when health reaches zero
+            StartCoroutine(Die());
         }
+    }
+
+    private IEnumerator Die()
+    {
+        PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Stop player movement
+        yield return new WaitForSeconds(0.6f); // Wait for the animation to finish (adjust time as needed)
+        PlayerManager.Instance.playerValues.IsDead = true; // Set the player state to dead
+        transform.position = PlayerValues.lastCheckpointPosition;
     }
 }

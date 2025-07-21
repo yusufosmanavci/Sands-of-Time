@@ -1,3 +1,4 @@
+using Assets.Scripts.CharacterScripts;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerValues playerValues; // Reference to the PlayerValues script for player attributes
     public PlayerHealthBar playerHealthBar; // Reference to the PlayerHealthBar script for health bar UI
     public PlayerAnimations playerAnimations; // Reference to the PlayerAnimations script for player animations
+    public PlayerData playerData; // Reference to the PlayerData script for saving and loading player data
 
     public static PlayerManager Instance { get; private set; } // Singleton instance of PlayerManager
 
