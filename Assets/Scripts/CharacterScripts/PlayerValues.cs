@@ -19,6 +19,7 @@ public class PlayerValues : MonoBehaviour
     public float dashAttackRadius = 1.5f;
     public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
     public float hitboxRadius = 1f; // Radius for the hitbox detection
+    public int jumpCount = 0; // Number of jumps performed
 
 
     public Rigidbody2D rb;

@@ -24,9 +24,15 @@ public class RoomTrigger : MonoBehaviour
                 enemySpawner.SpawnEnemies(); // Spawn new enemies in the new room
             }
 
-            if(roomToDeactivate != null)
+            if (roomToDeactivate != null)
+            {
+                enemySpawner = roomToDeactivate.GetComponentInChildren<EnemySpawner>();
+                if (enemySpawner != null)
+                {
+                    enemySpawner.ClearEnemies(); // Clear any existing enemies in the old room
+                }
                 roomToDeactivate.SetActive(false); // Deactivate the old room if it exists
-
+            }
             // Kamera sýnýrýný güncelle
             Collider2D newBounds = roomToActivate.GetComponentInChildren<BoxCollider2D>();
             if (newBounds != null)

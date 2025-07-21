@@ -71,8 +71,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!PlayerManager.Instance.playerValues.IsDashing)
         {
-            if (context.ReadValueAsButton() && PlayerManager.Instance.playerValues.IsGrounded)
+            if (context.ReadValueAsButton() && PlayerManager.Instance.playerValues.jumpCount <= 1 && PlayerManager.Instance.playerValues.jumpCount > 0)
             {
+                PlayerManager.Instance.playerValues.jumpCount--;
                 PlayerManager.Instance.playerValues.rb.AddForce(Vector2.up * PlayerManager.Instance.playerValues.jumpForce, ForceMode2D.Impulse);
             }
         }
@@ -178,6 +179,11 @@ public class PlayerController : MonoBehaviour
             PlayerManager.Instance.playerValues.IsDashing = false;
             damagedEnemies.Clear(); // Dash bitti, sonraki dash için sýfýrla
         }
+        if(PlayerManager.Instance.playerValues.IsGrounded)
+        {
+            PlayerManager.Instance.playerValues.jumpCount = 1; // Zeminle temas edince zýplama sayýsýný artýr.
+        }
+            
     }
 
     public IEnumerator KnockbackRoutine(Vector2 force)

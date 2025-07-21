@@ -71,8 +71,8 @@ public class PlayerAnimations : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame && PlayerManager.Instance.playerValues.attackCooldown <= 0)
         {
             PlayerManager.Instance.playerValues.attackCount++;
-            PlayerManager.Instance.playerValues.attackCooldown = 0.5f; // Reset the cooldown after an attack
-            PlayerManager.Instance.playerValues.attackDelay = 0.6f; // Delay before the next attack can be initiated
+            PlayerManager.Instance.playerValues.attackCooldown = 0.3f; // Reset the cooldown after an attack
+            PlayerManager.Instance.playerValues.attackDelay = 0.3f; // Delay before the next attack can be initiated
             PlayerManager.Instance.playerValues.attackResetTime = 1.5f; // Time to reset attack count after the last attack
             PlayerManager.Instance.playerValues.IsAttacking = true;
         }
