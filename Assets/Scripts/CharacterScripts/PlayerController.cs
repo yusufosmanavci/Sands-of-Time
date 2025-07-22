@@ -8,14 +8,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerInput playerInput;
+    private PlayerInputAll playerInput;
     public BossHealth bossHealth;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
     private HashSet<GameObject> damagedEnemies2 = new HashSet<GameObject>();
 
     private void Awake()
     {
-        playerInput = new PlayerInput();
+        playerInput = new PlayerInputAll();
         playerInput.PlayerInputs.Enable();
         playerInput.PlayerInputs.JumpInput.performed += Jump;
     }

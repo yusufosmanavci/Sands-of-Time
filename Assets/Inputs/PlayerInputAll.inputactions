@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "PlayerInputAll",
     "maps": [
         {
             "name": "PlayerInputs",
@@ -112,6 +112,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PlayerUIInputs",
+            "id": "2d13f206-538c-4bce-8033-ad491174abc2",
+            "actions": [
+                {
+                    "name": "MenuOpenClose",
+                    "type": "Button",
+                    "id": "dd9ee31c-ddcf-4378-8b56-7369b9cd97e5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "75bb07c4-79f1-47dc-8b3a-62df5c649de6",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard;Keyboard & Mouse",
+                    "action": "MenuOpenClose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
@@ -127,6 +155,17 @@
                 {
                     "devicePath": "<Mouse>",
                     "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
