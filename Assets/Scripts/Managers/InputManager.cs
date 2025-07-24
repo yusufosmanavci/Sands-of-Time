@@ -8,8 +8,10 @@ public class InputManager : MonoBehaviour
     private PlayerInput playerInput;
 
     public bool MenuOpenCloseInput { get; private set; }
+    public static bool DoorInteract {  get; private set; }
 
     private InputAction menuOpenCloseAction;
+    private InputAction doorInteractAction;
 
     private void Awake()
     {
@@ -24,11 +26,22 @@ public class InputManager : MonoBehaviour
         }
         playerInput = GetComponent<PlayerInput>();
         menuOpenCloseAction = playerInput.actions["MenuOpenClose"];
+        doorInteractAction = playerInput.actions["DoorInteraction"];
     }
 
     private void Update()
     {
-            MenuOpenCloseInput = menuOpenCloseAction.WasPressedThisFrame();
+        MenuOpenCloseInput = menuOpenCloseAction.WasPressedThisFrame();
+        DoorInteract = doorInteractAction.WasPressedThisFrame();
     }
 
+    public static void DeactivatePlayerControls()
+    {
+        Instance.playerInput.currentActionMap.Disable();
+    }
+
+    public static void ActivatePlayerControls()
+    {
+        Instance.playerInput.currentActionMap.Enable();
+    }
 }

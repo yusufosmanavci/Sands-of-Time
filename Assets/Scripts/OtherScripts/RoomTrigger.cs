@@ -6,9 +6,7 @@ public class RoomTrigger : MonoBehaviour
 {
     public GameObject roomToActivate; // Reference to the room GameObject that will be activated when the player enters the trigger
     public GameObject roomToDeactivate;
-    public CinemachineConfiner2D cameraConfiner; // Reference to the CinemachineConfiner2D component for camera confinement
     public Transform entryTarget;
-
     EnemySpawner enemySpawner;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,9 +32,12 @@ public class RoomTrigger : MonoBehaviour
                 roomToDeactivate.SetActive(false); // Deactivate the old room if it exists
             }
             // Kamera sýnýrýný güncelle
-            Collider2D newBounds = roomToActivate.GetComponentInChildren<BoxCollider2D>();
-            if (newBounds != null)
-                cameraConfiner.BoundingShape2D = newBounds;
+            BoxCollider2D box = roomToActivate.GetComponentInChildren<BoxCollider2D>();
+            Vector2 roomMin = box.bounds.min;
+            Vector2 roomMax = box.bounds.max;
+
+            CameraController cam = Camera.main.GetComponent<CameraController>();
+            cam.SetBounds(roomMin, roomMax); // Set camera bounds to the new room
 
             // Oyuncuyu hedef noktaya yerleþtir
             if (entryTarget != null)

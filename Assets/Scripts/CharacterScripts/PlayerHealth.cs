@@ -44,6 +44,6 @@ public class PlayerHealth : MonoBehaviour
         PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Stop player movement
         yield return new WaitForSeconds(0.6f); // Wait for the animation to finish (adjust time as needed)
         PlayerManager.Instance.playerValues.IsDead = true; // Set the player state to dead
-        transform.position = PlayerValues.lastCheckpointPosition;
+        //transform.position = PlayerValues.lastCheckpointPosition;
     }
 }

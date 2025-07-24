@@ -117,6 +117,24 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DoorInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""39e609f8-48fb-4ac2-88d2-aabe2b489895"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuOpenClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""7daf3186-5ff1-4065-b28d-f60fa25977d6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,28 +148,6 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""action"": ""MoveInputs"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""03ad78dd-591b-4f65-8ecb-b90e737a5229"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard & Mouse"",
-                    ""action"": ""MoveInputs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""802f4ccd-0744-4548-a3a5-79d08c3c5716"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard & Mouse"",
-                    ""action"": ""MoveInputs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
@@ -196,31 +192,25 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""action"": ""AttackInputs"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""PlayerUIInputs"",
-            ""id"": ""2d13f206-538c-4bce-8033-ad491174abc2"",
-            ""actions"": [
-                {
-                    ""name"": ""MenuOpenClose"",
-                    ""type"": ""Button"",
-                    ""id"": ""dd9ee31c-ddcf-4378-8b56-7369b9cd97e5"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""75bb07c4-79f1-47dc-8b3a-62df5c649de6"",
+                    ""id"": ""c477e017-9811-4e95-9ec1-a155dfa19069"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""DoorInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4e622fd-63a0-4d1d-a910-f4c0d145e359"",
                     ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard;Keyboard & Mouse"",
+                    ""groups"": """",
                     ""action"": ""MenuOpenClose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -263,15 +253,13 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         m_PlayerInputs_MoveInputs = m_PlayerInputs.FindAction("MoveInputs", throwIfNotFound: true);
         m_PlayerInputs_JumpInput = m_PlayerInputs.FindAction("JumpInput", throwIfNotFound: true);
         m_PlayerInputs_AttackInputs = m_PlayerInputs.FindAction("AttackInputs", throwIfNotFound: true);
-        // PlayerUIInputs
-        m_PlayerUIInputs = asset.FindActionMap("PlayerUIInputs", throwIfNotFound: true);
-        m_PlayerUIInputs_MenuOpenClose = m_PlayerUIInputs.FindAction("MenuOpenClose", throwIfNotFound: true);
+        m_PlayerInputs_DoorInteraction = m_PlayerInputs.FindAction("DoorInteraction", throwIfNotFound: true);
+        m_PlayerInputs_MenuOpenClose = m_PlayerInputs.FindAction("MenuOpenClose", throwIfNotFound: true);
     }
 
     ~@PlayerInputAll()
     {
         UnityEngine.Debug.Assert(!m_PlayerInputs.enabled, "This will cause a leak and performance issues, PlayerInputAll.PlayerInputs.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_PlayerUIInputs.enabled, "This will cause a leak and performance issues, PlayerInputAll.PlayerUIInputs.Disable() has not been called.");
     }
 
     /// <summary>
@@ -350,6 +338,8 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInputs_MoveInputs;
     private readonly InputAction m_PlayerInputs_JumpInput;
     private readonly InputAction m_PlayerInputs_AttackInputs;
+    private readonly InputAction m_PlayerInputs_DoorInteraction;
+    private readonly InputAction m_PlayerInputs_MenuOpenClose;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerInputs".
     /// </summary>
@@ -373,6 +363,14 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerInputs/AttackInputs".
         /// </summary>
         public InputAction @AttackInputs => m_Wrapper.m_PlayerInputs_AttackInputs;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInputs/DoorInteraction".
+        /// </summary>
+        public InputAction @DoorInteraction => m_Wrapper.m_PlayerInputs_DoorInteraction;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInputs/MenuOpenClose".
+        /// </summary>
+        public InputAction @MenuOpenClose => m_Wrapper.m_PlayerInputs_MenuOpenClose;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -408,6 +406,12 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @AttackInputs.started += instance.OnAttackInputs;
             @AttackInputs.performed += instance.OnAttackInputs;
             @AttackInputs.canceled += instance.OnAttackInputs;
+            @DoorInteraction.started += instance.OnDoorInteraction;
+            @DoorInteraction.performed += instance.OnDoorInteraction;
+            @DoorInteraction.canceled += instance.OnDoorInteraction;
+            @MenuOpenClose.started += instance.OnMenuOpenClose;
+            @MenuOpenClose.performed += instance.OnMenuOpenClose;
+            @MenuOpenClose.canceled += instance.OnMenuOpenClose;
         }
 
         /// <summary>
@@ -428,6 +432,12 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @AttackInputs.started -= instance.OnAttackInputs;
             @AttackInputs.performed -= instance.OnAttackInputs;
             @AttackInputs.canceled -= instance.OnAttackInputs;
+            @DoorInteraction.started -= instance.OnDoorInteraction;
+            @DoorInteraction.performed -= instance.OnDoorInteraction;
+            @DoorInteraction.canceled -= instance.OnDoorInteraction;
+            @MenuOpenClose.started -= instance.OnMenuOpenClose;
+            @MenuOpenClose.performed -= instance.OnMenuOpenClose;
+            @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
         }
 
         /// <summary>
@@ -461,102 +471,6 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerInputsActions" /> instance referencing this action map.
     /// </summary>
     public PlayerInputsActions @PlayerInputs => new PlayerInputsActions(this);
-
-    // PlayerUIInputs
-    private readonly InputActionMap m_PlayerUIInputs;
-    private List<IPlayerUIInputsActions> m_PlayerUIInputsActionsCallbackInterfaces = new List<IPlayerUIInputsActions>();
-    private readonly InputAction m_PlayerUIInputs_MenuOpenClose;
-    /// <summary>
-    /// Provides access to input actions defined in input action map "PlayerUIInputs".
-    /// </summary>
-    public struct PlayerUIInputsActions
-    {
-        private @PlayerInputAll m_Wrapper;
-
-        /// <summary>
-        /// Construct a new instance of the input action map wrapper class.
-        /// </summary>
-        public PlayerUIInputsActions(@PlayerInputAll wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "PlayerUIInputs/MenuOpenClose".
-        /// </summary>
-        public InputAction @MenuOpenClose => m_Wrapper.m_PlayerUIInputs_MenuOpenClose;
-        /// <summary>
-        /// Provides access to the underlying input action map instance.
-        /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_PlayerUIInputs; }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
-        public void Enable() { Get().Enable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
-        public void Disable() { Get().Disable(); }
-        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
-        public bool enabled => Get().enabled;
-        /// <summary>
-        /// Implicitly converts an <see ref="PlayerUIInputsActions" /> to an <see ref="InputActionMap" /> instance.
-        /// </summary>
-        public static implicit operator InputActionMap(PlayerUIInputsActions set) { return set.Get(); }
-        /// <summary>
-        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <param name="instance">Callback instance.</param>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
-        /// </remarks>
-        /// <seealso cref="PlayerUIInputsActions" />
-        public void AddCallbacks(IPlayerUIInputsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_PlayerUIInputsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerUIInputsActionsCallbackInterfaces.Add(instance);
-            @MenuOpenClose.started += instance.OnMenuOpenClose;
-            @MenuOpenClose.performed += instance.OnMenuOpenClose;
-            @MenuOpenClose.canceled += instance.OnMenuOpenClose;
-        }
-
-        /// <summary>
-        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
-        /// </summary>
-        /// <remarks>
-        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
-        /// </remarks>
-        /// <seealso cref="PlayerUIInputsActions" />
-        private void UnregisterCallbacks(IPlayerUIInputsActions instance)
-        {
-            @MenuOpenClose.started -= instance.OnMenuOpenClose;
-            @MenuOpenClose.performed -= instance.OnMenuOpenClose;
-            @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
-        }
-
-        /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerUIInputsActions.UnregisterCallbacks(IPlayerUIInputsActions)" />.
-        /// </summary>
-        /// <seealso cref="PlayerUIInputsActions.UnregisterCallbacks(IPlayerUIInputsActions)" />
-        public void RemoveCallbacks(IPlayerUIInputsActions instance)
-        {
-            if (m_Wrapper.m_PlayerUIInputsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        /// <summary>
-        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
-        /// </summary>
-        /// <remarks>
-        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
-        /// </remarks>
-        /// <seealso cref="PlayerUIInputsActions.AddCallbacks(IPlayerUIInputsActions)" />
-        /// <seealso cref="PlayerUIInputsActions.RemoveCallbacks(IPlayerUIInputsActions)" />
-        /// <seealso cref="PlayerUIInputsActions.UnregisterCallbacks(IPlayerUIInputsActions)" />
-        public void SetCallbacks(IPlayerUIInputsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_PlayerUIInputsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerUIInputsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    /// <summary>
-    /// Provides a new <see cref="PlayerUIInputsActions" /> instance referencing this action map.
-    /// </summary>
-    public PlayerUIInputsActions @PlayerUIInputs => new PlayerUIInputsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -611,14 +525,13 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttackInputs(InputAction.CallbackContext context);
-    }
-    /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerUIInputs" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="PlayerUIInputsActions.AddCallbacks(IPlayerUIInputsActions)" />
-    /// <seealso cref="PlayerUIInputsActions.RemoveCallbacks(IPlayerUIInputsActions)" />
-    public interface IPlayerUIInputsActions
-    {
+        /// <summary>
+        /// Method invoked when associated input action "DoorInteraction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDoorInteraction(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "MenuOpenClose" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

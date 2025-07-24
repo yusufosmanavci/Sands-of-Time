@@ -20,11 +20,7 @@ namespace Assets.Scripts.CharacterScripts
             PlayerPrefs.SetInt("Sands Of Time", PlayerManager.Instance.playerValues.sandsOfTime);
         }
 
-        public void CheckPointSave()
-        {
-            PlayerPrefs.SetFloat("lastCheckpointX", PlayerValues.lastCheckpointPosition.x);
-            PlayerPrefs.SetFloat("lastCheckpointY", PlayerValues.lastCheckpointPosition.y);
-        }
+        
 
         public void Load()
         {
@@ -37,16 +33,7 @@ namespace Assets.Scripts.CharacterScripts
                 PlayerManager.Instance.playerValues.sandsOfTime = 0; // Default value if not set
             }
 
-            if (PlayerPrefs.HasKey("lastCheckpointX") && PlayerPrefs.HasKey("lastCheckpointY"))
-            {
-                float x = PlayerPrefs.GetFloat("lastCheckpointX");
-                float y = PlayerPrefs.GetFloat("lastCheckpointY");
-                PlayerValues.lastCheckpointPosition = new Vector2(x, y);
-            }
-            else
-            {
-                PlayerValues.lastCheckpointPosition = Vector2.zero; // Default value if not set
-            }
+            
         }
     }
 }

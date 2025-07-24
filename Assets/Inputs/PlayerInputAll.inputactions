@@ -31,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DoorInteraction",
+                    "type": "Button",
+                    "id": "39e609f8-48fb-4ac2-88d2-aabe2b489895",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MenuOpenClose",
+                    "type": "Button",
+                    "id": "7daf3186-5ff1-4065-b28d-f60fa25977d6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,28 +62,6 @@
                     "action": "MoveInputs",
                     "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "03ad78dd-591b-4f65-8ecb-b90e737a5229",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard & Mouse",
-                    "action": "MoveInputs",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "802f4ccd-0744-4548-a3a5-79d08c3c5716",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard & Mouse",
-                    "action": "MoveInputs",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -110,31 +106,25 @@
                     "action": "AttackInputs",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "PlayerUIInputs",
-            "id": "2d13f206-538c-4bce-8033-ad491174abc2",
-            "actions": [
-                {
-                    "name": "MenuOpenClose",
-                    "type": "Button",
-                    "id": "dd9ee31c-ddcf-4378-8b56-7369b9cd97e5",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "75bb07c4-79f1-47dc-8b3a-62df5c649de6",
+                    "id": "c477e017-9811-4e95-9ec1-a155dfa19069",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "DoorInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4e622fd-63a0-4d1d-a910-f4c0d145e359",
                     "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard;Keyboard & Mouse",
+                    "groups": "",
                     "action": "MenuOpenClose",
                     "isComposite": false,
                     "isPartOfComposite": false

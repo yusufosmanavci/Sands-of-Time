@@ -342,7 +342,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(PlayerManager.Instance.playerValues.attackDelay); // Bekleme süresi
+        yield return new WaitForSeconds(0);//(PlayerManager.Instance.playerValues.attackDelay); // Bekleme süresi
         damagedPlayer.Clear(); // Attack bittiðinde hasar verilen düþmanlarý temizle
     }
 }

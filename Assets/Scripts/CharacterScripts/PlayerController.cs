@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         PlayerManager.Instance.playerData.Load(); // Load player data at the start
-        transform.position = PlayerValues.lastCheckpointPosition; // Checkpoint'ten baþlatma
+        //transform.position = PlayerValues.lastCheckpointPosition; // Checkpoint'ten baþlatma
     }
     void Update()
     {

@@ -12,6 +12,9 @@ namespace Assets.Scripts.OtherScripts
         
         public GameObject campfireCanvas;
         public GameObject characterUpgradeCanvas;
+        public GameObject healthBar;
+        public GameObject dashSkill;
+
         public bool IsPaused;
 
         public Button upgradeButton;
@@ -24,6 +27,7 @@ namespace Assets.Scripts.OtherScripts
 
             OpenCampfireMenu();
         }
+        
 
         public void Unpause()
         {
@@ -36,6 +40,8 @@ namespace Assets.Scripts.OtherScripts
         {
             campfireCanvas.SetActive(true);
             characterUpgradeCanvas.SetActive(false); // Ensure the upgrade canvas is hidden initially
+            healthBar.SetActive(false); // Hide the health bar
+            dashSkill.SetActive(false); // Hide the dash skill
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
             EventSystem.current.SetSelectedGameObject(upgradeButton.gameObject); // Set focus on the campfire text
         }
@@ -43,6 +49,8 @@ namespace Assets.Scripts.OtherScripts
         {
             campfireCanvas.SetActive(false);
             characterUpgradeCanvas.SetActive(true); // Show the character upgrade canvas
+            healthBar.SetActive(false); // Hide the health bar
+            dashSkill.SetActive(false); // Hide the dash skill
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
             EventSystem.current.SetSelectedGameObject(levelUpButton.gameObject); // Set focus on the level up button
         }
@@ -51,6 +59,8 @@ namespace Assets.Scripts.OtherScripts
         {
             characterUpgradeCanvas.SetActive(false);
             campfireCanvas.SetActive(true); // Show the campfire canvas when closing the upgrade menu
+            healthBar.SetActive(false); // Hide the health bar
+            dashSkill.SetActive(false); // Hide the dash skill
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
             EventSystem.current.SetSelectedGameObject(upgradeButton.gameObject); // Set focus on the resume button
         }
@@ -59,6 +69,8 @@ namespace Assets.Scripts.OtherScripts
         {
             campfireCanvas.SetActive(false);
             characterUpgradeCanvas.SetActive(false); // Hide the upgrade canvas when closing the campfire menu
+            healthBar.SetActive(true); // Hide the health bar
+            dashSkill.SetActive(true); // Hide the dash skill
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
         }
 

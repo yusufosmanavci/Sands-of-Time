@@ -830,6 +830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   campfireCanvas: {fileID: 3314043520793959079}
   characterUpgradeCanvas: {fileID: 6477242531713626693}
+  healthBar: {fileID: 4574108220698350113}
+  dashSkill: {fileID: 5873909873509897546}
   IsPaused: 0
   upgradeButton: {fileID: 1631186876591381430}
   levelUpButton: {fileID: 5197722985413829531}

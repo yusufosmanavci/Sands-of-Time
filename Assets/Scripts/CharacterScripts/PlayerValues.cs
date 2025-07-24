@@ -22,8 +22,7 @@ public class PlayerValues : MonoBehaviour
     public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
     public float hitboxRadius = 1f; // Radius for the hitbox detection
     public int jumpCount = 0; // Number of jumps performed
-    public static Vector2 lastCheckpointPosition; // Last checkpoint position for respawning
-    public static CinemachineConfiner2D cameraConfiner; // Reference to the Cinemachine confiner for camera boundaries
+    //public static Vector2 lastCheckpointPosition; // Last checkpoint position for respawning
 
     public Rigidbody2D rb;
     public Animator animator;
