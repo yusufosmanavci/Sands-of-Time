@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        Camera.main.orthographicSize = roomData.cameraSize; // Set camera size based on room data
         Camera cam = Camera.main;
         camHalfHeight = cam.orthographicSize;
         camHalfWidth = cam.aspect * camHalfHeight; // Calculate half width based on camera aspect ratio
@@ -51,12 +52,15 @@ public class CameraController : MonoBehaviour
 
     
 
-    public void SetBounds(Vector2 min, Vector2 max, Vector3 cameraPosition)
+    public void SetBounds(Vector2 min, Vector2 max, Vector3 cameraPosition, float cameraSize)
     {
         IsNewRoomActivated = false; // Disable camera movement until bounds are set
         minBounds = min;
         maxBounds = max;
         transform.position = cameraPosition;
+        Camera.main.orthographicSize = cameraSize; // Set camera size
+        camHalfHeight = Camera.main.orthographicSize;
+        camHalfWidth = Camera.main.aspect * camHalfHeight;
         IsNewRoomActivated = true;
 
     }

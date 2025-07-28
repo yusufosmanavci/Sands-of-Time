@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 1
   cameraPosition: {x: 78, y: 2, z: -10}
-  cameraSize: 7
+  cameraSize: 10
   playerPosition: {x: 70, y: 1}
   minBounds: {x: 66, y: -6}
   maxBounds: {x: 348, y: 35}

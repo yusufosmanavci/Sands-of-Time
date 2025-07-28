@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
@@ -23,6 +24,8 @@ public class DoorInteraction : MonoBehaviour
     public DoorToSpawnAt currentDoorPosition;
 
     public RoomData nextRoom;
+    public GameObject roomToActivate;
+    public GameObject roomToDeactivate;
 
     private void Start()
     {
@@ -37,12 +40,18 @@ public class DoorInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == Player)
         {
             canInteract = true;
             StartCoroutine(RoomTransition.Instance.LoadRoom(nextRoom));
+            while (SceneFadeManager.instance.IsFadingOut)
+            {
+                yield return null;
+            }
+            roomToDeactivate.SetActive(false); // Disable the door after interaction
+            roomToActivate.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
