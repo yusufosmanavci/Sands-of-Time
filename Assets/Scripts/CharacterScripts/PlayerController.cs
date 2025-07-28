@@ -8,24 +8,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerInputAll playerInput;
     public BossHealth bossHealth;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
     private HashSet<GameObject> damagedEnemies2 = new HashSet<GameObject>();
 
-    private void Awake()
+    public void SetCharacterPosition(Vector2 position)
     {
-        playerInput = new PlayerInputAll();
-        playerInput.PlayerInputs.Enable();
-        playerInput.PlayerInputs.JumpInput.performed += Jump;
+        transform.position = position;
     }
-
-
-    private void OnDestroy()
-    {
-        playerInput.PlayerInputs.JumpInput.performed -= Jump;
-    }
-
 
     private void Start()
     {
@@ -34,6 +24,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        Heal();
         HorizontalMove();
         Dash();
         PlayerManager.Instance.playerValues.IsGrounded = Physics2D.OverlapCircle(PlayerManager.Instance.playerValues.groundCheck.position, PlayerManager.Instance.playerValues.groundCheckRadius, PlayerManager.Instance.playerValues.groundLayer);
@@ -56,14 +47,13 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            PlayerManager.Instance.playerValues.InputX = playerInput.PlayerInputs.MoveInputs.ReadValue<Vector2>().x;
-            PlayerManager.Instance.playerValues.rb.linearVelocity = new Vector2(PlayerManager.Instance.playerValues.InputX * PlayerManager.Instance.playerValues.moveSpeed, PlayerManager.Instance.playerValues.rb.linearVelocity.y);
-            if (PlayerManager.Instance.playerValues.IsfacingRight && PlayerManager.Instance.playerValues.InputX < 0)
+            PlayerManager.Instance.playerValues.rb.linearVelocity = new Vector2(InputManager.HorizontalMoveInput * PlayerManager.Instance.playerValues.moveSpeed, PlayerManager.Instance.playerValues.rb.linearVelocity.y);
+            if (PlayerManager.Instance.playerValues.IsfacingRight && InputManager.HorizontalMoveInput < 0)
             {
                 PlayerManager.Instance.playerValues.IsfacingRight = false;
                 PlayerManager.Instance.playerValues.spriteRenderer.flipX = true;
             }
-            else if (!PlayerManager.Instance.playerValues.IsfacingRight && PlayerManager.Instance.playerValues.InputX > 0)
+            else if (!PlayerManager.Instance.playerValues.IsfacingRight && InputManager.HorizontalMoveInput > 0)
             {
                 PlayerManager.Instance.playerValues.IsfacingRight = true;
                 PlayerManager.Instance.playerValues.spriteRenderer.flipX = false;
@@ -72,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
     {
         if (!PlayerManager.Instance.playerValues.IsDashing && !PlayerManager.Instance.playerValues.IsKnockbacked)
         {
@@ -88,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && PlayerManager.Instance.playerValues.currentDashCooldown == 0 && !PlayerManager.Instance.playerValues.IsAttacking && !PlayerManager.Instance.playerValues.IsKnockbacked)
+        if (InputManager.DashInput && PlayerManager.Instance.playerValues.currentDashCooldown == 0 && !PlayerManager.Instance.playerValues.IsAttacking && !PlayerManager.Instance.playerValues.IsKnockbacked)
         {
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
             Vector2 dashDirection = PlayerManager.Instance.playerValues.IsfacingRight ? Vector2.right : Vector2.left;
@@ -175,7 +165,7 @@ public class PlayerController : MonoBehaviour
         else
             PlayerManager.Instance.playerValues.IsJumped = false;
 
-        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && PlayerManager.Instance.playerValues.dashTime >= 0)
+        if (InputManager.DashInput && PlayerManager.Instance.playerValues.dashTime >= 0)
         {
             PlayerManager.Instance.playerValues.IsDashing = true;
         }
@@ -227,4 +217,11 @@ public class PlayerController : MonoBehaviour
         PlayerManager.Instance.playerValues.IsSwordAttacking = false; // Saldýrý bittiðinde durumu sýfýrla
     }
 
+    public void Heal()
+    {
+        if(InputManager.healInput && PlayerManager.Instance.playerValues.healAmount > 0)
+        {
+            PlayerManager.Instance.playerHealth.HealPlayer(PlayerManager.Instance.playerValues.healAmount); // Oyuncunun canýný iyileþtir
+        }
+    }
 }

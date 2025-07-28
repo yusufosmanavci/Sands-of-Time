@@ -290,7 +290,7 @@ public class EnemyController : MonoBehaviour
 
         // Saldýrýdan önce bekleme süresi (hazýrlýk süresi)
         enemyValues.enemyRb.linearVelocity = Vector2.zero; // Saldýrý sýrasýnda hareketi durdur
-        yield return new WaitForSeconds(enemyValues.attackWaitTime); // örn. 1 saniye hazýrlýk
+        yield return new WaitForSeconds(0.4f); // örn. 1 saniye hazýrlýk
 
         // Animasyon baþlat
         enemyValues.enemyAnimator.SetBool("IsAttacking", true);
@@ -299,7 +299,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(SwordAttack()); // Saldýrý animasyonu sýrasýnda oyuncuya hasar verme
 
         // Saldýrý animasyon süresi boyunca bekle
-        yield return new WaitForSeconds(0.5f); // animasyon süresi kadar
+        yield return new WaitForSeconds(0.4f); // animasyon süresi kadar
 
         // Animasyon bitir
         enemyValues.enemyAnimator.SetBool("IsAttacking", false);

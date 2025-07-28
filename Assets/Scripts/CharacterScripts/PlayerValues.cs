@@ -7,7 +7,6 @@ public class PlayerValues : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float dashSpeed = 15f;
-    public float InputX;
     public float dashCooldown;
     public float currentDashCooldown;
     public float groundCheckRadius = 0.2f;
@@ -22,6 +21,7 @@ public class PlayerValues : MonoBehaviour
     public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
     public float hitboxRadius = 1f; // Radius for the hitbox detection
     public int jumpCount = 0; // Number of jumps performed
+    public float healAmount = 40f; // Amount of health restored by healing items
     //public static Vector2 lastCheckpointPosition; // Last checkpoint position for respawning
 
     public Rigidbody2D rb;

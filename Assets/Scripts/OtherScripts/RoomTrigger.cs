@@ -37,7 +37,7 @@ public class RoomTrigger : MonoBehaviour
             Vector2 roomMax = box.bounds.max;
 
             CameraController cam = Camera.main.GetComponent<CameraController>();
-            cam.SetBounds(roomMin, roomMax); // Set camera bounds to the new room
+           // cam.SetBounds(roomMin, roomMax); // Set camera bounds to the new room
 
             // Oyuncuyu hedef noktaya yerleþtir
             if (entryTarget != null)

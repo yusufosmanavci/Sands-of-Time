@@ -5,6 +5,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100f; // Maximum health of the player
     public float currentHealth; // Current health of the player
+    public int healPotions = 2; // Number of healing potions collected
+
 
     private void Start()
     {
@@ -37,6 +39,26 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(Die());
         }
+    }
+
+    public void HealPlayer(float healAmount)
+    {
+        PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Stop player movement when healing
+        if(healPotions > 0)
+        {
+            healPotions--; // Decrease the number of healing potions
+            currentHealth += healAmount; // Increase current health by the heal amount
+            PlayerManager.Instance.playerHealthBar.SetHealth(currentHealth); // Update the health bar UI
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth; // Ensure current health does not exceed maximum health
+            }
+        }
+        else if(healPotions <= 0)
+        {
+            Debug.Log("No healing potions left!"); // Optional: Log message if no healing potions are available
+        }
+
     }
 
     private IEnumerator Die()

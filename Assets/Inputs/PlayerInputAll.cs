@@ -110,7 +110,7 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AttackInputs"",
+                    ""name"": ""AttackInput"",
                     ""type"": ""Button"",
                     ""id"": ""8ec62d17-8862-4044-8ada-574e0515da02"",
                     ""expectedControlType"": """",
@@ -131,6 +131,24 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""name"": ""MenuOpenClose"",
                     ""type"": ""Button"",
                     ""id"": ""7daf3186-5ff1-4065-b28d-f60fa25977d6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DashInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fe94f25-e25e-46fa-b3a3-ce4450a40012"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HealInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""852e04f6-1b10-419d-8e71-1f8b740007d5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -172,6 +190,39 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""a5a3351e-5339-402a-af15-e6ef15e6e966"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveInputs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b5d7a782-baa5-4a79-b55d-295baf849514"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MoveInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""96ab1b50-3622-4ac9-ac84-739057b0745f"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MoveInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""e241366b-a996-432f-8f08-f28246479284"",
                     ""path"": ""<Keyboard>/space"",
@@ -184,12 +235,34 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5c31ae5c-b646-40a2-a2d3-2c0ebf1f8977"",
-                    ""path"": """",
+                    ""id"": ""a474e584-d1e0-4f60-8ee6-58463462d329"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""AttackInputs"",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""JumpInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c31ae5c-b646-40a2-a2d3-2c0ebf1f8977"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""AttackInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10237481-fd8a-490a-b363-f3c6a83862cf"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""AttackInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -206,12 +279,78 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""37219661-ad20-486f-8181-c58ca96a9cff"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""DoorInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e4e622fd-63a0-4d1d-a910-f4c0d145e359"",
                     ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4770c6ac-3265-4de9-b944-aed50154d460"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""112867c3-d7fc-4eb7-ad79-34adcf4182ec"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""DashInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1880a748-ccd9-4d92-8dcc-e532af586f34"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""DashInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fa59ff9-35b1-4c3b-8742-208c903caf4d"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""HealInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1aa2b617-2f7b-45d9-8b0a-155fd0244c62"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""HealInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -252,9 +391,11 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         m_PlayerInputs = asset.FindActionMap("PlayerInputs", throwIfNotFound: true);
         m_PlayerInputs_MoveInputs = m_PlayerInputs.FindAction("MoveInputs", throwIfNotFound: true);
         m_PlayerInputs_JumpInput = m_PlayerInputs.FindAction("JumpInput", throwIfNotFound: true);
-        m_PlayerInputs_AttackInputs = m_PlayerInputs.FindAction("AttackInputs", throwIfNotFound: true);
+        m_PlayerInputs_AttackInput = m_PlayerInputs.FindAction("AttackInput", throwIfNotFound: true);
         m_PlayerInputs_DoorInteraction = m_PlayerInputs.FindAction("DoorInteraction", throwIfNotFound: true);
         m_PlayerInputs_MenuOpenClose = m_PlayerInputs.FindAction("MenuOpenClose", throwIfNotFound: true);
+        m_PlayerInputs_DashInput = m_PlayerInputs.FindAction("DashInput", throwIfNotFound: true);
+        m_PlayerInputs_HealInput = m_PlayerInputs.FindAction("HealInput", throwIfNotFound: true);
     }
 
     ~@PlayerInputAll()
@@ -337,9 +478,11 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
     private List<IPlayerInputsActions> m_PlayerInputsActionsCallbackInterfaces = new List<IPlayerInputsActions>();
     private readonly InputAction m_PlayerInputs_MoveInputs;
     private readonly InputAction m_PlayerInputs_JumpInput;
-    private readonly InputAction m_PlayerInputs_AttackInputs;
+    private readonly InputAction m_PlayerInputs_AttackInput;
     private readonly InputAction m_PlayerInputs_DoorInteraction;
     private readonly InputAction m_PlayerInputs_MenuOpenClose;
+    private readonly InputAction m_PlayerInputs_DashInput;
+    private readonly InputAction m_PlayerInputs_HealInput;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerInputs".
     /// </summary>
@@ -360,9 +503,9 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @JumpInput => m_Wrapper.m_PlayerInputs_JumpInput;
         /// <summary>
-        /// Provides access to the underlying input action "PlayerInputs/AttackInputs".
+        /// Provides access to the underlying input action "PlayerInputs/AttackInput".
         /// </summary>
-        public InputAction @AttackInputs => m_Wrapper.m_PlayerInputs_AttackInputs;
+        public InputAction @AttackInput => m_Wrapper.m_PlayerInputs_AttackInput;
         /// <summary>
         /// Provides access to the underlying input action "PlayerInputs/DoorInteraction".
         /// </summary>
@@ -371,6 +514,14 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerInputs/MenuOpenClose".
         /// </summary>
         public InputAction @MenuOpenClose => m_Wrapper.m_PlayerInputs_MenuOpenClose;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInputs/DashInput".
+        /// </summary>
+        public InputAction @DashInput => m_Wrapper.m_PlayerInputs_DashInput;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInputs/HealInput".
+        /// </summary>
+        public InputAction @HealInput => m_Wrapper.m_PlayerInputs_HealInput;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -403,15 +554,21 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @JumpInput.started += instance.OnJumpInput;
             @JumpInput.performed += instance.OnJumpInput;
             @JumpInput.canceled += instance.OnJumpInput;
-            @AttackInputs.started += instance.OnAttackInputs;
-            @AttackInputs.performed += instance.OnAttackInputs;
-            @AttackInputs.canceled += instance.OnAttackInputs;
+            @AttackInput.started += instance.OnAttackInput;
+            @AttackInput.performed += instance.OnAttackInput;
+            @AttackInput.canceled += instance.OnAttackInput;
             @DoorInteraction.started += instance.OnDoorInteraction;
             @DoorInteraction.performed += instance.OnDoorInteraction;
             @DoorInteraction.canceled += instance.OnDoorInteraction;
             @MenuOpenClose.started += instance.OnMenuOpenClose;
             @MenuOpenClose.performed += instance.OnMenuOpenClose;
             @MenuOpenClose.canceled += instance.OnMenuOpenClose;
+            @DashInput.started += instance.OnDashInput;
+            @DashInput.performed += instance.OnDashInput;
+            @DashInput.canceled += instance.OnDashInput;
+            @HealInput.started += instance.OnHealInput;
+            @HealInput.performed += instance.OnHealInput;
+            @HealInput.canceled += instance.OnHealInput;
         }
 
         /// <summary>
@@ -429,15 +586,21 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @JumpInput.started -= instance.OnJumpInput;
             @JumpInput.performed -= instance.OnJumpInput;
             @JumpInput.canceled -= instance.OnJumpInput;
-            @AttackInputs.started -= instance.OnAttackInputs;
-            @AttackInputs.performed -= instance.OnAttackInputs;
-            @AttackInputs.canceled -= instance.OnAttackInputs;
+            @AttackInput.started -= instance.OnAttackInput;
+            @AttackInput.performed -= instance.OnAttackInput;
+            @AttackInput.canceled -= instance.OnAttackInput;
             @DoorInteraction.started -= instance.OnDoorInteraction;
             @DoorInteraction.performed -= instance.OnDoorInteraction;
             @DoorInteraction.canceled -= instance.OnDoorInteraction;
             @MenuOpenClose.started -= instance.OnMenuOpenClose;
             @MenuOpenClose.performed -= instance.OnMenuOpenClose;
             @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
+            @DashInput.started -= instance.OnDashInput;
+            @DashInput.performed -= instance.OnDashInput;
+            @DashInput.canceled -= instance.OnDashInput;
+            @HealInput.started -= instance.OnHealInput;
+            @HealInput.performed -= instance.OnHealInput;
+            @HealInput.canceled -= instance.OnHealInput;
         }
 
         /// <summary>
@@ -519,12 +682,12 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJumpInput(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "AttackInputs" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "AttackInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAttackInputs(InputAction.CallbackContext context);
+        void OnAttackInput(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "DoorInteraction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -539,5 +702,19 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMenuOpenClose(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DashInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDashInput(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HealInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHealInput(InputAction.CallbackContext context);
     }
 }

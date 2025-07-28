@@ -8,6 +8,7 @@ TagManager:
   - PlayerHitbox
   - RoomGate
   - Borders
+  - Campfire
   layers:
   - Default
   - TransparentFX

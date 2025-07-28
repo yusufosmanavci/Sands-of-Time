@@ -11,8 +11,8 @@ public class DoorInteraction : MonoBehaviour
         Four,
     }
 
-    public GameObject Player {  get; set; }
-    public bool canInteract {  get; set; }
+    public GameObject Player { get; set; }
+    public bool canInteract { get; set; }
 
     [Header("Spawn To")]
     [SerializeField] private DoorToSpawnAt doorToSpawnTo;
@@ -22,6 +22,7 @@ public class DoorInteraction : MonoBehaviour
     [Header("This Door")]
     public DoorToSpawnAt currentDoorPosition;
 
+    public RoomData nextRoom;
 
     private void Start()
     {
@@ -30,25 +31,23 @@ public class DoorInteraction : MonoBehaviour
 
     private void Update()
     {
-        if(canInteract)
+        if (canInteract)
         {
-            if (InputManager.DoorInteract)
-            {
-                SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, doorToSpawnTo);
-            }
+            //SceneSwapManager.SwapSceneFromDoorUse(_sceneToLoad, doorToSpawnTo);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == Player)
+        if (collision.gameObject == Player)
         {
             canInteract = true;
+            StartCoroutine(RoomTransition.Instance.LoadRoom(nextRoom));
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject == Player)
+        if (collision.gameObject == Player)
         {
             canInteract = false;
         }

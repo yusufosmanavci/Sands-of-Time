@@ -13,9 +13,9 @@ namespace Assets.Scripts.CharacterScripts
         public TextMeshPro campfireText;
         public string checkpointID; // Unique identifier for the checkpoint
         private bool IsInCheckpointArea = false; // Flag to check if the player is in the checkpoint area
+        public static bool hasButtonPressed = false; // Flag to check if the button has been pressed
 
         CameraController cam;
-        public CampfireUIController campfire;
         private void Start()
         {
             campfireText.alpha = 0f;
@@ -49,20 +49,22 @@ namespace Assets.Scripts.CharacterScripts
 
         private void Update()
         {
-            if (IsInCheckpointArea)
+            if (IsInCheckpointArea && PlayerManager.Instance.playerValues.IsGrounded)
             {
-                if (InputManager.Instance.MenuOpenCloseInput)
+                if (InputManager.Instance.MenuOpenCloseInput && !hasButtonPressed)
                 {
-                    if (campfire != null)
+                    hasButtonPressed = true; // Set the flag to true to prevent multiple presses
+                    CampfireUIController.Instance.IsPaused = true;
+                    if (CampfireUIController.Instance.IsPaused)
                     {
-                        campfire.IsPaused = true;
-                        if (campfire.IsPaused)
-                        {
-                            campfire.Pause(); // Pause the game and open the campfire menu
-                            SaveProgress(); // Save the player's progress when they pause
+                        CampfireUIController.Instance.Pause(); // Pause the game and open the campfire menu
+                        SaveProgress(); // Save the player's progress when they pause
 
-                        }
                     }
+                }
+                else if(!CampfireUIController.Instance.IsPaused)
+                {
+                    InputManager.ActivatePlayerControls(); // Enable player controls when the campfire menu is closed
                 }
             }
         }

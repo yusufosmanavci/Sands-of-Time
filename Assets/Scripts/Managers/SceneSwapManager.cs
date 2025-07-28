@@ -77,8 +77,7 @@ public class SceneSwapManager : MonoBehaviour
             FindDoor(_doorToSpawnTo);
             _player.transform.position = _playerSpawnPosition;
 
-            CameraController cam = FindAnyObjectByType<CameraController>();
-            cam.UpdateRoomBorders();
+            StartCoroutine(DelayedCameraBorderFind());
 
             loadFromDoor = false;
         }
@@ -104,5 +103,13 @@ public class SceneSwapManager : MonoBehaviour
     {
         float colliderHeight = _playerCollider.bounds.extents.y;
         _playerSpawnPosition = _doorCollider.transform.position - new Vector3(0f, colliderHeight, 0f);
+    }
+
+    private IEnumerator DelayedCameraBorderFind()
+    {
+        yield return null;
+
+        CameraController cam = FindAnyObjectByType<CameraController>();
+        //cam.UpdateRoomBorders();
     }
 }

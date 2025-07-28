@@ -60,7 +60,7 @@ public class PlayerAnimations : MonoBehaviour
             PlayerManager.Instance.playerValues.animator.Play("Fall Animation");
             return;
         }
-        if (PlayerManager.Instance.playerValues.InputX != 0)
+        if (InputManager.HorizontalMoveInput != 0)
         {
             PlayerManager.Instance.playerValues.animator.Play("Run Animation");
             return;
@@ -73,7 +73,7 @@ public class PlayerAnimations : MonoBehaviour
 
     private void AttackAimationController()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && PlayerManager.Instance.playerValues.attackCooldown <= 0)
+        if (InputManager.AttackInput && PlayerManager.Instance.playerValues.attackCooldown <= 0)
         {
             PlayerManager.Instance.playerValues.attackCount++;
             PlayerManager.Instance.playerValues.attackCooldown = 0.3f; // Reset the cooldown after an attack
