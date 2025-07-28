@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.CharacterScripts;
+using System;
 using System.Collections;
 using TMPro;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,7 +13,11 @@ namespace Assets.Scripts.OtherScripts
     public class CampfireUIController : MonoBehaviour
     {
         public static CampfireUIController Instance;
-
+        public TextMeshProUGUI currMaxHealth;
+        public TextMeshProUGUI lvlUpMaxHealth;
+        public TextMeshProUGUI currDamage;
+        public TextMeshProUGUI lvlUpDamage;
+        public TextMeshProUGUI sandsOfTime;
         public GameObject campfireCanvas;
         public GameObject characterUpgradeCanvas;
         public GameObject healthBar;
@@ -65,6 +72,13 @@ namespace Assets.Scripts.OtherScripts
             characterUpgradeCanvas.SetActive(true); // Show the character upgrade canvas
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
+
+            sandsOfTime.text = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade.ToString();
+            currMaxHealth.text = PlayerManager.Instance.playerHealth.maxHealth.ToString();
+            lvlUpMaxHealth.text = (PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth).ToString();
+            currDamage.text = PlayerManager.Instance.playerValues.playerDamage.ToString();
+            lvlUpDamage.text = (PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage).ToString();
+
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
             EventSystem.current.SetSelectedGameObject(levelUpButton.gameObject); // Set focus on the level up button
         }
@@ -101,7 +115,28 @@ namespace Assets.Scripts.OtherScripts
 
         public void OnLevelUpPressed()
         {
-            //Level up logic here
+            if(int.TryParse(sandsOfTime.text, out PlayerManager.Instance.playerValues.sandsOfTimeUpgrade) && PlayerManager.Instance.playerValues.sandsOfTimeUpgrade <= PlayerManager.Instance.playerValues.sandsOfTime)
+            {
+                PlayerManager.Instance.playerValues.sandsOfTime -= PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
+                sandsOfTime.text = (PlayerManager.Instance.playerValues.sandsOfTimeUpgrade * 5f + PlayerManager.Instance.playerValues.sandsOfTimeUpgrade).ToString();
+                if (float.TryParse(lvlUpMaxHealth.text, out PlayerManager.Instance.playerHealth.maxHealth))
+                {
+                    currMaxHealth.text = lvlUpMaxHealth.text;
+                    lvlUpMaxHealth.text = (PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth).ToString();
+                    PlayerManager.Instance.playerHealth.currentHealth = PlayerManager.Instance.playerHealth.maxHealth;
+                    PlayerManager.Instance.playerHealthBar.SetMaxHealth(PlayerManager.Instance.playerHealth.maxHealth);
+                }
+                if (float.TryParse(lvlUpDamage.text, out PlayerManager.Instance.playerValues.playerDamage))
+                {
+                    currDamage.text = lvlUpDamage.text;
+                    lvlUpDamage.text = (PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage).ToString();
+                }
+            }
+            else
+            {
+                //SandsOfTime Amount is not enough
+                Debug.Log("SandsOfTime Amount is not enough");
+            }
         }
 
         public void OnBackPressed()
