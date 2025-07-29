@@ -17,13 +17,18 @@ namespace Assets.Scripts.OtherScripts
         public TextMeshProUGUI lvlUpMaxHealth;
         public TextMeshProUGUI currDamage;
         public TextMeshProUGUI lvlUpDamage;
+        public TextMeshProUGUI currDashDamage;
+        public TextMeshProUGUI lvlUpDashDamage;
         public TextMeshProUGUI sandsOfTime;
         public GameObject campfireCanvas;
         public GameObject characterUpgradeCanvas;
         public GameObject healthBar;
         public GameObject dashSkill;
+        public GameObject SandsOfTimeBackground;
+        public GameObject SandsOfTimeText;
 
         public bool IsPaused;
+        public float showTime;
 
         public Button upgradeButton;
         public Button levelUpButton;
@@ -72,12 +77,16 @@ namespace Assets.Scripts.OtherScripts
             characterUpgradeCanvas.SetActive(true); // Show the character upgrade canvas
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
+            SandsOfTimeBackground.SetActive(false);
+            SandsOfTimeText.SetActive(false);
 
             sandsOfTime.text = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade.ToString();
             currMaxHealth.text = PlayerManager.Instance.playerHealth.maxHealth.ToString();
             lvlUpMaxHealth.text = (PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth).ToString();
             currDamage.text = PlayerManager.Instance.playerValues.playerDamage.ToString();
             lvlUpDamage.text = (PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage).ToString();
+            currDashDamage.text = PlayerManager.Instance.playerValues.playerDashDamage.ToString();
+            lvlUpDashDamage.text = (PlayerManager.Instance.playerValues.playerDashDamage * 0.2f + PlayerManager.Instance.playerValues.playerDashDamage).ToString();
 
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
             EventSystem.current.SetSelectedGameObject(levelUpButton.gameObject); // Set focus on the level up button
@@ -115,26 +124,37 @@ namespace Assets.Scripts.OtherScripts
 
         public void OnLevelUpPressed()
         {
-            if(int.TryParse(sandsOfTime.text, out PlayerManager.Instance.playerValues.sandsOfTimeUpgrade) && PlayerManager.Instance.playerValues.sandsOfTimeUpgrade <= PlayerManager.Instance.playerValues.sandsOfTime)
+            if (PlayerManager.Instance.playerValues.sandsOfTimeUpgrade <= PlayerManager.Instance.playerValues.sandsOfTime)
             {
                 PlayerManager.Instance.playerValues.sandsOfTime -= PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
-                sandsOfTime.text = (PlayerManager.Instance.playerValues.sandsOfTimeUpgrade * 5f + PlayerManager.Instance.playerValues.sandsOfTimeUpgrade).ToString();
-                if (float.TryParse(lvlUpMaxHealth.text, out PlayerManager.Instance.playerHealth.maxHealth))
-                {
-                    currMaxHealth.text = lvlUpMaxHealth.text;
-                    lvlUpMaxHealth.text = (PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth).ToString();
-                    PlayerManager.Instance.playerHealth.currentHealth = PlayerManager.Instance.playerHealth.maxHealth;
-                    PlayerManager.Instance.playerHealthBar.SetMaxHealth(PlayerManager.Instance.playerHealth.maxHealth);
-                }
-                if (float.TryParse(lvlUpDamage.text, out PlayerManager.Instance.playerValues.playerDamage))
-                {
-                    currDamage.text = lvlUpDamage.text;
-                    lvlUpDamage.text = (PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage).ToString();
-                }
+                int newSandsOfTimeAmount = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade * 5 + PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
+                PlayerManager.Instance.playerValues.sandsOfTimeUpgrade = newSandsOfTimeAmount;
+                sandsOfTime.text = newSandsOfTimeAmount.ToString();
+
+                float newMaxHealth = PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth;
+                currMaxHealth.text = newMaxHealth.ToString();
+                float newLvlUpHealth = newMaxHealth * 0.2f + newMaxHealth;
+                lvlUpMaxHealth.text = newLvlUpHealth.ToString();
+                PlayerManager.Instance.playerHealth.maxHealth = newMaxHealth;
+                PlayerManager.Instance.playerHealth.currentHealth = newMaxHealth;
+                PlayerManager.Instance.playerHealthBar.SetMaxHealth(PlayerManager.Instance.playerHealth.maxHealth);
+
+                float newPlayerDamage = PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage;
+                currDamage.text = newPlayerDamage.ToString();
+                float newLvlUpDamage = newPlayerDamage * 0.2f + newPlayerDamage;
+                lvlUpDamage.text = newLvlUpDamage.ToString();
+                PlayerManager.Instance.playerValues.playerDamage = newPlayerDamage;
+
+                float newDashDamage = PlayerManager.Instance.playerValues.playerDashDamage * 0.2f + PlayerManager.Instance.playerValues.playerDashDamage;
+                currDashDamage.text = newDashDamage.ToString();
+                float newLvlUpDashDamage = newDashDamage * 0.2f + newDashDamage;
+                lvlUpDashDamage.text= newLvlUpDashDamage.ToString();
+                PlayerManager.Instance.playerValues.playerDashDamage = newDashDamage;
             }
             else
             {
-                //SandsOfTime Amount is not enough
+                SandsOfTimeBackground.SetActive(true);
+                SandsOfTimeText.SetActive(true);
                 Debug.Log("SandsOfTime Amount is not enough");
             }
         }

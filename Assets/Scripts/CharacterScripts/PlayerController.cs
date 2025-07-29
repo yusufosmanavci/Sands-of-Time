@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
                 EnemyHealth enemyScript = enemy.GetComponent<EnemyHealth>();
                 if (enemyScript != null)
                 {
-                    StartCoroutine(enemyScript.TakeEnemyDashDamage(PlayerManager.Instance.playerValues.playerDamage));
+                    StartCoroutine(enemyScript.TakeEnemyDashDamage(PlayerManager.Instance.playerValues.playerDashDamage));
                     damagedEnemies.Add(enemyGO); // tekrar vurulmasýný engelle
                 }
             }

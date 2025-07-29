@@ -17,6 +17,7 @@ public class PlayerValues : MonoBehaviour
     public float attackCooldown = 0; // Cooldown time for attacks
     public float attackResetTime = 0; // Time to reset attack count after the last attack
     public float playerDamage = 30f; // Damage dealt by the player
+    public float playerDashDamage = 15f;
     public float dashAttackRadius = 1.5f;
     public int sandsOfTime = 0; // Represents the number of "sand of time" items collected
     public int sandsOfTimeUpgrade = 100;
