@@ -13,6 +13,8 @@ namespace Assets.Scripts.OtherScripts
     public class CampfireUIController : MonoBehaviour
     {
         public static CampfireUIController Instance;
+
+        [Header("Texts")]
         public TextMeshProUGUI currMaxHealth;
         public TextMeshProUGUI lvlUpMaxHealth;
         public TextMeshProUGUI currDamage;
@@ -20,18 +22,23 @@ namespace Assets.Scripts.OtherScripts
         public TextMeshProUGUI currDashDamage;
         public TextMeshProUGUI lvlUpDashDamage;
         public TextMeshProUGUI sandsOfTime;
+
+        [Header("GameObjects")]
         public GameObject campfireCanvas;
         public GameObject characterUpgradeCanvas;
         public GameObject healthBar;
         public GameObject dashSkill;
         public GameObject SandsOfTimeBackground;
         public GameObject SandsOfTimeText;
+        public GameObject healPotion;
 
-        public bool IsPaused;
-        public float showTime;
 
+        [Header("Buttons")]
         public Button upgradeButton;
         public Button levelUpButton;
+
+        public bool IsPaused;
+
 
         private void Awake()
         {
@@ -67,6 +74,7 @@ namespace Assets.Scripts.OtherScripts
             characterUpgradeCanvas.SetActive(false); // Ensure the upgrade canvas is hidden initially
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
+            healPotion.SetActive(false);
             InputManager.DeactivatePlayerControls(); // Disable player controls when the campfire menu is open
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
             EventSystem.current.SetSelectedGameObject(upgradeButton.gameObject); // Set focus on the campfire text
@@ -77,6 +85,7 @@ namespace Assets.Scripts.OtherScripts
             characterUpgradeCanvas.SetActive(true); // Show the character upgrade canvas
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
+            healPotion.SetActive(false);
             SandsOfTimeBackground.SetActive(false);
             SandsOfTimeText.SetActive(false);
 
@@ -108,6 +117,7 @@ namespace Assets.Scripts.OtherScripts
             characterUpgradeCanvas.SetActive(false); // Hide the upgrade canvas when closing the campfire menu
             healthBar.SetActive(true); // Hide the health bar
             dashSkill.SetActive(true); // Hide the dash skill
+            healPotion.SetActive(true);
             CheckPointController.hasButtonPressed = false; // Reset the flag when the button is released
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
         }

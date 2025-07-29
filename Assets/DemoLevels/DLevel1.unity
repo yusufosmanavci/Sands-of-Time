@@ -5126,6 +5126,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4786290975242361438, guid: 548af85a27270d64b81e9ab054b1bf52, type: 3}
   m_PrefabInstance: {fileID: 1629511317}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &770021441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2279152189528847183, guid: bde339adfcd702248992fda4dfeb2d02, type: 3}
+  m_PrefabInstance: {fileID: 1590855299}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &824700199
 GameObject:
   m_ObjectHideFlags: 0
@@ -37630,6 +37641,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2235107309123973821, guid: 4562c75bac5923940a78d90f3198367c, type: 3}
+      propertyPath: healPotionText
+      value: 
+      objectReference: {fileID: 770021441}
     - target: {fileID: 2235107309123973821, guid: 4562c75bac5923940a78d90f3198367c, type: 3}
       propertyPath: sandsOfTimeText
       value: 
