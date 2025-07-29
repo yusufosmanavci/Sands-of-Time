@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
             StartCoroutine(SwordAttack());
+            StartCoroutine(BossSwordAttack());
         }
         BooleanControl();
 
@@ -205,6 +206,33 @@ public class PlayerController : MonoBehaviour
                 if (enemyScript != null)
                 {
                     StartCoroutine(enemyScript.TakeEnemyDamage(PlayerManager.Instance.playerValues.playerDamage));
+                    Debug.Log("Enemy took damage from player!");
+                    damagedEnemies2.Add(enemyGO); // tekrar vurulmasýný engelle
+                }
+            }
+        }
+
+        yield return new WaitForSeconds(PlayerManager.Instance.playerValues.attackDelay); // Bekleme süresi
+        damagedEnemies2.Clear(); // Attack bittiðinde hasar verilen düþmanlarý temizle
+
+        PlayerManager.Instance.playerValues.IsSwordAttacking = false; // Saldýrý bittiðinde durumu sýfýrla
+    }
+
+    public IEnumerator BossSwordAttack()
+    {
+        PlayerManager.Instance.playerValues.IsSwordAttacking = true;
+
+        Vector2 position = PlayerManager.Instance.playerValues.IsfacingRight ? new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.max.x + 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y) : new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.min.x - 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(position, PlayerManager.Instance.playerValues.hitboxRadius, PlayerManager.Instance.playerValues.enemyLayerMask);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            GameObject enemyGO = enemy.gameObject;
+            if (!damagedEnemies2.Contains(enemyGO))
+            {
+                BossHealth enemyScript = enemy.GetComponent<BossHealth>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeBossDamage(PlayerManager.Instance.playerValues.playerDamage);
                     Debug.Log("Enemy took damage from player!");
                     damagedEnemies2.Add(enemyGO); // tekrar vurulmasýný engelle
                 }

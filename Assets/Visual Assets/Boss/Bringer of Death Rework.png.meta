@@ -1,0 +1,1823 @@
+fileFormatVersion: 2
+guid: 853ae97009f0be044a581491e2ed5896
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7417187767258132862
+    second: Bringer of Death Rework_0
+  - first:
+      213: 7151977362967265012
+    second: Bringer of Death Rework_1
+  - first:
+      213: 1347395377993954199
+    second: Bringer of Death Rework_2
+  - first:
+      213: -1750561169590749851
+    second: Bringer of Death Rework_3
+  - first:
+      213: 6205435627925636435
+    second: Bringer of Death Rework_4
+  - first:
+      213: -1256069456729862272
+    second: Bringer of Death Rework_5
+  - first:
+      213: -4225305157316471867
+    second: Bringer of Death Rework_6
+  - first:
+      213: 5617368729168970063
+    second: Bringer of Death Rework_7
+  - first:
+      213: -1181504399113538580
+    second: Bringer of Death Rework_8
+  - first:
+      213: -123899528144397661
+    second: Bringer of Death Rework_9
+  - first:
+      213: 7149443801482534451
+    second: Bringer of Death Rework_10
+  - first:
+      213: 7669257502163876666
+    second: Bringer of Death Rework_11
+  - first:
+      213: 6261725325423295684
+    second: Bringer of Death Rework_12
+  - first:
+      213: 8409570557256366286
+    second: Bringer of Death Rework_13
+  - first:
+      213: -1511143319208881897
+    second: Bringer of Death Rework_14
+  - first:
+      213: -7568694756818254373
+    second: Bringer of Death Rework_15
+  - first:
+      213: -1530319971910038714
+    second: Bringer of Death Rework_16
+  - first:
+      213: -8477948340995074413
+    second: Bringer of Death Rework_17
+  - first:
+      213: 6557430496968293868
+    second: Bringer of Death Rework_18
+  - first:
+      213: 3527632630436780384
+    second: Bringer of Death Rework_19
+  - first:
+      213: 3429212228778798241
+    second: Bringer of Death Rework_20
+  - first:
+      213: -304220846273857648
+    second: Bringer of Death Rework_21
+  - first:
+      213: -7811151936427899141
+    second: Bringer of Death Rework_22
+  - first:
+      213: 6796559435453086159
+    second: Bringer of Death Rework_23
+  - first:
+      213: -8486757453661930354
+    second: Bringer of Death Rework_24
+  - first:
+      213: 9144098936782636890
+    second: Bringer of Death Rework_25
+  - first:
+      213: -3377455639555831406
+    second: Bringer of Death Rework_26
+  - first:
+      213: 6298631793568388186
+    second: Bringer of Death Rework_27
+  - first:
+      213: 6920028158390404379
+    second: Bringer of Death Rework_28
+  - first:
+      213: 4580314141442038293
+    second: Bringer of Death Rework_29
+  - first:
+      213: 218682549360812564
+    second: Bringer of Death Rework_30
+  - first:
+      213: -8306412959266263793
+    second: Bringer of Death Rework_31
+  - first:
+      213: 5746373067836175097
+    second: Bringer of Death Rework_32
+  - first:
+      213: -7505921348036521827
+    second: Bringer of Death Rework_33
+  - first:
+      213: 2941059205716253753
+    second: Bringer of Death Rework_34
+  - first:
+      213: 6294993857243678626
+    second: Bringer of Death Rework_35
+  - first:
+      213: 6256586462139851361
+    second: Bringer of Death Rework_36
+  - first:
+      213: 2617686619141648106
+    second: Bringer of Death Rework_37
+  - first:
+      213: -1787122462842786699
+    second: Bringer of Death Rework_38
+  - first:
+      213: 891012202152523974
+    second: Bringer of Death Rework_39
+  - first:
+      213: 6478241380788719413
+    second: Bringer of Death Rework_40
+  - first:
+      213: -864242912663592409
+    second: Bringer of Death Rework_41
+  - first:
+      213: -9131678950154552694
+    second: Bringer of Death Rework_42
+  - first:
+      213: 9121650739930289922
+    second: Bringer of Death Rework_43
+  - first:
+      213: 4732809938811695527
+    second: Bringer of Death Rework_44
+  - first:
+      213: 7914140870009217290
+    second: Bringer of Death Rework_45
+  - first:
+      213: 8775565182309957598
+    second: Bringer of Death Rework_46
+  - first:
+      213: -4815471715012368269
+    second: Bringer of Death Rework_47
+  - first:
+      213: -4234102797070895432
+    second: Bringer of Death Rework_48
+  - first:
+      213: -261819991978253191
+    second: Bringer of Death Rework_49
+  - first:
+      213: -4401929656987206172
+    second: Bringer of Death Rework_50
+  - first:
+      213: 3616508144268174572
+    second: Bringer of Death Rework_51
+  - first:
+      213: 7514961964806409489
+    second: Bringer of Death Rework_52
+  - first:
+      213: 5691672473075089629
+    second: Bringer of Death Rework_53
+  - first:
+      213: 3069180287065925974
+    second: Bringer of Death Rework_54
+  - first:
+      213: 3658569157819242134
+    second: Bringer of Death Rework_55
+  - first:
+      213: -4303639925216414757
+    second: Bringer of Death Rework_56
+  - first:
+      213: 2974085140625949291
+    second: Bringer of Death Rework_57
+  - first:
+      213: -6824246766839407
+    second: Bringer of Death Rework_58
+  - first:
+      213: -4754179775544665458
+    second: Bringer of Death Rework_59
+  - first:
+      213: -3526956667645172169
+    second: Bringer of Death Rework_60
+  - first:
+      213: -1192044471954782623
+    second: Bringer of Death Rework_61
+  - first:
+      213: -2579679273958849359
+    second: Bringer of Death Rework_62
+  - first:
+      213: 1773550484132878728
+    second: Bringer of Death Rework_63
+  - first:
+      213: -8167856652491954458
+    second: Bringer of Death Rework_64
+  - first:
+      213: -2805136654495650051
+    second: Bringer of Death Rework_65
+  - first:
+      213: 2610880767237541841
+    second: Bringer of Death Rework_66
+  - first:
+      213: 8550761610539695307
+    second: Bringer of Death Rework_67
+  - first:
+      213: 8981447174077838196
+    second: Bringer of Death Rework_68
+  - first:
+      213: 5767712894472317992
+    second: Bringer of Death Rework_69
+  - first:
+      213: -3321399921463523832
+    second: Bringer of Death Rework_70
+  - first:
+      213: -2059575765111108884
+    second: Bringer of Death Rework_71
+  - first:
+      213: -2528283165420728591
+    second: Bringer of Death Rework_72
+  - first:
+      213: 882144085751260464
+    second: Bringer of Death Rework_73
+  - first:
+      213: 1689637235066739429
+    second: Bringer of Death Rework_74
+  - first:
+      213: 8467233705643652227
+    second: Bringer of Death Rework_75
+  - first:
+      213: -6959348744861969447
+    second: Bringer of Death Rework_76
+  - first:
+      213: -8572957575252584272
+    second: Bringer of Death Rework_77
+  - first:
+      213: 2175922578854377848
+    second: Bringer of Death Rework_78
+  - first:
+      213: 5617771358732872569
+    second: Bringer of Death Rework_79
+  - first:
+      213: 6616294140027952267
+    second: Bringer of Death Rework_80
+  - first:
+      213: -8635093696752146828
+    second: Bringer of Death Rework_81
+  - first:
+      213: 7880784533909530481
+    second: Bringer of Death Rework_82
+  - first:
+      213: 7380154147334418395
+    second: Bringer of Death Rework_83
+  - first:
+      213: 7261941143189681988
+    second: Bringer of Death Rework_84
+  - first:
+      213: -8321092989339318455
+    second: Bringer of Death Rework_85
+  - first:
+      213: -528966085945483549
+    second: Bringer of Death Rework_86
+  - first:
+      213: -7521018802231127791
+    second: Bringer of Death Rework_87
+  - first:
+      213: -5076423115241255825
+    second: Bringer of Death Rework_88
+  - first:
+      213: 1050760068447665842
+    second: Bringer of Death Rework_89
+  - first:
+      213: -5573347926491517311
+    second: Bringer of Death Rework_90
+  - first:
+      213: 4254744126144887712
+    second: Bringer of Death Rework_91
+  - first:
+      213: -2496773631223136224
+    second: Bringer of Death Rework_92
+  - first:
+      213: 7566649527084481066
+    second: Bringer of Death Rework_93
+  - first:
+      213: -6978512534872593280
+    second: Bringer of Death Rework_94
+  - first:
+      213: -8930523270512100536
+    second: Bringer of Death Rework_95
+  - first:
+      213: 3685632100678433388
+    second: Bringer of Death Rework_96
+  - first:
+      213: -6304263249930064644
+    second: Bringer of Death Rework_97
+  - first:
+      213: 8494869191352116737
+    second: Bringer of Death Rework_98
+  - first:
+      213: -2668306712551945341
+    second: Bringer of Death Rework_99
+  - first:
+      213: 547317727006161355
+    second: Bringer of Death Rework_100
+  - first:
+      213: 7518636365621711236
+    second: Bringer of Death Rework_101
+  - first:
+      213: 1943744734424424838
+    second: Bringer of Death Rework_102
+  - first:
+      213: -4023891324193605534
+    second: Bringer of Death Rework_103
+  - first:
+      213: -1132061582335388118
+    second: Bringer of Death Rework_104
+  - first:
+      213: 6967226319888420062
+    second: Bringer of Death Rework_105
+  - first:
+      213: -2599753791028185992
+    second: Bringer of Death Rework_106
+  - first:
+      213: 1338116482114406359
+    second: Bringer of Death Rework_107
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bringer of Death Rework_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ec43c060bd01990800000000000000
+      internalID: -7417187767258132862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe7c41d48de04360800000000000000
+      internalID: 7151977362967265012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_2
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793355d15f8e2b210800000000000000
+      internalID: 1347395377993954199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_3
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56573f024e1c4b7e0800000000000000
+      internalID: -1750561169590749851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_4
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3558f0763d22e1650800000000000000
+      internalID: 6205435627925636435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_5
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f066aeb7b819ee0800000000000000
+      internalID: -1256069456729862272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_6
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c396869853bc55c0800000000000000
+      internalID: -4225305157316471867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_7
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 465
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f41018ad817e4fd40800000000000000
+      internalID: 5617368729168970063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3b64642047a9fe0800000000000000
+      internalID: -1181504399113538580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa5d1d1902d74ef0800000000000000
+      internalID: -123899528144397661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_10
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e1cf0124de73360800000000000000
+      internalID: 7149443801482534451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_11
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b3a73901dae6a60800000000000000
+      internalID: 7669257502163876666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_12
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc3ce6e10e16e650800000000000000
+      internalID: 6261725325423295684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_13
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec879d2bddbc4b470800000000000000
+      internalID: 8409570557256366286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_14
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71199d55827570be0800000000000000
+      internalID: -1511143319208881897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_15
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 372
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd58c76283896f690800000000000000
+      internalID: -7568694756818254373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64bcd91f71633cae0800000000000000
+      internalID: -1530319971910038714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_17
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39650e6e6e6485a80800000000000000
+      internalID: -8477948340995074413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_18
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedbb135b4ca00b50800000000000000
+      internalID: 6557430496968293868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_19
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 069d24bef2ba4f030800000000000000
+      internalID: 3527632630436780384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_20
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac29c37a52079f20800000000000000
+      internalID: 3429212228778798241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_21
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 097f39c80c037cbf0800000000000000
+      internalID: -304220846273857648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_22
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf64c96f2b6399390800000000000000
+      internalID: -7811151936427899141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_23
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9b20dfbca325e50800000000000000
+      internalID: 6796559435453086159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_24
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 279
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8cf4978f0bf83a80800000000000000
+      internalID: -8486757453661930354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a57c4f5198d56ee70800000000000000
+      internalID: 9144098936782636890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_26
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29982a78dfdd021d0800000000000000
+      internalID: -3377455639555831406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_27
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5410a2ae3c396750800000000000000
+      internalID: 6298631793568388186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_28
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b158f8832f0e80060800000000000000
+      internalID: 6920028158390404379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_29
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ad950b17b809f30800000000000000
+      internalID: 4580314141442038293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_30
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4126a39be9ae80300800000000000000
+      internalID: 218682549360812564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_31
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0dab3d3c61b9bc80800000000000000
+      internalID: -8306412959266263793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_32
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f23f3f0cd73fbf40800000000000000
+      internalID: 5746373067836175097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_33
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9013425d4c95d790800000000000000
+      internalID: -7505921348036521827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_34
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 186
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c1c14e3cdb0d820800000000000000
+      internalID: 2941059205716253753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a786449f8f4c5750800000000000000
+      internalID: 6294993857243678626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_36
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1622d5e0d3cd3d650800000000000000
+      internalID: 6256586462139851361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aee2b3b6c14e35420800000000000000
+      internalID: 2617686619141648106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_38
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c6220b69dd237e0800000000000000
+      internalID: -1787122462842786699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_39
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8f6d780e28d5c00800000000000000
+      internalID: 891012202152523974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_40
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53fc52f663657e950800000000000000
+      internalID: 6478241380788719413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_41
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722a90f56a79104f0800000000000000
+      internalID: -864242912663592409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_42
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a30256062c54180800000000000000
+      internalID: -9131678950154552694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_43
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 93
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20759b6f40d969e70800000000000000
+      internalID: 9121650739930289922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a13f4850915ea140800000000000000
+      internalID: 4732809938811695527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_45
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01ec4bb03da4dd60800000000000000
+      internalID: 7914140870009217290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_46
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edffed2d90219c970800000000000000
+      internalID: 8775565182309957598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_47
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3782fb81df10c2db0800000000000000
+      internalID: -4815471715012368269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_48
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6f91670f17d35c0800000000000000
+      internalID: -4234102797070895432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_49
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9746a0fba14dd5cf0800000000000000
+      internalID: -261819991978253191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_50
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed3505ac4439e2c0800000000000000
+      internalID: -4401929656987206172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_51
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce469620ffa603230800000000000000
+      internalID: 3616508144268174572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_52
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d8bdc47128a4860800000000000000
+      internalID: 7514961964806409489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_53
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd0828f55f1ecfe40800000000000000
+      internalID: 5691672473075089629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_54
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659223ab53be79a20800000000000000
+      internalID: 3069180287065925974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_55
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 696140ed349d5c230800000000000000
+      internalID: 3658569157819242134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_56
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd379482a466644c0800000000000000
+      internalID: -4303639925216414757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_57
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6207c29da2164920800000000000000
+      internalID: 2974085140625949291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_58
+      rect:
+        serializedVersion: 2
+        x: 3920
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1995a9b3261c7eff0800000000000000
+      internalID: -6824246766839407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bringer of Death Rework_59
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 0
+        width: 280
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a5050dea2c50eb0800000000000000
+      internalID: -4754179775544665458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ea6451b2044b21a448fa728719be3263
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":280.0,"y":93.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bringer of Death Rework_0: -7417187767258132862
+      Bringer of Death Rework_1: 7151977362967265012
+      Bringer of Death Rework_10: 7149443801482534451
+      Bringer of Death Rework_11: 7669257502163876666
+      Bringer of Death Rework_12: 6261725325423295684
+      Bringer of Death Rework_13: 8409570557256366286
+      Bringer of Death Rework_14: -1511143319208881897
+      Bringer of Death Rework_15: -7568694756818254373
+      Bringer of Death Rework_16: -1530319971910038714
+      Bringer of Death Rework_17: -8477948340995074413
+      Bringer of Death Rework_18: 6557430496968293868
+      Bringer of Death Rework_19: 3527632630436780384
+      Bringer of Death Rework_2: 1347395377993954199
+      Bringer of Death Rework_20: 3429212228778798241
+      Bringer of Death Rework_21: -304220846273857648
+      Bringer of Death Rework_22: -7811151936427899141
+      Bringer of Death Rework_23: 6796559435453086159
+      Bringer of Death Rework_24: -8486757453661930354
+      Bringer of Death Rework_25: 9144098936782636890
+      Bringer of Death Rework_26: -3377455639555831406
+      Bringer of Death Rework_27: 6298631793568388186
+      Bringer of Death Rework_28: 6920028158390404379
+      Bringer of Death Rework_29: 4580314141442038293
+      Bringer of Death Rework_3: -1750561169590749851
+      Bringer of Death Rework_30: 218682549360812564
+      Bringer of Death Rework_31: -8306412959266263793
+      Bringer of Death Rework_32: 5746373067836175097
+      Bringer of Death Rework_33: -7505921348036521827
+      Bringer of Death Rework_34: 2941059205716253753
+      Bringer of Death Rework_35: 6294993857243678626
+      Bringer of Death Rework_36: 6256586462139851361
+      Bringer of Death Rework_37: 2617686619141648106
+      Bringer of Death Rework_38: -1787122462842786699
+      Bringer of Death Rework_39: 891012202152523974
+      Bringer of Death Rework_4: 6205435627925636435
+      Bringer of Death Rework_40: 6478241380788719413
+      Bringer of Death Rework_41: -864242912663592409
+      Bringer of Death Rework_42: -9131678950154552694
+      Bringer of Death Rework_43: 9121650739930289922
+      Bringer of Death Rework_44: 4732809938811695527
+      Bringer of Death Rework_45: 7914140870009217290
+      Bringer of Death Rework_46: 8775565182309957598
+      Bringer of Death Rework_47: -4815471715012368269
+      Bringer of Death Rework_48: -4234102797070895432
+      Bringer of Death Rework_49: -261819991978253191
+      Bringer of Death Rework_5: -1256069456729862272
+      Bringer of Death Rework_50: -4401929656987206172
+      Bringer of Death Rework_51: 3616508144268174572
+      Bringer of Death Rework_52: 7514961964806409489
+      Bringer of Death Rework_53: 5691672473075089629
+      Bringer of Death Rework_54: 3069180287065925974
+      Bringer of Death Rework_55: 3658569157819242134
+      Bringer of Death Rework_56: -4303639925216414757
+      Bringer of Death Rework_57: 2974085140625949291
+      Bringer of Death Rework_58: -6824246766839407
+      Bringer of Death Rework_59: -4754179775544665458
+      Bringer of Death Rework_6: -4225305157316471867
+      Bringer of Death Rework_7: 5617368729168970063
+      Bringer of Death Rework_8: -1181504399113538580
+      Bringer of Death Rework_9: -123899528144397661
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
