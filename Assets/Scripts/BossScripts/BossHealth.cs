@@ -11,6 +11,7 @@ namespace Assets.Scripts.BossScripts
         BossValues bossValues;
         BossController bossController;
         public PlayerValues playerValues;
+        BossSpellCasting bossSpellCasting;
 
         public BossHealthBar bossHealthBar;
 
@@ -22,6 +23,7 @@ namespace Assets.Scripts.BossScripts
             bossController = GetComponent<BossController>();
             playerValues = FindFirstObjectByType<PlayerValues>();
             bossHealthBar.SetMaxHealth(bossMaxHealth); // Set the maximum health in the health bar UI
+            bossSpellCasting = GetComponentInChildren<BossSpellCasting>();
         }
 
         public void TakeBossDamage(float damage)
@@ -38,7 +40,7 @@ namespace Assets.Scripts.BossScripts
             // Optionally, you can add logic to handle player death here
             if (bossCurrentHealth == 0)
             {
-                Die(); // Call the Die method to handle enemy death
+                StartCoroutine(Die()); // Call the Die method to handle enemy death
             }
         }
 
@@ -56,12 +58,21 @@ namespace Assets.Scripts.BossScripts
             // Optionally, you can add logic to handle player death here
             if (bossCurrentHealth == 0)
             {
-                Die(); // Call the Die method to handle enemy death
+                StartCoroutine(Die()); // Call the Die method to handle enemy death
             }
         }
 
-        public void Die()
+        public IEnumerator Die()
         {
+            bossValues.IsDead = true;
+            foreach (var spell in bossSpellCasting.spellList)
+            {
+                if (spell != null)
+                    Destroy(spell);
+            }
+            bossSpellCasting.spellList.Clear();
+            bossValues.bossAnimator.SetBool("IsDead", true);
+            yield return new WaitForSeconds(1f);
             gameObject.SetActive(false); // Deactivate the boss game object
         }
     }

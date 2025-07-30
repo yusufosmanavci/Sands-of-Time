@@ -9,6 +9,7 @@ TagManager:
   - RoomGate
   - Borders
   - Campfire
+  - BossSpell
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,10 @@ public class BossController : MonoBehaviour
 {
     public BossValues bossValues;
     public PlayerHealth playerHealth;
+    public BossSpellCasting spellCasting;
     private HashSet<GameObject> damagedPlayer = new HashSet<GameObject>(); // Hasar verilen oyuncu listesi
+    public int spellChance;
+
 
     private void Awake()
     {
@@ -17,6 +20,7 @@ public class BossController : MonoBehaviour
         bossValues.bossSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         bossValues.player = FindFirstObjectByType<PlayerValues>().transform; // Oyuncunun transformunu al
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+        spellCasting = GetComponentInChildren<BossSpellCasting>();
     }
 
     private void Update()
@@ -25,27 +29,10 @@ public class BossController : MonoBehaviour
 
         // Çok küçük deðerleri sýfýr kabul et (gürültüyü engelle)
         float speed = rawSpeed < 0.05f ? 0f : rawSpeed;
-
         bossValues.bossAnimator.SetFloat("Speed", speed);
         PlayerDistanceControl();
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerHurtbox"))
-        {
-            // Sadece düþman saldýrýyorsa ve oyuncu saldýrmýyorsa
-            PlayerController playerController = collision.gameObject.GetComponentInParent<PlayerController>();
-            if (bossValues.IsAttacking && playerController != null && !PlayerManager.Instance.playerValues.IsAttacking)
-            {
-                PlayerHealth player = playerController.GetComponent<PlayerHealth>();
-                if (player != null)
-                {
-                    player.TakePLayerDamage(bossValues.bossDamage, transform.position);
-                    Debug.Log("Player took damage from boss!");
-                }
-            }
-        }
-    }
+
     private void PlayerTrackker()
     {
         Vector2 bossPos = transform.position;
@@ -71,32 +58,51 @@ public class BossController : MonoBehaviour
         }
     }
 
-    private bool PlayerDistanceControl()
+    private void PlayerDistanceControl()
     {
         if (bossValues.player == null)
         {
-            return true;
+            return;
         }
         float yOffset = Mathf.Abs(transform.position.y - bossValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - bossValues.player.transform.position.x);
 
-        if (xDistanceToPlayer > 20 || yOffset > 2.5f)
+        if (xDistanceToPlayer > 10f || yOffset > 2.5f)
         {
             PlayerTrackker();
-            /*bossValues.IsAttacking = false;
-            bossValues.attackInitialized = false;*/
         }
         else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 4f && yOffset <= 2.5f)
         {
-            PlayerTrackker();
-            /*bossValues.IsAttacking = false;
-            bossValues.attackInitialized = false;*/
+            if (!bossValues.HasTriedCasting && !bossValues.IsCasting)
+            {
+                spellChance = Random.Range(0, 100);
+                bossValues.HasTriedCasting = true;
+
+                if (spellChance < 45)
+                {
+                    StartCoroutine(BossCasting());
+                }
+                else
+                {
+                    PlayerTrackker();
+
+                    StartCoroutine(ResetCastingAttemp());
+                }
+            }
+            else if (!bossValues.IsCasting)
+            {
+                PlayerTrackker();
+            }
         }
         else if (xDistanceToPlayer <= 4f && yOffset <= 2.5f)
         {
             Vector2 bossPos = transform.position;
             Vector2 playerPos = bossValues.player.position;
-            if (!bossValues.attackInitialized)
+            if (bossValues.IsCasting || bossValues.IsDead)
+            {
+                return;
+            }
+            else if (!bossValues.attackInitialized)
             {
                 StartCoroutine(AttackRoutine());
 
@@ -112,8 +118,6 @@ public class BossController : MonoBehaviour
                 }
             }
         }
-
-        return false;
     }
 
     private IEnumerator AttackRoutine()
@@ -141,7 +145,7 @@ public class BossController : MonoBehaviour
         bossValues.IsInAttackAnimation = false;
 
         // Saldýrýdan sonra tekrar bekleme (cooldown)
-        yield return new WaitForSeconds(bossValues.attackWaitTime-0.6f);
+        yield return new WaitForSeconds(bossValues.attackWaitTime - 0.6f);
 
         // Saldýrý tamamlandý
         bossValues.IsAttacking = false;
@@ -165,5 +169,29 @@ public class BossController : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    public IEnumerator BossCasting()
+    {
+        bossValues.IsCasting = true;
+        bossValues.bossAnimator.SetBool("IsCasting", true);
+        yield return new WaitForSeconds(1f);
+        bossValues.bossAnimator.SetBool("IsCasting", false);
+        bossValues.IsCasting = false;
+        if (spellCasting.spellCount == 0)
+        {
+            spellCasting.spellCount++;
+            spellCasting.Shoot();
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        bossValues.HasTriedCasting = false;
+    }
+
+    public IEnumerator ResetCastingAttemp()
+    {
+        yield return new WaitForSeconds(1.5f);
+        bossValues.HasTriedCasting = false;
     }
 }
