@@ -26,6 +26,7 @@ public class DoorInteraction : MonoBehaviour
     public RoomData nextRoom;
     public GameObject roomToActivate;
     public GameObject roomToDeactivate;
+    EnemySpawner enemySpawner;
 
     private void Start()
     {
@@ -52,6 +53,23 @@ public class DoorInteraction : MonoBehaviour
                 yield return null;
             }
             roomToDeactivate.SetActive(false); // Disable the door after interaction
+
+            enemySpawner = roomToActivate.GetComponentInChildren<EnemySpawner>();
+            if (enemySpawner != null)
+            {
+                enemySpawner.ClearEnemies(); // Clear any existing enemies in the new room
+                enemySpawner.SpawnEnemies(); // Spawn new enemies in the new room
+            }
+
+            if (roomToDeactivate != null)
+            {
+                enemySpawner = roomToDeactivate.GetComponentInChildren<EnemySpawner>();
+                if (enemySpawner != null)
+                {
+                    enemySpawner.ClearEnemies(); // Clear any existing enemies in the old room
+                }
+                roomToDeactivate.SetActive(false); // Deactivate the old room if it exists
+            }
             roomToActivate.SetActive(true);
         }
     }

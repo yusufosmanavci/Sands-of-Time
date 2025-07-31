@@ -34,10 +34,13 @@ namespace Assets.Scripts.BossScripts
         {
             if (!bossValues.IsDead)
             {
-                foreach(var door in doors)
-                {
+                foreach (var door in doors)
                     door.SetActive(false);
-                }
+            }
+            else
+            {
+                foreach (var door in doors)
+                    door.SetActive(true);
             }
         }
 

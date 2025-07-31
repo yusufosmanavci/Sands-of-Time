@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public BossHealth bossHealth;
+    public AudioManager audioManager;
     private HashSet<GameObject> damagedEnemies = new HashSet<GameObject>();
     private HashSet<GameObject> damagedEnemies2 = new HashSet<GameObject>();
 
@@ -194,6 +195,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator SwordAttack()
     {
         PlayerManager.Instance.playerValues.IsSwordAttacking = true;
+        audioManager.Play("SwordSlash");
 
         Vector2 position = PlayerManager.Instance.playerValues.IsfacingRight ? new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.max.x + 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y) : new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.min.x - 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(position, PlayerManager.Instance.playerValues.hitboxRadius, PlayerManager.Instance.playerValues.enemyLayerMask);

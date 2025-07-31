@@ -264,7 +264,6 @@ MonoBehaviour:
   moveSpeed: 8
   jumpForce: 12
   dashSpeed: 20
-  InputX: 0
   dashCooldown: 2
   currentDashCooldown: 0
   groundCheckRadius: 0.2
@@ -275,10 +274,17 @@ MonoBehaviour:
   attackCooldown: 0
   attackResetTime: 0
   playerDamage: 30
+  playerDashDamage: 15
   dashAttackRadius: 1.5
   sandsOfTime: 0
+  sandsOfTimeUpgrade: 100
   hitboxRadius: 0.5
   jumpCount: 0
+  healAmount: 40
+  PlayerLevel: 1
+  lastCheckPoint: {fileID: 11400000, guid: 51f58fec3f1a13a4dbbf51f4737be118, type: 2}
+  checkPointRoom: {fileID: 0}
+  deathRoom: {fileID: 0}
   rb: {fileID: 6287482775401147582}
   animator: {fileID: 6776784990965775699}
   spriteRenderer: {fileID: 392071962595458747}
@@ -317,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  healPotions: 2
 --- !u!114 &5931809405310048867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandsOfTimeText: {fileID: 0}
-  playerValues: {fileID: 1389974922038204552}
+  healPotionText: {fileID: 0}
 --- !u!1 &7619538674888109647
 GameObject:
   m_ObjectHideFlags: 0
