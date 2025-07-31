@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2775588bb2cbab48a84a6afbbe4bd97, type: 3}
-  m_Name: Room2
+  m_Name: CheckPoint2
   m_EditorClassIdentifier: 
-  roomID: 1
-  cameraPosition: {x: 78, y: 2, z: -10}
-  cameraSize: 10
-  playerPosition: {x: 70, y: 1}
-  minBounds: {x: 66, y: -6}
-  maxBounds: {x: 348, y: 35}
+  roomID: 3
+  cameraPosition: {x: 641, y: 2, z: -10}
+  cameraSize: 5
+  playerPosition: {x: 641, y: 2.2}
+  minBounds: {x: 595, y: -5}
+  maxBounds: {x: 663, y: 20}

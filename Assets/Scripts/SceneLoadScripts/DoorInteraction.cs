@@ -46,6 +46,7 @@ public class DoorInteraction : MonoBehaviour
         {
             canInteract = true;
             StartCoroutine(RoomTransition.Instance.LoadRoom(nextRoom));
+            PlayerManager.Instance.playerValues.deathRoom = roomToActivate;
             while (SceneFadeManager.instance.IsFadingOut)
             {
                 yield return null;

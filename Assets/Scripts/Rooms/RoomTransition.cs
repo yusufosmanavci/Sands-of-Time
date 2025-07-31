@@ -29,6 +29,5 @@ public class RoomTransition : MonoBehaviour
         CameraController.Instance.SetBounds(roomData.minBounds, roomData.maxBounds, roomData.cameraPosition, roomData.cameraSize);
         PlayerManager.Instance.playerController.SetCharacterPosition(roomData.playerPosition);
         SceneFadeManager.instance.StartFadeIn();
-
     }
 }

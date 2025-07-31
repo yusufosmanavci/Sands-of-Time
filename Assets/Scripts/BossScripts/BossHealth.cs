@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.UIScripts;
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.BossScripts
@@ -14,6 +16,8 @@ namespace Assets.Scripts.BossScripts
         BossSpellCasting bossSpellCasting;
 
         public BossHealthBar bossHealthBar;
+        public GameObject BossCanvas;
+        public GameObject[] doors;
 
         // Use this for initialization
         void Start()
@@ -24,6 +28,17 @@ namespace Assets.Scripts.BossScripts
             playerValues = FindFirstObjectByType<PlayerValues>();
             bossHealthBar.SetMaxHealth(bossMaxHealth); // Set the maximum health in the health bar UI
             bossSpellCasting = GetComponentInChildren<BossSpellCasting>();
+        }
+
+        private void Update()
+        {
+            if (!bossValues.IsDead)
+            {
+                foreach(var door in doors)
+                {
+                    door.SetActive(false);
+                }
+            }
         }
 
         public void TakeBossDamage(float damage)
@@ -73,7 +88,9 @@ namespace Assets.Scripts.BossScripts
             bossSpellCasting.spellList.Clear();
             bossValues.bossAnimator.SetBool("IsDead", true);
             yield return new WaitForSeconds(1f);
-            gameObject.SetActive(false); // Deactivate the boss game object
+            Destroy(gameObject);
+            Destroy(BossCanvas);
+
         }
     }
 }

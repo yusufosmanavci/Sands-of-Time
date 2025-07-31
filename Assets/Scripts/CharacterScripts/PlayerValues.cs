@@ -25,6 +25,9 @@ public class PlayerValues : MonoBehaviour
     public int jumpCount = 0; // Number of jumps performed
     public float healAmount = 40f; // Amount of health restored by healing items
     //public static Vector2 lastCheckpointPosition; // Last checkpoint position for respawning
+    public RoomData lastCheckPoint;
+    public GameObject checkPointRoom;
+    public GameObject deathRoom;
 
     public Rigidbody2D rb;
     public Animator animator;

@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
     public void HealPlayer(float healAmount)
     {
         PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Stop player movement when healing
-        if(healPotions > 0)
+        if (healPotions > 0)
         {
             healPotions--; // Decrease the number of healing potions
             currentHealth += healAmount; // Increase current health by the heal amount
@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
                 currentHealth = maxHealth; // Ensure current health does not exceed maximum health
             }
         }
-        else if(healPotions <= 0)
+        else if (healPotions <= 0)
         {
             Debug.Log("No healing potions left!"); // Optional: Log message if no healing potions are available
         }
@@ -67,5 +67,18 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.6f); // Wait for the animation to finish (adjust time as needed)
         PlayerManager.Instance.playerValues.IsDead = true; // Set the player state to dead
         //transform.position = PlayerValues.lastCheckpointPosition;
+        if (PlayerManager.Instance.playerValues.IsDead)
+        {
+            if (PlayerManager.Instance.playerValues.lastCheckPoint != null)
+            {
+                StartCoroutine(RoomTransition.Instance.LoadRoom(PlayerManager.Instance.playerValues.lastCheckPoint));
+                PlayerManager.Instance.playerValues.checkPointRoom.SetActive(true);
+                PlayerManager.Instance.playerValues.IsDead = false;
+                PlayerManager.Instance.playerHealth.currentHealth = PlayerManager.Instance.playerHealth.maxHealth;
+                PlayerManager.Instance.playerHealthBar.SetHealth(PlayerManager.Instance.playerHealth.currentHealth);
+                yield return new WaitForSeconds(0.3f);
+                PlayerManager.Instance.playerValues.deathRoom.SetActive(false);
+            }
+        }
     }
 }

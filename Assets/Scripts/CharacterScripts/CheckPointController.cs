@@ -11,11 +11,10 @@ namespace Assets.Scripts.CharacterScripts
     public class CheckPointController : MonoBehaviour
     {
         public TextMeshPro campfireText;
-        public string checkpointID; // Unique identifier for the checkpoint
+        public GameObject checkpointRoom; // Unique identifier for the checkpoint
         private bool IsInCheckpointArea = false; // Flag to check if the player is in the checkpoint area
         public static bool hasButtonPressed = false; // Flag to check if the button has been pressed
-
-        CameraController cam;
+        public RoomData roomData;
         private void Start()
         {
             campfireText.alpha = 0f;
@@ -41,9 +40,11 @@ namespace Assets.Scripts.CharacterScripts
 
         public void SaveProgress()
         {
+            PlayerManager.Instance.playerValues.lastCheckPoint = roomData;
+            PlayerManager.Instance.playerValues.checkPointRoom = checkpointRoom;
             //PlayerValues.lastCheckpointPosition = transform.position;
             //PlayerManager.Instance.playerData.CheckPointSave(); // Save the player's data when they reach a checkpoint
-            PlayerPrefs.SetString("LastCheckpointRoomID", checkpointID); // oda kaydı
+            PlayerPrefs.SetInt("LastCheckpointRoomID", roomData.roomID); // oda kaydı
             PlayerPrefs.Save();
         }
 
@@ -70,6 +71,8 @@ namespace Assets.Scripts.CharacterScripts
                     InputManager.ActivatePlayerControls(); // Enable player controls when the campfire menu is closed
                 }
             }
+
+            
         }
     }
 }
