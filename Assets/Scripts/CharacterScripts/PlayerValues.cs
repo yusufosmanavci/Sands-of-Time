@@ -24,6 +24,7 @@ public class PlayerValues : MonoBehaviour
     public float hitboxRadius = 1f; // Radius for the hitbox detection
     public int jumpCount = 0; // Number of jumps performed
     public float healAmount = 40f; // Amount of health restored by healing items
+    public int PlayerLevel = 1;
     //public static Vector2 lastCheckpointPosition; // Last checkpoint position for respawning
     public RoomData lastCheckPoint;
     public GameObject checkPointRoom;
