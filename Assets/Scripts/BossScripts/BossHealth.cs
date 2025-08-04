@@ -91,8 +91,8 @@ namespace Assets.Scripts.BossScripts
             bossSpellCasting.spellList.Clear();
             bossValues.bossAnimator.SetBool("IsDead", true);
             yield return new WaitForSeconds(1f);
-            Destroy(gameObject);
-            Destroy(BossCanvas);
+            gameObject.SetActive(false);
+            BossCanvas.SetActive(false);
 
         }
     }

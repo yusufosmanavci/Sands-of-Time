@@ -185,13 +185,13 @@ public class BossController : MonoBehaviour
             spellCasting.Shoot();
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         bossValues.HasTriedCasting = false;
     }
 
     public IEnumerator ResetCastingAttemp()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         bossValues.HasTriedCasting = false;
     }
 }

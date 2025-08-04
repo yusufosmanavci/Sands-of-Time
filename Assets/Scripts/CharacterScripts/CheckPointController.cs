@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.CharacterScripts
@@ -50,7 +51,8 @@ namespace Assets.Scripts.CharacterScripts
 
         private void Update()
         {
-            if (IsInCheckpointArea && PlayerManager.Instance.playerValues.IsGrounded)
+            if (PauseMenu.isPaused) return;
+            else if (IsInCheckpointArea && PlayerManager.Instance.playerValues.IsGrounded)
             {
                 if (InputManager.Instance.MenuOpenCloseInput && !hasButtonPressed)
                 {
@@ -63,10 +65,9 @@ namespace Assets.Scripts.CharacterScripts
                         PlayerManager.Instance.playerHealth.currentHealth = PlayerManager.Instance.playerHealth.maxHealth;
                         PlayerManager.Instance.playerHealthBar.SetHealth(PlayerManager.Instance.playerHealth.currentHealth);
                         SaveProgress(); // Save the player's progress when they pause
-
                     }
                 }
-                else if(!CampfireUIController.Instance.IsPaused)
+                else if (!CampfireUIController.Instance.IsPaused)
                 {
                     InputManager.ActivatePlayerControls(); // Enable player controls when the campfire menu is closed
                 }

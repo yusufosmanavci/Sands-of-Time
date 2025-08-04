@@ -153,6 +153,15 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbf3f094-9fd4-4773-8af7-94e528fdb91c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -223,6 +232,39 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""f2173f7f-d12a-4aee-91ec-84dcc3d318e0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveInputs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5f40cb13-98dc-4c93-859c-3e6e03f6d269"",
+                    ""path"": ""<DualShockGamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
+                    ""action"": ""MoveInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""77d7fd46-adb6-4b04-b9ce-311bebb28d35"",
+                    ""path"": ""<DualShockGamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
+                    ""action"": ""MoveInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""e241366b-a996-432f-8f08-f28246479284"",
                     ""path"": ""<Keyboard>/space"",
@@ -240,6 +282,17 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
+                    ""action"": ""JumpInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fd5686d-481c-49ed-9360-b4b8f0dd782f"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
                     ""action"": ""JumpInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -268,6 +321,17 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f78747f5-35a1-4b32-aa99-9509c1bb59e5"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
+                    ""action"": ""AttackInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c477e017-9811-4e95-9ec1-a155dfa19069"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -284,6 +348,17 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
+                    ""action"": ""DoorInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8ae7ccd-7c5b-40f8-98e6-cc724d4c32c3"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
                     ""action"": ""DoorInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -312,6 +387,17 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8952e069-15c9-4d4a-b14f-6046b80437a7"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
+                    ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""112867c3-d7fc-4eb7-ad79-34adcf4182ec"",
                     ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
@@ -328,6 +414,17 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""DashInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0574730-0808-4601-bac5-2256c175e1fe"",
+                    ""path"": ""<DualShockGamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
                     ""action"": ""DashInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -353,6 +450,39 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""action"": ""HealInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""638798d6-5b33-47a5-ac26-aa896b9f60d4"",
+                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Playstation Dualshock"",
+                    ""action"": ""HealInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5663fe48-84e6-4c21-8f5f-544dc862886f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""PauseInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc192c3e-5e45-43f9-985f-54dddb6afe43"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""PauseInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -363,12 +493,12 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             ""bindingGroup"": ""Keyboard & Mouse"",
             ""devices"": [
                 {
-                    ""devicePath"": ""<Keyboard>"",
+                    ""devicePath"": ""<Mouse>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 },
                 {
-                    ""devicePath"": ""<Mouse>"",
+                    ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -384,6 +514,17 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Playstation Dualshock"",
+            ""bindingGroup"": ""Playstation Dualshock"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<DualShockGamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -396,6 +537,7 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         m_PlayerInputs_MenuOpenClose = m_PlayerInputs.FindAction("MenuOpenClose", throwIfNotFound: true);
         m_PlayerInputs_DashInput = m_PlayerInputs.FindAction("DashInput", throwIfNotFound: true);
         m_PlayerInputs_HealInput = m_PlayerInputs.FindAction("HealInput", throwIfNotFound: true);
+        m_PlayerInputs_PauseInput = m_PlayerInputs.FindAction("PauseInput", throwIfNotFound: true);
     }
 
     ~@PlayerInputAll()
@@ -483,6 +625,7 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInputs_MenuOpenClose;
     private readonly InputAction m_PlayerInputs_DashInput;
     private readonly InputAction m_PlayerInputs_HealInput;
+    private readonly InputAction m_PlayerInputs_PauseInput;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerInputs".
     /// </summary>
@@ -522,6 +665,10 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerInputs/HealInput".
         /// </summary>
         public InputAction @HealInput => m_Wrapper.m_PlayerInputs_HealInput;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInputs/PauseInput".
+        /// </summary>
+        public InputAction @PauseInput => m_Wrapper.m_PlayerInputs_PauseInput;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -569,6 +716,9 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @HealInput.started += instance.OnHealInput;
             @HealInput.performed += instance.OnHealInput;
             @HealInput.canceled += instance.OnHealInput;
+            @PauseInput.started += instance.OnPauseInput;
+            @PauseInput.performed += instance.OnPauseInput;
+            @PauseInput.canceled += instance.OnPauseInput;
         }
 
         /// <summary>
@@ -601,6 +751,9 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @HealInput.started -= instance.OnHealInput;
             @HealInput.performed -= instance.OnHealInput;
             @HealInput.canceled -= instance.OnHealInput;
+            @PauseInput.started -= instance.OnPauseInput;
+            @PauseInput.performed -= instance.OnPauseInput;
+            @PauseInput.canceled -= instance.OnPauseInput;
         }
 
         /// <summary>
@@ -660,6 +813,19 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
+    private int m_PlaystationDualshockSchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme PlaystationDualshockScheme
+    {
+        get
+        {
+            if (m_PlaystationDualshockSchemeIndex == -1) m_PlaystationDualshockSchemeIndex = asset.FindControlSchemeIndex("Playstation Dualshock");
+            return asset.controlSchemes[m_PlaystationDualshockSchemeIndex];
+        }
+    }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerInputs" which allows adding and removing callbacks.
     /// </summary>
@@ -716,5 +882,12 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHealInput(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PauseInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPauseInput(InputAction.CallbackContext context);
     }
 }

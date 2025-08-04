@@ -28,7 +28,10 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = UnityEngine.Random.Range(s.pitchMin, s.pitchMax);
             s.source.loop = s.loop;
+
         }
+
+        Play("BackgroundTheme");
     }
 
     public void Play(string name)

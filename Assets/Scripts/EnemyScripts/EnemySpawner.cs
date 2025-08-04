@@ -10,10 +10,6 @@ public class EnemySpawner : MonoBehaviour
 
     private List<GameObject> currentEnemies = new List<GameObject>(); // List to keep track of active enemies
 
-    private void Start()
-    {
-        SpawnEnemies(); // Spawn enemies at the start
-    }
     
     public void SpawnEnemies()
     {

@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
             if (context.ReadValueAsButton() && PlayerManager.Instance.playerValues.jumpCount <= 1 && PlayerManager.Instance.playerValues.jumpCount > 0)
             {
                 PlayerManager.Instance.playerValues.jumpCount--;
+                PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
                 PlayerManager.Instance.playerValues.rb.AddForce(Vector2.up * PlayerManager.Instance.playerValues.jumpForce, ForceMode2D.Impulse);
             }
         }

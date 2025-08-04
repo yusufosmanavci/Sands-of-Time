@@ -1,5 +1,7 @@
 using Assets.Scripts.OtherScripts;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
@@ -14,7 +16,8 @@ public class InputManager : MonoBehaviour
     public static bool AttackInput { get; set; }
     public static float HorizontalMoveInput;
     public static bool healInput { get; set; }
-
+    public static bool pauseInput { get; set; }
+    
     public InputAction menuOpenCloseAction { get; set; }
     public InputAction doorInteractAction { get; set; }
     public InputAction dashAction { get; set; }
@@ -22,6 +25,7 @@ public class InputManager : MonoBehaviour
     public InputAction horizontalMove { get; set; }
     public InputAction jumpAction { get; set; }
     public InputAction healAction { get; set; }
+    public InputAction pauseAction { get; set; }
 
 
     private void Awake()
@@ -43,6 +47,7 @@ public class InputManager : MonoBehaviour
         horizontalMove = playerInput.actions["MoveInputs"];
         jumpAction = playerInput.actions["JumpInput"];
         healAction = playerInput.actions["HealInput"];
+        pauseAction = playerInput.actions["PauseInput"];
     }
 
     private void Start()
@@ -58,6 +63,7 @@ public class InputManager : MonoBehaviour
         AttackInput = attackAction.WasPressedThisFrame();
         HorizontalMoveInput = horizontalMove.ReadValue<Vector2>().x; // Read horizontal movement input
         healInput = healAction.WasPressedThisFrame(); // Read heal input
+        pauseInput = pauseAction.WasPressedThisFrame();
     }
 
     public static void DeactivatePlayerControls()
@@ -79,6 +85,7 @@ public class InputManager : MonoBehaviour
         InputManager.Instance.jumpAction.Enable(); // Enable jump input
         InputManager.Instance.healAction.Enable(); // Enable heal input
     }
+
 
     private void OnDestroy()
     {

@@ -198,4 +198,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d5bb22605bfc746a7bd2c2f45b5d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellDamage: 20
+  spellDamage: 30

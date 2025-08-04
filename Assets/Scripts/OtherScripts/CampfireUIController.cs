@@ -48,6 +48,8 @@ namespace Assets.Scripts.OtherScripts
             {
                 Instance = this;
             }
+
+           // GetComponent<Button>().onClick.AddListener(() => { });
         }
         private void Start()
         {
@@ -78,8 +80,7 @@ namespace Assets.Scripts.OtherScripts
             dashSkill.SetActive(false); // Hide the dash skill
             healPotion.SetActive(false);
             InputManager.DeactivatePlayerControls(); // Disable player controls when the campfire menu is open
-            EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
-            EventSystem.current.SetSelectedGameObject(upgradeButton.gameObject); // Set focus on the campfire text
+            SetUIElement(upgradeButton.gameObject);
         }
         public void OpenCharacterUpgradeMenu()
         {
@@ -101,8 +102,7 @@ namespace Assets.Scripts.OtherScripts
             currDashDamage.text = PlayerManager.Instance.playerValues.playerDashDamage.ToString();
             lvlUpDashDamage.text = (PlayerManager.Instance.playerValues.playerDashDamage * 0.2f + PlayerManager.Instance.playerValues.playerDashDamage).ToString();
 
-            EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
-            EventSystem.current.SetSelectedGameObject(levelUpButton.gameObject); // Set focus on the level up button
+            SetUIElement(levelUpButton.gameObject);
         }
 
         public void CloseCharacterUpgradeMenu()
@@ -111,8 +111,7 @@ namespace Assets.Scripts.OtherScripts
             campfireCanvas.SetActive(true); // Show the campfire canvas when closing the upgrade menu
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
-            EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
-            EventSystem.current.SetSelectedGameObject(upgradeButton.gameObject); // Set focus on the resume button
+            SetUIElement(upgradeButton.gameObject);
         }
 
         public void CloseCampfireMenu()
@@ -184,6 +183,12 @@ namespace Assets.Scripts.OtherScripts
         public void OnBackPressed()
         {
             CloseCharacterUpgradeMenu();
+        }
+
+        private void SetUIElement(GameObject element)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(element);
         }
     }
 }
