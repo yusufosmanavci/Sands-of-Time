@@ -113,6 +113,8 @@ public class PauseMenu : MonoBehaviour
     public void OnMainMenuPressed()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+        isPaused = false;
         Debug.Log("Main Menu");
     }
 }

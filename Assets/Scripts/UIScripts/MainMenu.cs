@@ -1,0 +1,49 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class MainMenu : MonoBehaviour
+{
+    public Button defaultButton;
+    public Button settingsButton;
+    public GameObject buttons;
+    public GameObject settings;
+    private void Start()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(defaultButton.gameObject);
+    }
+
+    public void SetUIElement(GameObject button)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public void OnStartPressed()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void OnSettingsPressed()
+    {
+        buttons.SetActive(false);
+        settings.SetActive(true);
+        SetUIElement(settingsButton.gameObject);
+    }
+
+    public void OnQuitPressed()
+    {
+        Application.Quit();
+        Debug.Log("Quit!");
+    }
+
+    public void OnBackPressed()
+    {
+        buttons.SetActive(true);
+        settings.SetActive(false);
+        SetUIElement(defaultButton.gameObject);
+    }
+
+}

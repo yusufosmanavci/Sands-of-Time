@@ -21,7 +21,6 @@ public class PlayerManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep this instance across scene loads
         }
     }
 }
