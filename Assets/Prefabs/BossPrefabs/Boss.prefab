@@ -228,6 +228,8 @@ MonoBehaviour:
   bossCurrentHealth: 0
   playerValues: {fileID: 0}
   bossHealthBar: {fileID: 0}
+  BossCanvas: {fileID: 0}
+  doors: []
 --- !u!114 &4701239285883841410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +245,7 @@ MonoBehaviour:
   bossSpeed: 2
   attackWaitTime: 1
   hitboxRadius: 3
-  bossDamage: 1
+  bossDamage: 40
   bossSpellDamage: 40
   player: {fileID: 0}
   bossSpriteRenderer: {fileID: 5497101895801409057}

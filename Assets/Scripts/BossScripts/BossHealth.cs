@@ -26,6 +26,8 @@ namespace Assets.Scripts.BossScripts
             bossValues = GetComponent<BossValues>();
             bossController = GetComponent<BossController>();
             playerValues = FindFirstObjectByType<PlayerValues>();
+            bossHealthBar = FindFirstObjectByType<BossHealthBar>();
+            BossCanvas = GameObject.FindWithTag("BossCanvas");
             bossHealthBar.SetMaxHealth(bossMaxHealth); // Set the maximum health in the health bar UI
             bossSpellCasting = GetComponentInChildren<BossSpellCasting>();
         }
@@ -91,7 +93,7 @@ namespace Assets.Scripts.BossScripts
             bossSpellCasting.spellList.Clear();
             bossValues.bossAnimator.SetBool("IsDead", true);
             yield return new WaitForSeconds(1f);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             BossCanvas.SetActive(false);
 
         }

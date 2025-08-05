@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f; // Maximum health of the player
     public float currentHealth; // Current health of the player
     public int healPotions = 2; // Number of healing potions collected
+    public GameObject hurtOverlay;
 
 
     private void Start()
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
 
         AudioManager.instance.PlaySFX("Hurt");
+        
 
         PlayerManager.Instance.playerHealthBar.SetHealth(currentHealth); // Update the health bar UI
 
@@ -41,6 +43,8 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(Die());
         }
+
+        StartCoroutine(ActivateHurtOverlay());
     }
 
     public void HealPlayer(float healAmount)
@@ -81,7 +85,24 @@ public class PlayerHealth : MonoBehaviour
                 healPotions = 2;
                 yield return new WaitForSeconds(0.3f);
                 PlayerManager.Instance.playerValues.deathRoom.SetActive(false);
+                EnemySpawner enemySpawner = PlayerManager.Instance.playerValues.deathRoom.GetComponentInChildren<EnemySpawner>();
+                if(enemySpawner != null)
+                {
+                    enemySpawner.ClearEnemies();
+                }
+                BossSpawner bossSpawner = PlayerManager.Instance.playerValues.deathRoom.GetComponentInChildren<BossSpawner>();
+                if(bossSpawner != null)
+                {
+                    bossSpawner.ClearBosses();
+                }
             }
         }
+    }
+
+    public IEnumerator ActivateHurtOverlay()
+    {
+        hurtOverlay.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        hurtOverlay.SetActive(false);
     }
 }
