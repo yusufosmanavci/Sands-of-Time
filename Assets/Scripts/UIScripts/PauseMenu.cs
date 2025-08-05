@@ -19,9 +19,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject mainMenuBut;
     public GameObject optionsBut;
 
-    [Header("Buttons")]
+    [Header("UI")]
     public Button resumeButton;
-    public Button backButton;
+    public Slider musicSlider;
 
     public static bool isPaused = false;
 
@@ -80,6 +80,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnResumePressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         Time.timeScale = 1f;
         isPaused = false;
         pauseMenu.SetActive(false);
@@ -94,15 +95,17 @@ public class PauseMenu : MonoBehaviour
 
     public void OnOptionsPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         resumeBut.SetActive(false);
         optionsBut.SetActive(false);
         mainMenuBut.SetActive(false);
         options.SetActive(true);
-        SetUIElement(backButton.gameObject);
+        SetUIElement(musicSlider.gameObject);
     }
 
     public void OnBackPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         options.SetActive(false);
         resumeBut.SetActive(true);
         mainMenuBut.SetActive(true);
@@ -112,6 +115,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnMainMenuPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
         isPaused = false;

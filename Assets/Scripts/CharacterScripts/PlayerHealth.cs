@@ -20,6 +20,8 @@ public class PlayerHealth : MonoBehaviour
         // Reduce current health by the damage amount
         currentHealth -= damage;
 
+        AudioManager.instance.PlaySFX("Hurt");
+
         PlayerManager.Instance.playerHealthBar.SetHealth(currentHealth); // Update the health bar UI
 
         Vector2 knockbackDir = (transform.position - (Vector3)attackerPosition).normalized;

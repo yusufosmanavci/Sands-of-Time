@@ -295,6 +295,7 @@ public class EnemyController : MonoBehaviour
         // Animasyon baþlat
         enemyValues.enemyAnimator.SetBool("IsAttacking", true);
         enemyValues.IsInAttackAnimation = true;
+        AudioManager.instance.PlaySFX("EnemySlash");
 
         StartCoroutine(SwordAttack()); // Saldýrý animasyonu sýrasýnda oyuncuya hasar verme
 

@@ -132,6 +132,7 @@ public class BossController : MonoBehaviour
         // Animasyon baþlat
         bossValues.bossAnimator.SetBool("IsAttacking", true);
         bossValues.IsInAttackAnimation = true;
+        AudioManager.instance.PlaySFX("BossSlash");
 
         yield return new WaitForSeconds(0.5f);
         SwordAttack(); // Saldýrý animasyonu sýrasýnda oyuncuya hasar verme

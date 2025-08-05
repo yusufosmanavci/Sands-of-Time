@@ -23,11 +23,13 @@ public class MainMenu : MonoBehaviour
 
     public void OnStartPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         SceneManager.LoadScene(1);
     }
 
     public void OnSettingsPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         buttons.SetActive(false);
         settings.SetActive(true);
         SetUIElement(settingsButton.gameObject);
@@ -35,12 +37,14 @@ public class MainMenu : MonoBehaviour
 
     public void OnQuitPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         Application.Quit();
         Debug.Log("Quit!");
     }
 
     public void OnBackPressed()
     {
+        AudioManager.instance.PlaySFX("ButtonClick");
         buttons.SetActive(true);
         settings.SetActive(false);
         SetUIElement(defaultButton.gameObject);

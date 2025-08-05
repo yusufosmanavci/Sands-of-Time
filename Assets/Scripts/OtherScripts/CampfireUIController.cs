@@ -127,16 +127,19 @@ namespace Assets.Scripts.OtherScripts
 
         public void OnResumePressed()
         {
+            AudioManager.instance.PlaySFX("ButtonClick");
             Unpause();
         }
 
         public void OnUpgradePressed()
         {
+            AudioManager.instance.PlaySFX("ButtonClick");
             OpenCharacterUpgradeMenu(); // Open the character upgrade menu
         }
 
         public void OnLevelUpPressed()
         {
+            AudioManager.instance.PlaySFX("ButtonClick");
             if (PlayerManager.Instance.playerValues.sandsOfTimeUpgrade <= PlayerManager.Instance.playerValues.sandsOfTime && PlayerManager.Instance.playerValues.PlayerLevel < 10)
             {
                 PlayerManager.Instance.playerValues.PlayerLevel++;
@@ -182,6 +185,7 @@ namespace Assets.Scripts.OtherScripts
 
         public void OnBackPressed()
         {
+            AudioManager.instance.PlaySFX("ButtonClick");
             CloseCharacterUpgradeMenu();
         }
 

@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         if (PlayerManager.Instance.playerValues.IsAttacking && PlayerManager.Instance.playerValues.IsGrounded && !PlayerManager.Instance.playerValues.IsKnockbacked && !PlayerManager.Instance.playerValues.IsSwordAttacking)
         {
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
+            AudioManager.instance.PlaySFX("SwordSlash");
             StartCoroutine(SwordAttack());
             StartCoroutine(BossSwordAttack());
         }
@@ -70,6 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             if (context.ReadValueAsButton() && PlayerManager.Instance.playerValues.jumpCount <= 1 && PlayerManager.Instance.playerValues.jumpCount > 0)
             {
+                AudioManager.instance.PlaySFX("Jump");
                 PlayerManager.Instance.playerValues.jumpCount--;
                 PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero;
                 PlayerManager.Instance.playerValues.rb.AddForce(Vector2.up * PlayerManager.Instance.playerValues.jumpForce, ForceMode2D.Impulse);
@@ -83,6 +85,8 @@ public class PlayerController : MonoBehaviour
     {
         if (InputManager.DashInput && PlayerManager.Instance.playerValues.currentDashCooldown == 0 && !PlayerManager.Instance.playerValues.IsAttacking && !PlayerManager.Instance.playerValues.IsKnockbacked)
         {
+            AudioManager.instance.PlaySFX("Dash");
+
             PlayerManager.Instance.playerValues.rb.linearVelocity = Vector2.zero; // Reset velocity to prevent sliding during dash
             Vector2 dashDirection = PlayerManager.Instance.playerValues.IsfacingRight ? Vector2.right : Vector2.left;
 
@@ -196,7 +200,6 @@ public class PlayerController : MonoBehaviour
     public IEnumerator SwordAttack()
     {
         PlayerManager.Instance.playerValues.IsSwordAttacking = true;
-        audioManager.Play("SwordSlash");
 
         Vector2 position = PlayerManager.Instance.playerValues.IsfacingRight ? new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.max.x + 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y) : new Vector2(PlayerManager.Instance.playerValues.playerCollider.bounds.min.x - 1f, PlayerManager.Instance.playerValues.playerCollider.bounds.center.y);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(position, PlayerManager.Instance.playerValues.hitboxRadius, PlayerManager.Instance.playerValues.enemyLayerMask);
