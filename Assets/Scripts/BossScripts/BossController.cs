@@ -148,11 +148,11 @@ public class BossController : MonoBehaviour
         bossValues.IsInAttackAnimation = true;
         AudioManager.instance.PlaySFX("BossSlash");
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         SwordAttack(); // Saldýrý animasyonu sýrasýnda oyuncuya hasar verme
 
         // Saldýrý animasyon süresi boyunca bekle
-        yield return new WaitForSeconds(0.5f); // animasyon süresi kadar
+        yield return new WaitForSeconds(0.4f); // animasyon süresi kadar
         damagedPlayer.Clear();
 
         // Animasyon bitir

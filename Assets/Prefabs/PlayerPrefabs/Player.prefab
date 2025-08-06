@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossHealth: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &1389974922038204552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ MonoBehaviour:
   moveSpeed: 8
   jumpForce: 12
   dashSpeed: 20
-  dashCooldown: 2
+  dashCooldown: 3
   currentDashCooldown: 0
   groundCheckRadius: 0.2
   dashDuration: 0.2
@@ -285,6 +286,8 @@ MonoBehaviour:
   lastCheckPoint: {fileID: 11400000, guid: 51f58fec3f1a13a4dbbf51f4737be118, type: 2}
   checkPointRoom: {fileID: 0}
   deathRoom: {fileID: 0}
+  bossCanvas: {fileID: 0}
+  boss: {fileID: 0}
   rb: {fileID: 6287482775401147582}
   animator: {fileID: 6776784990965775699}
   spriteRenderer: {fileID: 392071962595458747}
@@ -324,6 +327,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healPotions: 2
+  hurtOverlay: {fileID: 0}
 --- !u!114 &5931809405310048867
 MonoBehaviour:
   m_ObjectHideFlags: 0
