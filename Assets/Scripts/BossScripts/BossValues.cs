@@ -19,12 +19,27 @@ namespace Assets.Scripts.BossScripts
         public LayerMask playerLayerMask;
         public GameObject spellObject;
 
-        public bool IsFacingRight = true; // Is the boss facing right?
+        public bool IsFacingRight = false; // Is the boss facing right?
         public bool IsAttacking = false; // Is the boss currently attacking?
         public bool attackInitialized = false; // Has the attack been initialized?
         public bool IsInAttackAnimation = false; // Is the boss in the attack animation?
         public bool IsCasting = false;
         public bool HasTriedCasting = false;
         public bool IsDead = false;
+
+        private void OnEnable()
+        {
+            ResetBossValues();
+        }
+
+        public void ResetBossValues()
+        {
+            IsFacingRight = false; // Is the boss facing right?
+            IsAttacking = false; // Is the boss currently attacking?
+            attackInitialized = false; // Has the attack been initialized?
+            IsInAttackAnimation = false; // Is the boss in the attack animation?
+            IsCasting = false;
+            HasTriedCasting = false;
+        }
     }
 }

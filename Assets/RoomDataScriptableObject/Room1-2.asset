@@ -17,4 +17,4 @@ MonoBehaviour:
   cameraSize: 10
   playerPosition: {x: 70, y: 1}
   minBounds: {x: 65, y: -5}
-  maxBounds: {x: 348, y: 36}
+  maxBounds: {x: 259, y: 36}

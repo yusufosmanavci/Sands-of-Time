@@ -45,11 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7aefc69e9edc7341a676281b75df8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorToSpawnTo: 0
+  doorToSpawnTo: 1
   _sceneToLoad:
     m_SceneAsset: {fileID: 0}
     m_SceneName: DLevel2
-  currentDoorPosition: 0
+  currentDoorPosition: 1
+  nextRoom: {fileID: 11400000, guid: 4839c1e7dd129f947bc8dc7d7a7e248e, type: 2}
+  roomToActivate: {fileID: 0}
+  roomToDeactivate: {fileID: 0}
 --- !u!61 &6147966920708237320
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84,7 +87,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1}
+  m_Offset: {x: 0, y: 1.7332841}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -94,5 +97,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 5}
+  m_Size: {x: 1, y: 3.5}
   m_EdgeRadius: 0

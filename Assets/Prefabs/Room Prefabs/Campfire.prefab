@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 1019181269503051016}
   m_Layer: 0
   m_Name: Campfire
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,14 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   campfireText: {fileID: 6696974647291123650}
-  checkpointID: Room1
-  roomToActivate: {fileID: 0}
-  roomsToDeactivate:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  campfire: {fileID: 0}
+  checkpointRoom: {fileID: 0}
+  roomData: {fileID: 11400000, guid: f679e9159de4bd04b8d3201f796527fb, type: 2}
 --- !u!61 &1019181269503051016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -289,6 +283,14 @@ PrefabInstance:
     - target: {fileID: 6309599118117444192, guid: e8bae36b607017047ace9061609051d9, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Campfire 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309599118117444193, guid: e8bae36b607017047ace9061609051d9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309599118117444193, guid: e8bae36b607017047ace9061609051d9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6309599118117444222, guid: e8bae36b607017047ace9061609051d9, type: 3}
       propertyPath: m_LocalPosition.x

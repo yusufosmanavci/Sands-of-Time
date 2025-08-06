@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Room2-3
   m_EditorClassIdentifier: 
   roomID: 1
-  cameraPosition: {x: 372, y: 11, z: -10}
+  cameraPosition: {x: 281, y: 11, z: -10}
   cameraSize: 10
-  playerPosition: {x: 360, y: 10.2}
-  minBounds: {x: 354, y: -5}
-  maxBounds: {x: 589, y: 50}
+  playerPosition: {x: 269, y: 10.2}
+  minBounds: {x: 263, y: -5}
+  maxBounds: {x: 453, y: 50}

@@ -27,9 +27,17 @@ namespace Assets.Scripts.BossScripts
             bossController = GetComponent<BossController>();
             playerValues = FindFirstObjectByType<PlayerValues>();
             bossHealthBar = FindFirstObjectByType<BossHealthBar>();
-            BossCanvas = GameObject.FindWithTag("BossCanvas");
             bossHealthBar.SetMaxHealth(bossMaxHealth); // Set the maximum health in the health bar UI
             bossSpellCasting = GetComponentInChildren<BossSpellCasting>();
+        }
+
+        private void OnEnable()
+        {
+            if (!bossValues.IsDead)
+            {
+                ResetBossHealth();
+                bossHealthBar.ResetBossHealthUI(bossMaxHealth);
+            }
         }
 
         private void Update()
@@ -43,6 +51,11 @@ namespace Assets.Scripts.BossScripts
             {
                 foreach (var door in doors)
                     door.SetActive(true);
+            }
+
+            if (gameObject.activeInHierarchy)
+            {
+                BossCanvas.SetActive(true);
             }
         }
 
@@ -93,9 +106,14 @@ namespace Assets.Scripts.BossScripts
             bossSpellCasting.spellList.Clear();
             bossValues.bossAnimator.SetBool("IsDead", true);
             yield return new WaitForSeconds(1f);
-            Destroy(gameObject);
             BossCanvas.SetActive(false);
+            gameObject.SetActive(false);
 
+        }
+
+        public void ResetBossHealth()
+        {
+            bossCurrentHealth = bossMaxHealth;
         }
     }
 }

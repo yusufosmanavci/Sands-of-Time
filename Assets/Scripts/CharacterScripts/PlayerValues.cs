@@ -29,6 +29,8 @@ public class PlayerValues : MonoBehaviour
     public RoomData lastCheckPoint;
     public GameObject checkPointRoom;
     public GameObject deathRoom;
+    public GameObject bossCanvas;
+    public GameObject boss;
 
     public Rigidbody2D rb;
     public Animator animator;

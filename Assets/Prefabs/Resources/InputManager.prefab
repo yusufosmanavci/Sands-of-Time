@@ -69,9 +69,41 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a7d565b-58f1-4237-bf1c-315862099668
+    m_ActionName: 'PlayerInputs/MoveInputs[/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 223042aa-0c36-4b4e-96d9-0e47bfd96fb0
+    m_ActionName: 'PlayerInputs/JumpInput[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ec62d17-8862-4044-8ada-574e0515da02
+    m_ActionName: 'PlayerInputs/AttackInput[/Mouse/leftButton,/XInputControllerWindows/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39e609f8-48fb-4ac2-88d2-aabe2b489895
+    m_ActionName: 'PlayerInputs/DoorInteraction[/Keyboard/e,/XInputControllerWindows/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7daf3186-5ff1-4065-b28d-f60fa25977d6
+    m_ActionName: 'PlayerInputs/MenuOpenClose[/Keyboard/v,/XInputControllerWindows/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1fe94f25-e25e-46fa-b3a3-ce4450a40012
+    m_ActionName: 'PlayerInputs/DashInput[/XInputControllerWindows/rightTrigger,/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 852e04f6-1b10-419d-8e71-1f8b740007d5
+    m_ActionName: 'PlayerInputs/HealInput[/Keyboard/h,/XInputControllerWindows/rightShoulder]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bbf3f094-9fd4-4773-8af7-94e528fdb91c
+    m_ActionName: 'PlayerInputs/PauseInput[/Keyboard/escape,/XInputControllerWindows/start]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerUIInputs
+  m_DefaultActionMap: PlayerInputs
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

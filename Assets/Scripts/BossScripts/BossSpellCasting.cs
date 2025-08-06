@@ -19,12 +19,11 @@ public class BossSpellCasting : MonoBehaviour
         GameObject spellInstanciate;
         spellInstanciate = Instantiate(spellPrefab, firePoint.position, firePoint.rotation);
         spellList.Add(spellInstanciate);
-        StartCoroutine(WaitForShoot(spellInstanciate));
+        StartCoroutine(WaitForShoot());
     }
-    public IEnumerator WaitForShoot(GameObject spellObject)
+    public IEnumerator WaitForShoot()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(spellObject);
         spellCount = 0;
     }
 }

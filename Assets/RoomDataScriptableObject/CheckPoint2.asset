@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CheckPoint2
   m_EditorClassIdentifier: 
   roomID: 3
-  cameraPosition: {x: 641, y: 2, z: -10}
+  cameraPosition: {x: 501.5, y: 2, z: -10}
   cameraSize: 5
-  playerPosition: {x: 641, y: 2.2}
-  minBounds: {x: 595, y: -5}
-  maxBounds: {x: 663, y: 20}
+  playerPosition: {x: 501.5, y: 2.2}
+  minBounds: {x: 456, y: -5}
+  maxBounds: {x: 523, y: 20}

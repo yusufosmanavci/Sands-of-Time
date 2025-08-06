@@ -73,48 +73,62 @@ public class BossController : MonoBehaviour
         }
         else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 4f && yOffset <= 2.5f)
         {
-            if (!bossValues.HasTriedCasting && !bossValues.IsCasting)
+            if (bossValues.IsAttacking)
             {
-                spellChance = Random.Range(0, 100);
-                bossValues.HasTriedCasting = true;
-
-                if (spellChance < 45)
+                return;
+            }
+            else
+            {
+                if (!bossValues.HasTriedCasting && !bossValues.IsCasting)
                 {
-                    StartCoroutine(BossCasting());
+                    spellChance = Random.Range(0, 100);
+                    bossValues.HasTriedCasting = true;
+
+                    if (spellChance < 45)
+                    {
+                        StartCoroutine(BossCasting());
+                    }
+                    else
+                    {
+                        PlayerTrackker();
+
+                        StartCoroutine(ResetCastingAttemp());
+                    }
                 }
-                else
+                else if (!bossValues.IsCasting)
                 {
                     PlayerTrackker();
-
-                    StartCoroutine(ResetCastingAttemp());
                 }
-            }
-            else if (!bossValues.IsCasting)
-            {
-                PlayerTrackker();
             }
         }
         else if (xDistanceToPlayer <= 4f && yOffset <= 2.5f)
         {
-            Vector2 bossPos = transform.position;
-            Vector2 playerPos = bossValues.player.position;
-            if (bossValues.IsCasting || bossValues.IsDead)
+            if (bossValues.IsCasting)
             {
                 return;
             }
-            else if (!bossValues.attackInitialized)
+            else
             {
-                StartCoroutine(AttackRoutine());
-
-                if (playerPos.x > bossPos.x)
+                Vector2 bossPos = transform.position;
+                Vector2 playerPos = bossValues.player.position;
+                if (bossValues.IsCasting || bossValues.IsDead)
                 {
-                    bossValues.IsFacingRight = true;
-                    bossValues.bossSpriteRenderer.flipX = true;
+                    return;
                 }
-                else
+                else if (!bossValues.attackInitialized)
                 {
-                    bossValues.IsFacingRight = false;
-                    bossValues.bossSpriteRenderer.flipX = false;
+                    StartCoroutine(AttackRoutine());
+
+                    if (playerPos.x > bossPos.x)
+                    {
+                        bossValues.IsFacingRight = true;
+                        bossValues.bossSpriteRenderer.flipX = true;
+                    }
+                    else
+                    {
+                        bossValues.IsFacingRight = false;
+                        bossValues.bossSpriteRenderer.flipX = false;
+                    }
                 }
             }
         }

@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour
         }
         BooleanControl();
 
+        if (!PlayerManager.Instance.playerValues.boss.activeInHierarchy)
+        {
+            PlayerManager.Instance.playerValues.bossCanvas.SetActive(false);
+        }
     }
     //ana if bloðu ekleyip skillleri bool deðerleri ile kontrol edip animasyonlarý burada kontrol edebilirsin.
     private void HorizontalMove()

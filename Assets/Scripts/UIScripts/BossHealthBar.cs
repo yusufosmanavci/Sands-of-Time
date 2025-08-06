@@ -23,5 +23,13 @@ namespace Assets.Scripts.UIScripts
 
             bossFill.color = bossGradient.Evaluate(bossSlider.normalizedValue);
         }
+
+        public void ResetBossHealthUI(float health)
+        {
+            bossSlider.maxValue = health;
+            bossSlider.value = health;
+
+            bossFill.color = bossGradient.Evaluate(1f);
+        }
     }
 }

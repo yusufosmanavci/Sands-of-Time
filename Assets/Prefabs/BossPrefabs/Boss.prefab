@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossValues: {fileID: 4701239285883841410}
   playerHealth: {fileID: 0}
-  spellCasting: {fileID: 0}
+  spellCasting: {fileID: 3279342728418288894}
   spellChance: 0
 --- !u!114 &9081177377141679553
 MonoBehaviour:
@@ -229,7 +229,8 @@ MonoBehaviour:
   playerValues: {fileID: 0}
   bossHealthBar: {fileID: 0}
   BossCanvas: {fileID: 0}
-  doors: []
+  doors:
+  - {fileID: 0}
 --- !u!114 &4701239285883841410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,8 +246,8 @@ MonoBehaviour:
   bossSpeed: 2
   attackWaitTime: 1
   hitboxRadius: 3
-  bossDamage: 40
-  bossSpellDamage: 40
+  bossDamage: 35
+  bossSpellDamage: 30
   player: {fileID: 0}
   bossSpriteRenderer: {fileID: 5497101895801409057}
   bossRb: {fileID: 3453239106215108474}
