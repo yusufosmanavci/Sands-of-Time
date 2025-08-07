@@ -162,6 +162,15 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuInputs"",
+                    ""type"": ""Value"",
+                    ""id"": ""7d3f5636-f83f-4154-8f8b-c5e676deba81"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -483,6 +492,116 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
                     ""action"": ""PauseInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""4ca10e79-81e2-492b-b7c8-1a87d02f8962"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b3025367-c2d1-4137-a0c6-0db78c4202f3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d3390555-0eb9-4a6d-a537-0b55ffdf810f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""726138bc-35eb-4b5f-9d6d-8a872994d71a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""42243089-d015-4073-9afa-9cc2c7a465ef"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""0abc2b2e-00e1-4f42-a3e3-460e0c4e8179"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""efdf95b4-ec59-4424-a527-25d30e6b5746"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d5dfb9d5-5479-40e8-aac5-3219ffe7264d"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9233151e-b6ea-437f-adf7-8203a6102877"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2f107f62-870b-4786-9c2f-dc4cea9cac7d"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MenuInputs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -538,6 +657,7 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         m_PlayerInputs_DashInput = m_PlayerInputs.FindAction("DashInput", throwIfNotFound: true);
         m_PlayerInputs_HealInput = m_PlayerInputs.FindAction("HealInput", throwIfNotFound: true);
         m_PlayerInputs_PauseInput = m_PlayerInputs.FindAction("PauseInput", throwIfNotFound: true);
+        m_PlayerInputs_MenuInputs = m_PlayerInputs.FindAction("MenuInputs", throwIfNotFound: true);
     }
 
     ~@PlayerInputAll()
@@ -626,6 +746,7 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInputs_DashInput;
     private readonly InputAction m_PlayerInputs_HealInput;
     private readonly InputAction m_PlayerInputs_PauseInput;
+    private readonly InputAction m_PlayerInputs_MenuInputs;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerInputs".
     /// </summary>
@@ -669,6 +790,10 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerInputs/PauseInput".
         /// </summary>
         public InputAction @PauseInput => m_Wrapper.m_PlayerInputs_PauseInput;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerInputs/MenuInputs".
+        /// </summary>
+        public InputAction @MenuInputs => m_Wrapper.m_PlayerInputs_MenuInputs;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -719,6 +844,9 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @PauseInput.started += instance.OnPauseInput;
             @PauseInput.performed += instance.OnPauseInput;
             @PauseInput.canceled += instance.OnPauseInput;
+            @MenuInputs.started += instance.OnMenuInputs;
+            @MenuInputs.performed += instance.OnMenuInputs;
+            @MenuInputs.canceled += instance.OnMenuInputs;
         }
 
         /// <summary>
@@ -754,6 +882,9 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
             @PauseInput.started -= instance.OnPauseInput;
             @PauseInput.performed -= instance.OnPauseInput;
             @PauseInput.canceled -= instance.OnPauseInput;
+            @MenuInputs.started -= instance.OnMenuInputs;
+            @MenuInputs.performed -= instance.OnMenuInputs;
+            @MenuInputs.canceled -= instance.OnMenuInputs;
         }
 
         /// <summary>
@@ -889,5 +1020,12 @@ public partial class @PlayerInputAll: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPauseInput(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MenuInputs" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMenuInputs(InputAction.CallbackContext context);
     }
 }

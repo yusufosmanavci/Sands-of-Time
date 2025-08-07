@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public Button defaultButton;
-    public Button settingsButton;
+    public Toggle settingsButton;
     public GameObject buttons;
     public GameObject settings;
     private void Start()

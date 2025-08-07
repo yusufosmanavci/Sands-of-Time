@@ -65,6 +65,8 @@ namespace Assets.Scripts.BossScripts
             bossCurrentHealth -= damage;
             bossHealthBar.SetHealth(bossCurrentHealth); // Update the health bar UI
 
+            StartCoroutine(HitFlash());
+
             // Ensure current health does not drop below zero
             if (bossCurrentHealth < 0)
             {
@@ -82,6 +84,8 @@ namespace Assets.Scripts.BossScripts
             // Reduce current health by the damage amount
             bossCurrentHealth -= damage;
             bossHealthBar.SetHealth(bossCurrentHealth); // Update the health bar UI
+
+            StartCoroutine(HitFlash());
 
             // Ensure current health does not drop below zero
             if (bossCurrentHealth < 0)
@@ -114,6 +118,13 @@ namespace Assets.Scripts.BossScripts
         public void ResetBossHealth()
         {
             bossCurrentHealth = bossMaxHealth;
+        }
+
+        public IEnumerator HitFlash()
+        {
+            bossValues.bossSpriteRenderer.color = new Color(0.93f, 0.79f, 0.69f); // Change color to red
+            yield return new WaitForSeconds(0.1f); // Wait for a short duration
+            bossValues.bossSpriteRenderer.color = Color.white; // Reset color to white
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -21,9 +22,10 @@ public class PauseMenu : MonoBehaviour
 
     [Header("UI")]
     public Button resumeButton;
-    public Slider musicSlider;
+    public Toggle fullscreen;
 
     public static bool isPaused = false;
+    private bool isInSettings = false;
 
 
 
@@ -34,7 +36,7 @@ public class PauseMenu : MonoBehaviour
         {
             Pause();
         }
-        else if (InputManager.pauseInput && isPaused)
+        else if (InputManager.pauseInput && isPaused && !isInSettings)
         {
             Time.timeScale = 1f;
             isPaused = false;
@@ -95,16 +97,18 @@ public class PauseMenu : MonoBehaviour
 
     public void OnOptionsPressed()
     {
+        isInSettings = true;
         AudioManager.instance.PlaySFX("ButtonClick");
         resumeBut.SetActive(false);
         optionsBut.SetActive(false);
         mainMenuBut.SetActive(false);
         options.SetActive(true);
-        SetUIElement(musicSlider.gameObject);
+        SetUIElement(fullscreen.gameObject);
     }
 
     public void OnBackPressed()
     {
+        isInSettings = false;
         AudioManager.instance.PlaySFX("ButtonClick");
         options.SetActive(false);
         resumeBut.SetActive(true);

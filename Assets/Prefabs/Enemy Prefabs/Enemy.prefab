@@ -331,6 +331,7 @@ MonoBehaviour:
   enemyCurrentHealth: 0
   enemyHealthBar: {fileID: 4961957335514701856}
   healthBar: {fileID: 6660670719276791645}
+  particles: {fileID: 1242022797791296872, guid: 90a55f080b167824da4953be809b2b16, type: 3}
 --- !u!1 &5782968569762640041
 GameObject:
   m_ObjectHideFlags: 0

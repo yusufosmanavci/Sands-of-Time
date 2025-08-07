@@ -17,6 +17,8 @@ public class InputManager : MonoBehaviour
     public static float HorizontalMoveInput;
     public static bool healInput { get; set; }
     public static bool pauseInput { get; set; }
+
+    public static float menuInput;
     
     public InputAction menuOpenCloseAction { get; set; }
     public InputAction doorInteractAction { get; set; }
@@ -26,6 +28,8 @@ public class InputManager : MonoBehaviour
     public InputAction jumpAction { get; set; }
     public InputAction healAction { get; set; }
     public InputAction pauseAction { get; set; }
+
+    public InputAction menuAction { get; set; }
 
 
     private void Awake()
@@ -47,6 +51,7 @@ public class InputManager : MonoBehaviour
         jumpAction = playerInput.actions["JumpInput"];
         healAction = playerInput.actions["HealInput"];
         pauseAction = playerInput.actions["PauseInput"];
+        menuAction = playerInput.actions["MenuInputs"];
     }
 
     private void Start()
@@ -63,6 +68,8 @@ public class InputManager : MonoBehaviour
         HorizontalMoveInput = horizontalMove.ReadValue<Vector2>().x; // Read horizontal movement input
         healInput = healAction.WasPressedThisFrame(); // Read heal input
         pauseInput = pauseAction.WasPressedThisFrame();
+        menuInput = menuAction.ReadValue<Vector2>().y;
+        menuInput = menuAction.ReadValue<Vector2>().x;
     }
 
     public static void DeactivatePlayerControls()

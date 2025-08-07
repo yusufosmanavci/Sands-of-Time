@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         PlayerManager.Instance.playerData.Load(); // Load player data at the start
+        Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Initialize the player's "sands of time" value with the text from the UI
         //transform.position = PlayerValues.lastCheckpointPosition; // Checkpoint'ten baþlatma
     }
     void Update()
@@ -257,9 +258,10 @@ public class PlayerController : MonoBehaviour
 
     public void Heal()
     {
-        if(InputManager.healInput && PlayerManager.Instance.playerValues.healAmount > 0)
+        if(InputManager.healInput && PlayerManager.Instance.playerValues.healAmount > 0 && PlayerManager.Instance.playerHealth.currentHealth < PlayerManager.Instance.playerHealth.maxHealth)
         {
             PlayerManager.Instance.playerHealth.HealPlayer(PlayerManager.Instance.playerValues.healAmount); // Oyuncunun canýný iyileþtir
+            Collectibles.instance.healPotionText.text = "Heal Potions: " + PlayerManager.Instance.playerHealth.healPotions;
         }
     }
 }

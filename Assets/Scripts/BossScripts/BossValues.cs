@@ -18,6 +18,7 @@ namespace Assets.Scripts.BossScripts
         public Animator bossAnimator; // Boss's animator
         public LayerMask playerLayerMask;
         public GameObject spellObject;
+        public Vector2 bossPosition;
 
         public bool IsFacingRight = false; // Is the boss facing right?
         public bool IsAttacking = false; // Is the boss currently attacking?
@@ -40,6 +41,7 @@ namespace Assets.Scripts.BossScripts
             IsInAttackAnimation = false; // Is the boss in the attack animation?
             IsCasting = false;
             HasTriedCasting = false;
+            transform.position = bossPosition;
         }
     }
 }

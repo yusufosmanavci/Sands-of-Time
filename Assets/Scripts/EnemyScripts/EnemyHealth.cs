@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     EnemyController enemyController;
     public EnemyHealthBar enemyHealthBar;
     public CanvasGroup healthBar;
+    public ParticleSystem particles;
     private void Start()
     {
         // Initialize current health to maximum health at the start
@@ -31,9 +32,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
+        Instantiate(particles, transform.position, Quaternion.identity);
         gameObject.SetActive(false); // Destroy the player object when health reaches zero
         Debug.LogWarning("Enemy has died!"); // Log a message for debugging purposes
         PlayerManager.Instance.playerValues.sandsOfTime += RandomSandsOfTimeAmount(); // Increase the player's sand of time count
+        Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Continuously update the text to reflect the current "sands of time" value
         PlayerManager.Instance.playerData.SandsOfTimeSave(); // Save the player's data after defeating the enemy
     }
 

@@ -94,13 +94,13 @@ namespace Assets.Scripts.OtherScripts
 
             levelText.text = PlayerManager.Instance.playerValues.PlayerLevel + "/10";
 
-            sandsOfTime.text = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade.ToString();
-            currMaxHealth.text = PlayerManager.Instance.playerHealth.maxHealth.ToString();
-            lvlUpMaxHealth.text = (PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth).ToString();
-            currDamage.text = PlayerManager.Instance.playerValues.playerDamage.ToString();
-            lvlUpDamage.text = (PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage).ToString();
-            currDashDamage.text = PlayerManager.Instance.playerValues.playerDashDamage.ToString();
-            lvlUpDashDamage.text = (PlayerManager.Instance.playerValues.playerDashDamage * 0.2f + PlayerManager.Instance.playerValues.playerDashDamage).ToString();
+            sandsOfTime.text = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade.ToString("F0");
+            currMaxHealth.text = PlayerManager.Instance.playerHealth.maxHealth.ToString("F0");
+            lvlUpMaxHealth.text = (PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth).ToString("F0");
+            currDamage.text = PlayerManager.Instance.playerValues.playerDamage.ToString("F0");
+            lvlUpDamage.text = (PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage).ToString("F0");
+            currDashDamage.text = PlayerManager.Instance.playerValues.playerDashDamage.ToString("F0");
+            lvlUpDashDamage.text = (PlayerManager.Instance.playerValues.playerDashDamage * 0.2f + PlayerManager.Instance.playerValues.playerDashDamage).ToString("F0");
 
             SetUIElement(levelUpButton.gameObject);
         }
@@ -146,40 +146,40 @@ namespace Assets.Scripts.OtherScripts
                 levelText.text = PlayerManager.Instance.playerValues.PlayerLevel + "/10";
 
                 PlayerManager.Instance.playerValues.sandsOfTime -= PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
+                PlayerManager.Instance.playerData.SandsOfTimeSave();
+                Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Continuously update the text to reflect the current "sands of time" value
+
                 int newSandsOfTimeAmount = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade * 2 + PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
                 PlayerManager.Instance.playerValues.sandsOfTimeUpgrade = newSandsOfTimeAmount;
-                sandsOfTime.text = newSandsOfTimeAmount.ToString();
+                sandsOfTime.text = newSandsOfTimeAmount.ToString("F0");
 
                 float newMaxHealth = PlayerManager.Instance.playerHealth.maxHealth * 0.2f + PlayerManager.Instance.playerHealth.maxHealth;
-                currMaxHealth.text = newMaxHealth.ToString();
+                currMaxHealth.text = newMaxHealth.ToString("F0");
                 float newLvlUpHealth = newMaxHealth * 0.2f + newMaxHealth;
-                lvlUpMaxHealth.text = newLvlUpHealth.ToString();
+                lvlUpMaxHealth.text = newLvlUpHealth.ToString("F0");
                 PlayerManager.Instance.playerHealth.maxHealth = newMaxHealth;
                 PlayerManager.Instance.playerHealth.currentHealth = newMaxHealth;
                 PlayerManager.Instance.playerHealthBar.SetMaxHealth(PlayerManager.Instance.playerHealth.maxHealth);
 
                 float newPlayerDamage = PlayerManager.Instance.playerValues.playerDamage * 0.2f + PlayerManager.Instance.playerValues.playerDamage;
-                currDamage.text = newPlayerDamage.ToString();
+                currDamage.text = newPlayerDamage.ToString("F0");
                 float newLvlUpDamage = newPlayerDamage * 0.2f + newPlayerDamage;
-                lvlUpDamage.text = newLvlUpDamage.ToString();
+                lvlUpDamage.text = newLvlUpDamage.ToString("F0");
                 PlayerManager.Instance.playerValues.playerDamage = newPlayerDamage;
 
                 float newDashDamage = PlayerManager.Instance.playerValues.playerDashDamage * 0.2f + PlayerManager.Instance.playerValues.playerDashDamage;
-                currDashDamage.text = newDashDamage.ToString();
+                currDashDamage.text = newDashDamage.ToString("F0");
                 float newLvlUpDashDamage = newDashDamage * 0.2f + newDashDamage;
-                lvlUpDashDamage.text = newLvlUpDashDamage.ToString();
+                lvlUpDashDamage.text = newLvlUpDashDamage.ToString("F0");
                 PlayerManager.Instance.playerValues.playerDashDamage = newDashDamage;
             }
             else if (PlayerManager.Instance.playerValues.sandsOfTimeUpgrade >= PlayerManager.Instance.playerValues.sandsOfTime)
             {
-                SandsOfTimeBackground.SetActive(true);
-                SandsOfTimeText.SetActive(true);
-                Debug.Log("SandsOfTime Amount is not enough");
+                StartCoroutine(SandsOfTimeNotEnough());
             }
             else if (PlayerManager.Instance.playerValues.PlayerLevel >= 10)
             {
-                SandsOfTimeBackground.SetActive(true);
-                maxLvlText.SetActive(true);
+                StartCoroutine(MaxLevelReached());
             }
         }
 
@@ -193,6 +193,24 @@ namespace Assets.Scripts.OtherScripts
         {
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(element);
+        }
+
+        private IEnumerator SandsOfTimeNotEnough()
+        {
+            SandsOfTimeBackground.SetActive(true);
+            SandsOfTimeText.SetActive(true);
+            yield return new WaitForSecondsRealtime(2f);
+            SandsOfTimeBackground.SetActive(false);
+            SandsOfTimeText.SetActive(false);
+        }
+
+        private IEnumerator MaxLevelReached()
+        {
+            SandsOfTimeBackground.SetActive(true);
+            maxLvlText.SetActive(true);
+            yield return new WaitForSecondsRealtime(2f);
+            SandsOfTimeBackground.SetActive(false);
+            maxLvlText.SetActive(false);
         }
     }
 }
