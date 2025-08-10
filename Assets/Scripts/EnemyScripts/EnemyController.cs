@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
         float rawSpeed = enemyValues.enemyRb.linearVelocity.magnitude;
 
         // Çok küçük deðerleri sýfýr kabul et (gürültüyü engelle)
-        float speed = rawSpeed < 0.05f ? 0f : rawSpeed;
+        float speed = rawSpeed < 0.005f ? 0f : rawSpeed;
 
         enemyValues.enemyAnimator.SetFloat("Speed", speed);
 
@@ -132,19 +132,19 @@ public class EnemyController : MonoBehaviour
         float yOffset = Mathf.Abs(transform.position.y - enemyValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - enemyValues.player.transform.position.x);
 
-        if (xDistanceToPlayer > 10 || yOffset > 3f)
+        if (xDistanceToPlayer > 10 && yOffset > 3.5f)
         {
             enemyValues.IsPlayerInRange = false;
             enemyValues.playerNotFound = true;
             enemyValues.IsAttacking = false;
         }
-        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3f)
+        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 2 && yOffset <= 3.5f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
             return true;
         }
-        else if (xDistanceToPlayer <= 1.5f && yOffset <= 3f)
+        else if (xDistanceToPlayer <= 1.5f && yOffset <= 3.5f)
         {
             enemyValues.IsPlayerInRange = true;
             enemyValues.playerNotFound = false;
@@ -182,17 +182,22 @@ public class EnemyController : MonoBehaviour
         // Saldýrý animasyonu ve bekleme AttackRoutine'de yönetiliyor
         if (!enemyValues.IsAttacking)
         {
-            if (IsOnSamePlatformLevel() && IsGroundAhead())
+            if (!IsWallAhead())
             {
-                // Yerdeyse ve platform seviyesindeyse, düþmaný hareket ettir
-                float direction = enemyValues.IsFacingRight ? 1f : -1f;
-                enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+                if (IsOnSamePlatformLevel() && IsGroundAhead())
+                {
+                    // Yerdeyse ve platform seviyesindeyse, düþmaný hareket ettir
+                    float direction = enemyValues.IsFacingRight ? 1f : -1f;
+                    enemyValues.enemyRb.linearVelocity = new Vector2(direction * enemyValues.enemySpeed, enemyValues.enemyRb.linearVelocity.y);
+                }
+                else
+                {
+                    // Yerde deðilse veya platform seviyesinde deðilse, düþmaný durdur
+                    enemyValues.enemyRb.linearVelocity = new Vector2(0f, enemyValues.enemyRb.linearVelocity.y);
+                }
             }
             else
-            {
-                // Yerde deðilse veya platform seviyesinde deðilse, düþmaný durdur
                 enemyValues.enemyRb.linearVelocity = new Vector2(0f, enemyValues.enemyRb.linearVelocity.y);
-            }
         }
     }
 
@@ -317,6 +322,17 @@ public class EnemyController : MonoBehaviour
     private bool IsGroundAhead()
     {
         return Physics2D.OverlapCircle(enemyValues.groundCheck.position, enemyValues.groundCheckRadius, enemyValues.enemyLayer);
+    }
+
+    private bool IsWallAhead()
+    {
+        return Physics2D.OverlapCircle(enemyValues.wallCheck.position, enemyValues.wallCheckRadius, enemyValues.enemyLayer);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(enemyValues.wallCheck.position, enemyValues.wallCheckRadius);
     }
 
     private bool IsOnSamePlatformLevel()

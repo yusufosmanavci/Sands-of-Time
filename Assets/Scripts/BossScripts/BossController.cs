@@ -67,11 +67,11 @@ public class BossController : MonoBehaviour
         float yOffset = Mathf.Abs(transform.position.y - bossValues.player.transform.position.y);
         float xDistanceToPlayer = Mathf.Abs(transform.position.x - bossValues.player.transform.position.x);
 
-        if (xDistanceToPlayer > 10f || yOffset > 2.5f)
+        if (xDistanceToPlayer > 10f || yOffset > 3.5f)
         {
             PlayerTrackker();
         }
-        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 4f && yOffset <= 2.5f)
+        else if (xDistanceToPlayer <= 10f && xDistanceToPlayer > 4f && yOffset <= 3.5f)
         {
             if (bossValues.IsAttacking)
             {
@@ -101,7 +101,7 @@ public class BossController : MonoBehaviour
                 }
             }
         }
-        else if (xDistanceToPlayer <= 4f && yOffset <= 2.5f)
+        else if (xDistanceToPlayer <= 4f && yOffset <= 3.5f)
         {
             if (bossValues.IsCasting)
             {

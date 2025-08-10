@@ -16,6 +16,7 @@ public class Collectibles : MonoBehaviour
     }
 
     public TextMeshProUGUI sandsOfTimeText; // Reference to the TextMeshProUGUI component for displaying "sands of time"
+    public TextMeshProUGUI sandsOfTimeText1;
     public TextMeshProUGUI healPotionText;
 
     private void Start()

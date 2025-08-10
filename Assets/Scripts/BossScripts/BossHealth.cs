@@ -122,9 +122,9 @@ namespace Assets.Scripts.BossScripts
 
         public IEnumerator HitFlash()
         {
-            bossValues.bossSpriteRenderer.color = new Color(0.93f, 0.79f, 0.69f); // Change color to red
-            yield return new WaitForSeconds(0.1f); // Wait for a short duration
-            bossValues.bossSpriteRenderer.color = Color.white; // Reset color to white
+            bossValues.bossSpriteRenderer.color = new Color(0.90f, 0.85f, 0.72f); 
+            yield return new WaitForSeconds(0.2f); // Wait for a short duration
+            bossValues.bossSpriteRenderer.color = Color.white; 
         }
     }
 }

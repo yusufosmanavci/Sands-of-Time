@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerManager.Instance.playerData.Load(); // Load player data at the start
         Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Initialize the player's "sands of time" value with the text from the UI
+        Collectibles.instance.sandsOfTimeText1.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime;
         //transform.position = PlayerValues.lastCheckpointPosition; // Checkpoint'ten baþlatma
     }
     void Update()

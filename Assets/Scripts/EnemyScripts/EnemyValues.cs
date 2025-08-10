@@ -9,7 +9,8 @@ public class EnemyValues : MonoBehaviour
     public float currentAttackWaitTime = 0f;
     public float attackWaitTime = 1f;
     public float groundCheckRadius = 0.1f;
-    public float platformTolerance = 0.5f; //Y farký toleransý
+    public float wallCheckRadius = 1f;
+    public float platformTolerance = 1.5f; //Y farký toleransý
     public int minSandsOfTime = 50; // Minimum number of "sand of time" items to drop
     public int maxSandsOfTime = 300; // Maximum number of "sand of time" items to drop
     public float hitboxRadius = 0.5f; // Radius for the hitbox detection
@@ -19,6 +20,7 @@ public class EnemyValues : MonoBehaviour
     public Transform currentTarget;
     public Transform player;
     public Transform groundCheck;
+    public Transform wallCheck;
 
     public Rigidbody2D enemyRb;
     public SpriteRenderer enemySpriteRenderer;

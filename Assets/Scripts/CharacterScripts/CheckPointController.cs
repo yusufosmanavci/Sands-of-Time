@@ -62,6 +62,7 @@ namespace Assets.Scripts.CharacterScripts
                     {
                         CampfireUIController.Instance.Pause(); // Pause the game and open the campfire menu
                         PlayerManager.Instance.playerHealth.healPotions = 2; //potion ları yeniliyor.
+                        Collectibles.instance.healPotionText.text = "Heal Potions: " + PlayerManager.Instance.playerHealth.healPotions;
                         PlayerManager.Instance.playerHealth.currentHealth = PlayerManager.Instance.playerHealth.maxHealth;
                         PlayerManager.Instance.playerHealthBar.SetHealth(PlayerManager.Instance.playerHealth.currentHealth);
                         SaveProgress(); // Save the player's progress when they pause

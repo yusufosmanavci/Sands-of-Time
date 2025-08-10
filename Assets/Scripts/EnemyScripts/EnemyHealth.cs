@@ -37,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.LogWarning("Enemy has died!"); // Log a message for debugging purposes
         PlayerManager.Instance.playerValues.sandsOfTime += RandomSandsOfTimeAmount(); // Increase the player's sand of time count
         Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Continuously update the text to reflect the current "sands of time" value
+        Collectibles.instance.sandsOfTimeText1.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime;
         PlayerManager.Instance.playerData.SandsOfTimeSave(); // Save the player's data after defeating the enemy
     }
 

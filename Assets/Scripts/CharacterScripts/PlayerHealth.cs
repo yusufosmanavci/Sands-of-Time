@@ -84,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
                 PlayerManager.Instance.playerHealth.currentHealth = PlayerManager.Instance.playerHealth.maxHealth;
                 PlayerManager.Instance.playerHealthBar.SetHealth(PlayerManager.Instance.playerHealth.currentHealth);
                 healPotions = 2;
+                Collectibles.instance.healPotionText.text = "Heal Potions: " + PlayerManager.Instance.playerHealth.healPotions;
                 yield return new WaitForSeconds(0.3f);
                 PlayerManager.Instance.playerValues.deathRoom.SetActive(false);
                 InputManager.ActivatePlayerControls();

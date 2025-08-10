@@ -30,9 +30,11 @@ namespace Assets.Scripts.OtherScripts
         public GameObject healthBar;
         public GameObject dashSkill;
         public GameObject SandsOfTimeBackground;
-        public GameObject SandsOfTimeText;
+        public GameObject SandsOfTimeTextNotEnough;
         public GameObject maxLvlText;
         public GameObject healPotion;
+        public GameObject sandsOfTimeText0;
+        public GameObject sandsOfTimeText1;
 
 
         [Header("Buttons")]
@@ -79,6 +81,7 @@ namespace Assets.Scripts.OtherScripts
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
             healPotion.SetActive(false);
+            sandsOfTimeText0.SetActive(false);
             InputManager.DeactivatePlayerControls(); // Disable player controls when the campfire menu is open
             SetUIElement(upgradeButton.gameObject);
         }
@@ -90,7 +93,8 @@ namespace Assets.Scripts.OtherScripts
             dashSkill.SetActive(false); // Hide the dash skill
             healPotion.SetActive(false);
             SandsOfTimeBackground.SetActive(false);
-            SandsOfTimeText.SetActive(false);
+            SandsOfTimeTextNotEnough.SetActive(false);
+            sandsOfTimeText1.SetActive(true);
 
             levelText.text = PlayerManager.Instance.playerValues.PlayerLevel + "/10";
 
@@ -111,6 +115,7 @@ namespace Assets.Scripts.OtherScripts
             campfireCanvas.SetActive(true); // Show the campfire canvas when closing the upgrade menu
             healthBar.SetActive(false); // Hide the health bar
             dashSkill.SetActive(false); // Hide the dash skill
+            sandsOfTimeText1.SetActive(false);
             SetUIElement(upgradeButton.gameObject);
         }
 
@@ -121,6 +126,7 @@ namespace Assets.Scripts.OtherScripts
             healthBar.SetActive(true); // Hide the health bar
             dashSkill.SetActive(true); // Hide the dash skill
             healPotion.SetActive(true);
+            sandsOfTimeText0.SetActive(true);
             CheckPointController.hasButtonPressed = false; // Reset the flag when the button is released
             EventSystem.current.SetSelectedGameObject(null); // Deselect any UI element
         }
@@ -147,7 +153,8 @@ namespace Assets.Scripts.OtherScripts
 
                 PlayerManager.Instance.playerValues.sandsOfTime -= PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
                 PlayerManager.Instance.playerData.SandsOfTimeSave();
-                Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Continuously update the text to reflect the current "sands of time" value
+                Collectibles.instance.sandsOfTimeText.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime;
+                Collectibles.instance.sandsOfTimeText1.text = "Sands Of Time " + PlayerManager.Instance.playerValues.sandsOfTime; // Continuously update the text to reflect the current "sands of time" value
 
                 int newSandsOfTimeAmount = PlayerManager.Instance.playerValues.sandsOfTimeUpgrade * 2 + PlayerManager.Instance.playerValues.sandsOfTimeUpgrade;
                 PlayerManager.Instance.playerValues.sandsOfTimeUpgrade = newSandsOfTimeAmount;
@@ -198,10 +205,10 @@ namespace Assets.Scripts.OtherScripts
         private IEnumerator SandsOfTimeNotEnough()
         {
             SandsOfTimeBackground.SetActive(true);
-            SandsOfTimeText.SetActive(true);
+            SandsOfTimeTextNotEnough.SetActive(true);
             yield return new WaitForSecondsRealtime(2f);
             SandsOfTimeBackground.SetActive(false);
-            SandsOfTimeText.SetActive(false);
+            SandsOfTimeTextNotEnough.SetActive(false);
         }
 
         private IEnumerator MaxLevelReached()
